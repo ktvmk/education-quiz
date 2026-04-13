@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>序章 教育学を学ぶために｜教育学 Web教材</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Hiragino Sans', 'Noto Sans JP', 'Meiryo', sans-serif;
+  background: #f5f5f0;
+  color: #333;
+  line-height: 1.8;
+  padding: 0 0 60px 0;
+}
+.header {
+  background: linear-gradient(135deg, #1B3A5C, #2d5a8e);
+  color: white;
+  padding: 24px 20px;
+  text-align: center;
+}
+.header h1 { font-size: 1.4em; margin-bottom: 4px; }
+.header .sub { font-size: 0.85em; opacity: 0.8; }
+.container { max-width: 720px; margin: 0 auto; padding: 16px; }
+
+/* ナビゲーション */
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.nav-tab {
+  padding: 10px 18px;
+  border: 2px solid #1B3A5C;
+  border-radius: 8px;
+  background: white;
+  color: #1B3A5C;
+  font-weight: bold;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-tab:hover, .nav-tab.active {
+  background: #1B3A5C;
+  color: white;
+}
+
+/* セクション */
+.section { display: none; }
+.section.active { display: block; }
+
+/* レッスンカード */
+.lesson-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.lesson-card h2 {
+  color: #1B3A5C;
+  font-size: 1.2em;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #e8edf2;
+}
+.lesson-card h3 {
+  color: #2d5a8e;
+  font-size: 1.05em;
+  margin: 20px 0 10px 0;
+}
+.key-point {
+  background: #eef3f9;
+  border-left: 4px solid #1B3A5C;
+  padding: 14px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95em;
+}
+.key-point strong { color: #1B3A5C; }
+.vocab {
+  display: inline-block;
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin: 2px 4px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #e65100;
+}
+.example {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 0.9em;
+}
+.example::before {
+  content: '📌 ';
+}
+.person {
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 0 8px 8px 0;
+}
+.person strong { color: #2e7d32; }
+
+/* クイズ */
+.quiz-area {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.quiz-area h2 {
+  color: #1B3A5C;
+  margin-bottom: 16px;
+}
+.question-card {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 16px 0;
+}
+.q-number {
+  font-size: 0.8em;
+  color: #999;
+  margin-bottom: 6px;
+}
+.q-text {
+  font-size: 1.05em;
+  font-weight: bold;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.choices { list-style: none; }
+.choices li {
+  padding: 12px 16px;
+  margin: 6px 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95em;
+}
+.choices li:hover { border-color: #1B3A5C; background: #f0f4f8; }
+.choices li.selected { border-color: #1B3A5C; background: #e8edf2; }
+.choices li.correct { border-color: #4caf50; background: #e8f5e9; }
+.choices li.wrong { border-color: #f44336; background: #ffebee; }
+.explanation {
+  display: none;
+  margin-top: 12px;
+  padding: 14px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-size: 0.9em;
+  line-height: 1.7;
+}
+.explanation.show { display: block; }
+.explanation .correct-label { color: #4caf50; font-weight: bold; }
+.explanation .wrong-label { color: #f44336; font-weight: bold; }
+
+/* 結果 */
+.result-area {
+  display: none;
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.result-score {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #1B3A5C;
+  margin: 10px 0;
+}
+.result-msg { font-size: 1.1em; margin: 10px 0; }
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #1B3A5C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 8px;
+  transition: background 0.2s;
+}
+.btn:hover { background: #2d5a8e; }
+.btn-outline {
+  background: white;
+  color: #1B3A5C;
+  border: 2px solid #1B3A5C;
+}
+.btn-outline:hover { background: #f0f4f8; }
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  margin: 12px 0;
+}
+.progress-fill {
+  height: 100%;
+  background: #1B3A5C;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>序章　教育学を学ぶために</h1>
+  <div class="sub">桑名看護専門学校　教育学　Web教材</div>
+</div>
+
+<div class="container">
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showSection('lesson1')">① 教育とは何か</div>
+    <div class="nav-tab" onclick="showSection('lesson2')">② コミュニケーションとしての教育</div>
+    <div class="nav-tab" onclick="showSection('quiz')">確認テスト</div>
+  </div>
+
+  <!-- ① 教育とは何か -->
+  <div id="lesson1" class="section active">
+    <div class="lesson-card">
+      <h2>① 教育とは何か</h2>
+
+      <p>「教育とは何か」という問いに答えることは容易ではありません。「人間とは」「生きることとは」と問うことと同じかもしれません。まずは「教育」という言葉の成り立ちから考えてみましょう。</p>
+
+      <h3>「教育」の語源</h3>
+
+      <div class="key-point">
+        <strong>日本語の「教育」</strong><br>
+        「教える」と「育てる」の2つの言葉の合成語。英語の "education" の訳語として近代以降に定着しました。
+      </div>
+
+      <div class="key-point">
+        <strong>英語 "education" の語源（ラテン語）</strong><br>
+        <span class="vocab">educere</span> = 外に引き出す → 素質や能力を引き出す<br>
+        <span class="vocab">educare</span> = 外から滋養を与える → 知識や技能を与える<br><br>
+        「引き出す」だけでなく「与える」ことも教育の本質に含まれています。
+      </div>
+
+      <h3>教育の捉え方</h3>
+
+      <p>教育は様々な観点から捉えることができます：</p>
+
+      <div class="key-point">
+        <strong>① 個人の営みとしての教育</strong><br>
+        親や年長者が子どもに教える営み、教育論として論じられるもの
+      </div>
+
+      <div class="key-point">
+        <strong>② 社会制度としての教育</strong><br>
+        学校を中心とした国や社会全体の制度・政策として論じられるもの
+      </div>
+
+      <div class="person">
+        <strong>ルソー（Rousseau, J.-J.）『エミール』</strong><br>
+        教育を3つに分類：<br>
+        ・<strong>人による教育</strong>（教師や親が教えること）<br>
+        ・<strong>事物による教育</strong>（環境や経験から学ぶこと）<br>
+        ・<strong>自然による教育</strong>（人間の内なる発達によるもの）
+      </div>
+
+      <h3>教育の「意図性」と「無意図性」</h3>
+
+      <div class="key-point">
+        <strong>意図的な教育</strong><br>
+        学校教育のように、目的をもって計画的に行われるもの
+      </div>
+      <div class="key-point">
+        <strong>無意図的な教育</strong><br>
+        家庭や地域での日常生活のなかで自然に行われるもの（社会化とも呼ばれる）
+      </div>
+
+      <div class="example">
+        看護師として患者さんに健康指導を行うことも「教育」の一つです。教える側と学ぶ側の関係性、どのように伝えるかは、教育学の知見が役立つ場面です。
+      </div>
+    </div>
+  </div>
+
+  <!-- ② コミュニケーションとしての教育 -->
+  <div id="lesson2" class="section">
+    <div class="lesson-card">
+      <h2>② コミュニケーションとしての教育</h2>
+
+      <p>教育は、学習する人と教える人との<strong>かかわり</strong>のなかで成立するものです。一方的な教え込みではなく、<strong>双方向的なコミュニケーション</strong>の上に成り立つものです。</p>
+
+      <h3>教育＝コミュニケーション</h3>
+
+      <div class="key-point">
+        <strong>教育の本質は双方向性</strong><br>
+        ・あることを知り、できるようになる<strong>喜び</strong>（学ぶ側）<br>
+        ・成長を見とどける<strong>喜び</strong>（教える側）<br>
+        この2つが共鳴し合うところに真の教育がある
+      </div>
+
+      <div class="key-point">
+        <strong>「教え合う」「学び合う」「子どもから学ぶ」</strong><br>
+        教育は一方的な関係ではなく、教える側も学ぶ側も互いに成長する関係です。
+      </div>
+
+      <h3>ハーバーマスのコミュニケーション理論</h3>
+
+      <div class="person">
+        <strong>ハーバーマス（Habermas, J.）</strong><br>
+        ドイツの社会科学者。コミュニケーションによる「了解・合意」の形成を重視しました。
+      </div>
+
+      <p>ハーバーマスによれば、了解・合意のためには、当事者間の言説が次の要件を満たす必要があります：</p>
+
+      <div class="key-point">
+        <strong>コミュニケーションの3つの要件</strong><br>
+        <span class="vocab">① 科学的</span> 事実・真実に依拠していること<br>
+        <span class="vocab">② 民主主義的</span> 規範や人権を守ること<br>
+        <span class="vocab">③ 人間的</span> 尊厳に配慮すること<br><br>
+        この3つのバランスが崩れると、教育も福祉も看護・医療も行き詰まる
+      </div>
+
+      <h3>看護とのつながり</h3>
+
+      <div class="example">
+        教育に限らず、福祉、看護・医療など、直接人を対象に働きかける仕事は、他の仕事以上にコミュニケーションが前提となっています。看護師として患者さんやその家族と接するとき、「科学的・民主主義的・人間的」であることのバランスが求められます。
+      </div>
+
+      <h3>現代の教育をめぐる現状</h3>
+
+      <div class="key-point">
+        <strong>文部科学省「義務教育に関する意識調査」（2005年）</strong><br>
+        ・小学生の<strong>78.9%</strong>、中学生の<strong>75.0%</strong>が「学校が楽しい」と回答<br>
+        ・しかし1〜2割の子どもにとっては、学校は魅力のある場所になっていない<br>
+        ・教育問題は学校や子どもだけの問題ではなく、親や地域社会、生涯学習の問題でもある
+      </div>
+    </div>
+  </div>
+
+  <!-- 確認テスト -->
+  <div id="quiz" class="section">
+    <div class="quiz-area">
+      <h2>確認テスト（序章）</h2>
+      <p>序章の内容から10問出題します。</p>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div id="quizContainer"></div>
+      <div style="text-align:center; margin-top:20px;">
+        <button class="btn" id="submitBtn" onclick="submitQuiz()" style="display:none;">結果を見る</button>
+      </div>
+    </div>
+    <div class="result-area" id="resultArea">
+      <h2>結果</h2>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-msg" id="resultMsg"></div>
+      <button class="btn" onclick="retryQuiz()">もう一度</button>
+      <button class="btn btn-outline" onclick="showSection('lesson1')">レッスンに戻る</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const allQuestions = [
+  {
+    q: '「教育」という日本語は、どの2つの言葉の合成語か。',
+    choices: ['「学ぶ」と「育てる」', '「教える」と「育てる」', '「導く」と「養う」', '「知る」と「伝える」'],
+    answer: 1,
+    explanation: '「教育」は「教える」と「育てる」の合成語で、英語の "education" の訳語として近代以降に定着しました。'
+  },
+  {
+    q: '英語 "education" の語源であるラテン語 "educere" の意味は何か。',
+    choices: ['外から滋養を与える', '規律を守らせる', '外に引き出す', '記憶させる'],
+    answer: 2,
+    explanation: '"educere" は「外に引き出す」という意味で、人間の素質や能力を引き出すことにつながります。一方の "educare" は「外から滋養を与える」という意味です。'
+  },
+  {
+    q: 'ラテン語 "educare" の意味として適切なものはどれか。',
+    choices: ['外に引き出す', '自然に育つ', '外から滋養を与える', '社会に適応させる'],
+    answer: 2,
+    explanation: '"educare" は「外から滋養を与える」という意味で、知識や技能を与えることに対応しています。'
+  },
+  {
+    q: 'ルソーが『エミール』で示した教育の3つの分類に含まれないものはどれか。',
+    choices: ['人による教育', '事物による教育', '制度による教育', '自然による教育'],
+    answer: 2,
+    explanation: 'ルソーは教育を「人による教育」「事物による教育」「自然による教育」の3つに分類しました。「制度による教育」は含まれていません。'
+  },
+  {
+    q: '学校教育のように目的をもって計画的に行われる教育を何というか。',
+    choices: ['無意図的な教育', '社会化', '意図的な教育', '生涯教育'],
+    answer: 2,
+    explanation: '目的をもって計画的に行われる教育を「意図的な教育」といいます。家庭や地域での日常生活のなかで自然に行われるものは「無意図的な教育」（社会化）と呼ばれます。'
+  },
+  {
+    q: '教育の本質について、テキストではどのような性質が重要だと述べられているか。',
+    choices: ['一方向的な知識の伝達', '双方向的なコミュニケーション', '効率的な情報処理', '競争による切磋琢磨'],
+    answer: 1,
+    explanation: '教育は一方的な教え込みではなく、教える側と学ぶ側の「双方向的なコミュニケーション」の上に成り立つものだと述べられています。'
+  },
+  {
+    q: 'ハーバーマスのコミュニケーション理論で、了解・合意の要件に含まれないものはどれか。',
+    choices: ['科学的であること', '経済的であること', '民主主義的であること', '人間的であること'],
+    answer: 1,
+    explanation: 'ハーバーマスは了解・合意のための要件として「科学的」「民主主義的」「人間的」の3つを挙げています。「経済的」は含まれません。'
+  },
+  {
+    q: 'ハーバーマスの理論における「科学的」とはどういう意味か。',
+    choices: ['最新の技術を使うこと', '事実・真実に依拠していること', '実験で証明されていること', '専門家が認めていること'],
+    answer: 1,
+    explanation: 'ハーバーマスの理論における「科学的」とは、言説が事実・真実に依拠していることを意味します。'
+  },
+  {
+    q: '文部科学省の調査（2005年）で、「学校が楽しい」と答えた小学生の割合はおよそ何％か。',
+    choices: ['約60%', '約70%', '約80%', '約90%'],
+    answer: 2,
+    explanation: '文部科学省「義務教育に関する意識調査」（2005年）では、小学生の78.9%（約80%）が「学校が楽しい」と回答しています。中学生は75.0%でした。'
+  },
+  {
+    q: '教育、福祉、看護・医療に共通して重要なこととして、テキストで述べられているのはどれか。',
+    choices: ['専門知識の量', '資格の取得', 'コミュニケーション', '組織の効率化'],
+    answer: 2,
+    explanation: '直接人を対象に働きかける教育・福祉・看護・医療は、他の仕事以上にコミュニケーションが前提となっていると述べられています。'
+  }
+];
+
+let questions = [];
+let answered = 0;
+
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function initQuiz() {
+  questions = shuffleArray(allQuestions);
+  answered = 0;
+  document.getElementById('submitBtn').style.display = 'none';
+  document.getElementById('resultArea').style.display = 'none';
+  document.getElementById('progressFill').style.width = '0%';
+
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+
+  questions.forEach((q, idx) => {
+    const shuffledChoices = q.choices.map((c, i) => ({ text: c, origIdx: i }));
+    // シャッフル
+    for (let i = shuffledChoices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledChoices[i], shuffledChoices[j]] = [shuffledChoices[j], shuffledChoices[i]];
+    }
+    q._shuffled = shuffledChoices;
+    q._selected = null;
+
+    let html = `<div class="question-card" id="qcard${idx}">
+      <div class="q-number">問題 ${idx + 1} / ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <ul class="choices">`;
+
+    shuffledChoices.forEach((c, ci) => {
+      html += `<li onclick="selectChoice(${idx}, ${ci})" id="q${idx}c${ci}">${c.text}</li>`;
+    });
+
+    html += `</ul>
+      <div class="explanation" id="exp${idx}">
+        <div id="expText${idx}"></div>
+      </div>
+    </div>`;
+
+    container.innerHTML += html;
+  });
+}
+
+function selectChoice(qIdx, cIdx) {
+  const q = questions[qIdx];
+  if (q._selected !== null) return;
+
+  q._selected = cIdx;
+  answered++;
+
+  const correctOrigIdx = q.answer;
+  const selectedOrigIdx = q._shuffled[cIdx].origIdx;
+  const isCorrect = selectedOrigIdx === correctOrigIdx;
+
+  // 正解のliを探す
+  q._shuffled.forEach((c, ci) => {
+    const li = document.getElementById(`q${qIdx}c${ci}`);
+    if (c.origIdx === correctOrigIdx) {
+      li.classList.add('correct');
+    }
+    if (ci === cIdx && !isCorrect) {
+      li.classList.add('wrong');
+    }
+  });
+
+  const expDiv = document.getElementById(`exp${qIdx}`);
+  const expText = document.getElementById(`expText${qIdx}`);
+  expText.innerHTML = (isCorrect ? '<span class="correct-label">⭕ 正解！</span>' : '<span class="wrong-label">❌ 不正解</span>') + '<br>' + q.explanation;
+  expDiv.classList.add('show');
+
+  // プログレス
+  document.getElementById('progressFill').style.width = (answered / questions.length * 100) + '%';
+
+  if (answered === questions.length) {
+    document.getElementById('submitBtn').style.display = 'inline-block';
+  }
+}
+
+function submitQuiz() {
+  let correct = 0;
+  questions.forEach(q => {
+    if (q._selected !== null && q._shuffled[q._selected].origIdx === q.answer) correct++;
+  });
+
+  document.getElementById('resultArea').style.display = 'block';
+  document.getElementById('resultScore').textContent = `${correct} / ${questions.length}`;
+
+  const pct = correct / questions.length * 100;
+  let msg = '';
+  if (pct === 100) msg = '満点です！素晴らしい！';
+  else if (pct >= 80) msg = 'よく理解できています！';
+  else if (pct >= 60) msg = '合格ライン！もう少し復習しましょう。';
+  else msg = 'レッスンをもう一度確認してみましょう。';
+
+  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth' });
+}
+
+function retryQuiz() {
+  initQuiz();
+  document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
+}
+
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  const tabs = document.querySelectorAll('.nav-tab');
+  if (id === 'lesson1') tabs[0].classList.add('active');
+  else if (id === 'lesson2') tabs[1].classList.add('active');
+  else if (id === 'quiz') { tabs[2].classList.add('active'); initQuiz(); }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 初期化
+initQuiz();
+</script>
+</body>
+</html>
