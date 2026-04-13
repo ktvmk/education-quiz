@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仕事マップ｜森浩平</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#1a1a2e;color:#eee;min-height:100vh}
+.header{background:linear-gradient(135deg,#16213e,#0f3460);padding:24px 20px;text-align:center;border-bottom:2px solid #e94560}
+.header h1{font-size:1.4em;color:#fff}
+.header .sub{font-size:.85em;color:#aaa;margin-top:4px}
+.container{max-width:900px;margin:0 auto;padding:20px}
+.category{margin:20px 0}
+.cat-header{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px 12px 0 0;cursor:pointer;user-select:none;transition:background .2s}
+.cat-header:hover{filter:brightness(1.1)}
+.cat-header .icon{font-size:1.5em}
+.cat-header .title{font-size:1.15em;font-weight:bold}
+.cat-header .count{font-size:.8em;opacity:.7;margin-left:auto}
+.cat-header .arrow{transition:transform .3s;font-size:.8em}
+.cat-header.open .arrow{transform:rotate(90deg)}
+.cat-body{display:none;border-radius:0 0 12px 12px;padding:0 18px 18px 18px}
+.cat-body.open{display:block}
+.item{background:rgba(255,255,255,.08);border-radius:8px;padding:12px 16px;margin:8px 0;border-left:4px solid;transition:transform .15s}
+.item:hover{transform:translateX(4px)}
+.item-title{font-weight:bold;font-size:.95em}
+.item-desc{font-size:.82em;color:#aaa;margin-top:4px}
+.item-status{display:inline-block;font-size:.72em;padding:2px 8px;border-radius:10px;margin-top:6px}
+.status-active{background:#4caf50;color:#fff}
+.status-pending{background:#ff9800;color:#fff}
+.status-done{background:#666;color:#ccc}
+.status-urgent{background:#e94560;color:#fff}
+
+/* カテゴリ色 */
+.cat-research .cat-header{background:#1565c0}
+.cat-research .cat-body{background:rgba(21,101,192,.15)}
+.cat-research .item{border-color:#42a5f5}
+.cat-teaching .cat-header{background:#2e7d32}
+.cat-teaching .cat-body{background:rgba(46,125,50,.15)}
+.cat-teaching .item{border-color:#66bb6a}
+.cat-outreach .cat-header{background:#e65100}
+.cat-outreach .cat-body{background:rgba(230,81,0,.15)}
+.cat-outreach .item{border-color:#ff9800}
+.cat-university .cat-header{background:#6a1b9a}
+.cat-university .cat-body{background:rgba(106,27,154,.15)}
+.cat-university .item{border-color:#ab47bc}
+.cat-npo .cat-header{background:#00838f}
+.cat-npo .cat-body{background:rgba(0,131,143,.15)}
+.cat-npo .item{border-color:#26c6da}
+.cat-admin .cat-header{background:#455a64}
+.cat-admin .cat-body{background:rgba(69,90,100,.15)}
+.cat-admin .item{border-color:#78909c}
+
+.summary{background:rgba(255,255,255,.05);border-radius:12px;padding:20px;margin:20px 0;text-align:center}
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.summary-item{background:rgba(255,255,255,.08);border-radius:8px;padding:14px}
+.summary-num{font-size:1.8em;font-weight:bold}
+.summary-label{font-size:.8em;color:#aaa}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>仕事マップ</h1>
+<div class="sub">森浩平 ── 全活動の俯瞰図</div>
+</div>
+<div class="container">
+
+<div class="summary">
+<div style="font-size:1.1em;font-weight:bold;margin-bottom:8px">活動の全体像</div>
+<div class="summary-grid">
+<div class="summary-item"><div class="summary-num" style="color:#42a5f5">6</div><div class="summary-label">研究プロジェクト</div></div>
+<div class="summary-item"><div class="summary-num" style="color:#66bb6a">7</div><div class="summary-label">授業・講義</div></div>
+<div class="summary-item"><div class="summary-num" style="color:#ff9800">8+</div><div class="summary-label">研修・講演</div></div>
+<div class="summary-item"><div class="summary-num" style="color:#ab47bc">4</div><div class="summary-label">大学委員会</div></div>
+<div class="summary-item"><div class="summary-num" style="color:#26c6da">3</div><div class="summary-label">NPO事業</div></div>
+<div class="summary-item"><div class="summary-num" style="color:#78909c">5+</div><div class="summary-label">助成金・申請</div></div>
+</div>
+</div>
+
+<!-- 研究 -->
+<div class="category cat-research">
+<div class="cat-header" onclick="toggle(this)">
+<span class="icon">🔬</span><span class="title">研究</span><span class="count">6件</span><span class="arrow">▶</span>
+</div>
+<div class="cat-body">
+<div class="item"><div class="item-title">yamamoto_med（医学部山本先生共同研究）</div><div class="item-desc">レビュー論文執筆、厚労科研GC-2申請</div><span class="item-status status-active">進行中</span></div>
+<div class="item"><div class="item-title">クールダウンパッド（光精工共同研究）</div><div class="item-desc">論文6本＋ガイドブック＋書籍原稿完成。産学連携・商品化へ</div><span class="item-status status-active">投稿準備中</span></div>
+<div class="item"><div class="item-title">住友ファーマ共同研究</div><div class="item-desc">奥出様・中西様 4/23インタビュー予定</div><span class="item-status status-pending">調整中</span></div>
+<div class="item"><div class="item-title">卒論生指導</div><div class="item-desc">岩屋美虹（特別支援学級×生活単元学習）、前田花南（原因不明の身体症状）、須永さん他</div><span class="item-status status-active">進行中</span></div>
+<div class="item"><div class="item-title">ICT×特別支援教育（中倉先生）</div><div class="item-desc">共同研究</div><span class="item-status status-pending">継続</span></div>
+<div class="item"><div class="item-title">業績管理・論文投稿</div><div class="item-desc">レビュー3本→JSET/ANDD/T&Dへ投稿準備</div><span class="item-status status-urgent">最優先</span></div>
+</div>
+</div>
+
+<!-- 授業 -->
+<div class="category cat-teaching">
+<div class="cat-header" onclick="toggle(this)">
+<span class="icon">📚</span><span class="title">授業・講義</span><span class="count">7科目</span><span class="arrow">▶</span>
+</div>
+<div class="cat-body">
+<div class="item"><div class="item-title">三重大学：知的障害教育Ⅰ・Ⅱ</div><div class="item-desc">教職課程。Ⅱは受講生が倍来ている（人数調整必要）</div><span class="item-status status-urgent">要対応</span></div>
+<div class="item"><div class="item-title">三重大学：特別支援教育入門</div><div class="item-desc">オムニバス形式、森担当回3回</div><span class="item-status status-active">前期</span></div>
+<div class="item"><div class="item-title">皇學館大学：障害者・障害児心理学／福祉心理学</div><div class="item-desc">非常勤。前期授業開始済み</div><span class="item-status status-active">前期</span></div>
+<div class="item"><div class="item-title">同朋大学</div><div class="item-desc">非常勤</div><span class="item-status status-pending">準備中</span></div>
+<div class="item"><div class="item-title">桑名看護専門学校：教育学</div><div class="item-desc">34期生、全15回。4/14初回。Web教材＋Googleフォーム整備済み</div><span class="item-status status-active">4/14開始</span></div>
+<div class="item"><div class="item-title">認定講習（三重県教育委員会）</div><div class="item-desc">免許法認定講習、夏季</div><span class="item-status status-pending">夏</span></div>
+<div class="item"><div class="item-title">基本情報技術者クイズ教材</div><div class="item-desc">フリースクール生徒向け。GitHub Pages公開済み</div><span class="item-status status-done">公開中</span></div>
+</div>
+</div>
+
+<!-- 研修・講演 -->
+<div class="category cat-outreach">
+<div class="cat-header" onclick="toggle(this)">
+<span class="icon">🎤</span><span class="title">研修・講演</span><span class="count">8件+</span><span class="arrow">▶</span>
+</div>
+<div class="cat-body">
+<div class="item"><div class="item-title">松阪あゆみ特別支援学校</div><div class="item-desc">2025年8月実施済み</div><span class="item-status status-done">完了</span></div>
+<div class="item"><div class="item-title">津市教育委員会 特別支援教育指導者育成研修</div><div class="item-desc">年2回</div><span class="item-status status-active">継続</span></div>
+<div class="item"><div class="item-title">西日野にじ学園</div><div class="item-desc">2025年1月実施済み</div><span class="item-status status-done">完了</span></div>
+<div class="item"><div class="item-title">三重県教育委員会 オンデマンド教材</div><div class="item-desc">オンライン配信</div><span class="item-status status-done">公開中</span></div>
+<div class="item"><div class="item-title">埼玉県教育局 オンデマンド教材</div><div class="item-desc">福利課研修</div><span class="item-status status-done">公開中</span></div>
+<div class="item"><div class="item-title">稲葉特別支援学校</div><div class="item-desc">2025年8月</div><span class="item-status status-done">完了</span></div>
+<div class="item"><div class="item-title">城山特別支援学校</div><div class="item-desc">2025年7月</div><span class="item-status status-done">完了</span></div>
+<div class="item"><div class="item-title">中学校の先生からの研修依頼</div><div class="item-desc">メール返信待ち</div><span class="item-status status-urgent">要返信</span></div>
+</div>
+</div>
+
+<!-- 大学業務 -->
+<div class="category cat-university">
+<div class="cat-header" onclick="toggle(this)">
+<span class="icon">🏛️</span><span class="title">大学業務・委員会</span><span class="count">4件</span><span class="arrow">▶</span>
+</div>
+<div class="cat-body">
+<div class="item"><div class="item-title">体験学修運営委員会（委員長格）</div><div class="item-desc">第1回実施済み（4/9）。次回5/14</div><span class="item-status status-active">進行中</span></div>
+<div class="item"><div class="item-title">学部研究推進委員会</div><div class="item-desc">研究倫理審査等</div><span class="item-status status-active">継続</span></div>
+<div class="item"><div class="item-title">人権と教育実施委員会</div><div class="item-desc"></div><span class="item-status status-active">継続</span></div>
+<div class="item"><div class="item-title">150周年記念事業</div><div class="item-desc"></div><span class="item-status status-pending">準備中</span></div>
+</div>
+</div>
+
+<!-- NPO -->
+<div class="category cat-npo">
+<div class="cat-header" onclick="toggle(this)">
+<span class="icon">🎨</span><span class="title">NPO・地域活動</span><span class="count">毎日運営</span><span class="arrow">▶</span>
+</div>
+<div class="cat-body">
+<div class="item"><div class="item-title">アート教室 parasol</div><div class="item-desc">毎日運営。障害のある子もない子も一緒にアート活動</div><span class="item-status status-active">毎日</span></div>
+<div class="item"><div class="item-title">居場所支援・フリースクール step</div><div class="item-desc">不登校の子どもたちの居場所づくり</div><span class="item-status status-active">毎日</span></div>
+<div class="item"><div class="item-title">地域イベント・ワークショップ</div><div class="item-desc">田植え体験、POPづくり、バックステージツアーなど</div><span class="item-status status-active">随時</span></div>
+</div>
+</div>
+
+<!-- 助成金・申請 -->
+<div class="category cat-admin">
+<div class="cat-header" onclick="toggle(this)">
+<span class="icon">📋</span><span class="title">助成金・行政申請</span><span class="count">5件</span><span class="arrow">▶</span>
+</div>
+<div class="cat-body">
+<div class="item"><div class="item-title">AI for Science（SPReAD1000）</div><div class="item-desc">公募開始4/17、500万円/件</div><span class="item-status status-pending">公募待ち</span></div>
+<div class="item"><div class="item-title">三重県フリースクール運営支援補助金 実績報告</div><div class="item-desc">締切4/14</div><span class="item-status status-urgent">締切今日</span></div>
+<div class="item"><div class="item-title">フリースクール対象申請（第6・7号様式）</div><div class="item-desc">締切4/28</div><span class="item-status status-urgent">期限注意</span></div>
+<div class="item"><div class="item-title">岡田文化財団 報告書×3団体</div><div class="item-desc">締切5/31頃</div><span class="item-status status-pending">5月末</span></div>
+<div class="item"><div class="item-title">厚労科研GC-2</div><div class="item-desc">計画書修正完了、返信待ち</div><span class="item-status status-done">提出済み</span></div>
+</div>
+</div>
+
+</div>
+
+<script>
+function toggle(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+// 初期状態で全部開く
+document.querySelectorAll('.cat-header').forEach(h=>{h.classList.add('open');h.nextElementSibling.classList.add('open')});
+</script>
+</body>
+</html>
