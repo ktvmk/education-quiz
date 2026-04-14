@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>森ゼミ 年間計画｜特別支援教育ゼミナール</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.8;padding:0 0 60px 0}
+.header{background:linear-gradient(135deg,#1B3A5C,#2d5a8e);color:#fff;padding:28px 20px;text-align:center}
+.header h1{font-size:1.4em;margin-bottom:4px}
+.header .sub{font-size:.85em;opacity:.8}
+.container{max-width:760px;margin:0 auto;padding:16px}
+.nav-tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:.82em;cursor:pointer;transition:all .2s}
+.nav-tab:hover,.nav-tab.active{background:#1B3A5C;color:#fff}
+.section{display:none}.section.active{display:block}
+.card{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card h2{color:#1B3A5C;font-size:1.15em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}
+.card h3{color:#2d5a8e;font-size:1.0em;margin:18px 0 8px 0}
+.timeline{position:relative;padding-left:24px;margin:12px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:3px;background:#e0e0e0;border-radius:2px}
+.tl-item{position:relative;margin:16px 0;padding-left:20px}
+.tl-item::before{content:'';position:absolute;left:-20px;top:8px;width:12px;height:12px;border-radius:50%;background:#1B3A5C;border:2px solid #fff;box-shadow:0 0 0 2px #1B3A5C}
+.tl-item.done::before{background:#4caf50;box-shadow:0 0 0 2px #4caf50}
+.tl-item.current::before{background:#ff9800;box-shadow:0 0 0 2px #ff9800;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 2px #ff9800}50%{box-shadow:0 0 0 6px rgba(255,152,0,.3)}}
+.tl-month{font-weight:bold;color:#1B3A5C;font-size:.95em}
+.tl-task{font-size:.9em;color:#555;margin:2px 0}
+.tl-output{font-size:.82em;color:#888;margin:2px 0}
+.member-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:12px 0}
+.member-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:16px;border-left:4px solid #1B3A5C}
+.member-card .name{font-weight:bold;font-size:1.0em;color:#1B3A5C}
+.member-card .theme{font-size:.85em;color:#555;margin:6px 0}
+.member-card .status{display:inline-block;font-size:.75em;padding:2px 10px;border-radius:12px;font-weight:bold}
+.status-active{background:#e8f5e9;color:#2e7d32}
+.status-pending{background:#fff3e0;color:#e65100}
+.status-new{background:#e3f2fd;color:#1565c0}
+.key-point{background:#eef3f9;border-left:4px solid #1B3A5C;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.93em}
+.key-point strong{color:#1B3A5C}
+.folder-tree{background:#f5f5f5;border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85em;line-height:2.0;white-space:pre}
+.homework{background:#fff3e0;border-left:4px solid #ff9800;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.homework strong{color:#e65100}
+.rule{background:#e8f5e9;border-left:4px solid #4caf50;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>特別支援教育ゼミナール（森ゼミ）</h1>
+<div class="sub">2026年度 年間計画</div>
+</div>
+<div class="container">
+
+<div class="nav-tabs">
+<div class="nav-tab active" onclick="showSection('overview')">ゼミ概要</div>
+<div class="nav-tab" onclick="showSection('members')">メンバー</div>
+<div class="nav-tab" onclick="showSection('schedule4')">4年生の流れ</div>
+<div class="nav-tab" onclick="showSection('schedule3')">3年生の流れ</div>
+<div class="nav-tab" onclick="showSection('rules')">ルール・連絡</div>
+</div>
+
+<!-- ゼミ概要 -->
+<div id="overview" class="section active">
+<div class="card">
+<h2>2026年度 ゼミの目標</h2>
+
+<div class="key-point">
+<strong>4年生（75期生）：</strong>卒業論文を完成させる<br>
+<strong>3年生（76期生）：</strong>自分の研究テーマを見つける
+</div>
+
+<h3>ゼミの進め方</h3>
+<p>前期は隔週で実施。個別指導＋全体での進捗共有を組み合わせます。</p>
+<p>ゼミの内容は録音して、後日このページで振り返れるようにする予定です。</p>
+
+<h3>卒論ってどんなもの？</h3>
+<p>卒論は、自分で「問い」を立てて、データを集めて、分析して、答えを出す研究です。</p>
+<p>最初から完璧を目指す必要はありません。一歩ずつ、先生と一緒に進めていきます。</p>
+
+<div class="key-point">
+<strong>先輩たちの卒論テーマの例：</strong><br>
+・原因不明の身体症状を訴える患者への診療と支援に関する調査研究<br>
+・特別支援学級における生活単元学習を通した知的障害・自閉症児のコミュニケーションと主体性の変容<br>
+・スクールソーシャルワーカーの活用の実態と課題<br>
+・「気になる子ども」についての保育者の理解と対応に関する研究
+</div>
+</div>
+</div>
+
+<!-- メンバー -->
+<div id="members" class="section">
+<div class="card">
+<h2>75期生（4年生）</h2>
+<div class="member-grid">
+<div class="member-card">
+<div class="name">前田 花南</div>
+<div class="theme">原因不明の身体症状を訴える患者への診療と支援に関する調査研究</div>
+<span class="member-card .status status-active">調査準備中</span>
+</div>
+<div class="member-card">
+<div class="name">前田 涼菜</div>
+<div class="theme">（テーマ確認中）</div>
+<span class="member-card .status status-pending">確認中</span>
+</div>
+<div class="member-card">
+<div class="name">岩屋 美虹</div>
+<div class="theme">特別支援学級における生活単元学習を通した知的障害・自閉症児のコミュニケーションと主体性の変容 ──教師の働きかけに着目して──</div>
+<span class="member-card .status status-active">文献整理済み</span>
+</div>
+<div class="member-card">
+<div class="name">本田 美環</div>
+<div class="theme">（テーマ確認中）</div>
+<span class="member-card .status status-pending">確認中</span>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>76期生（3年生）</h2>
+<p>今年度、テーマを見つけていく年です。焦らず、自分の「気になること」を大切にしてください。</p>
+</div>
+
+<div class="card">
+<h2>教職大学院</h2>
+<div class="member-grid">
+<div class="member-card"><div class="name">荒本さん</div></div>
+<div class="member-card"><div class="name">服部さん</div></div>
+<div class="member-card"><div class="name">錦織さん</div></div>
+<div class="member-card"><div class="name">上井さん</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>大学院</h2>
+<div class="member-grid">
+<div class="member-card"><div class="name">小阪 美紅</div></div>
+</div>
+</div>
+</div>
+
+<!-- 4年生スケジュール -->
+<div id="schedule4" class="section">
+<div class="card">
+<h2>4年生（75期生）の年間スケジュール</h2>
+
+<div class="timeline">
+<div class="tl-item current">
+<div class="tl-month">4月 ── テーマ確定・先行研究整理</div>
+<div class="tl-task">テーマの最終確定、先行研究の整理、研究方法の決定</div>
+<div class="tl-output">提出物：問題提起メモ、文献リスト</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">5月 ── 調査準備</div>
+<div class="tl-task">調査協力校・対象者への依頼、倫理審査申請</div>
+<div class="tl-output">提出物：研究計画書、調査協力依頼書</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">6月 ── データ収集</div>
+<div class="tl-task">授業観察、インタビュー調査など</div>
+<div class="tl-output">提出物：インタビュー文字起こし</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">7月 ── データ収集・分析開始</div>
+<div class="tl-task">データ収集の続き、分析方法の確認</div>
+<div class="tl-output">提出物：結果まとめ（カテゴリー表等）</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">夏休み ── 分析・執筆開始</div>
+<div class="tl-task">データの分析、結果の記述</div>
+<div class="tl-output">提出物：抄録の下書き</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">9〜10月 ── 論文執筆</div>
+<div class="tl-task">はじめに〜考察の執筆</div>
+<div class="tl-output">提出物：論文各章ドラフト</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">11月 ── 中間発表会</div>
+<div class="tl-task">スライド10枚、5分発表</div>
+<div class="tl-output">提出物：中間発表資料・スライド・概要</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">12月 ── 論文修正</div>
+<div class="tl-task">中間発表のフィードバックを反映</div>
+<div class="tl-output">提出物：論文修正版</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">1月 ── 卒論提出</div>
+<div class="tl-task">最終チェック、製本、提出</div>
+<div class="tl-output">提出物：卒論最終版</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">2月 ── 卒論発表会</div>
+<div class="tl-task">発表スライド作成、発表練習</div>
+<div class="tl-output">提出物：発表スライド</div>
+</div>
+</div>
+
+<h3>Moodleフォルダの整理例（先輩の例）</h3>
+<div class="folder-tree">学生名/
+├── インタビュー調査/（文字起こし・修正版）
+├── その他/（先行研究のPDF）
+├── 予備/（問題提起・抄録・研究計画・結果まとめ）
+├── 中間発表/（発表資料・スライド・概要）
+├── 論/（最終版）
+└── 文献/（参考論文PDF）</div>
+</div>
+</div>
+
+<!-- 3年生スケジュール -->
+<div id="schedule3" class="section">
+<div class="card">
+<h2>3年生（76期生）の年間スケジュール</h2>
+
+<div class="timeline">
+<div class="tl-item current">
+<div class="tl-month">4〜5月 ── 自分の関心を言葉にする</div>
+<div class="tl-task">「何が気になる？」「教育実習で面白かったことは？」を考える</div>
+<div class="tl-output">やること：キーワードを3〜5個出してみる</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">6〜7月 ── 文献を読み始める</div>
+<div class="tl-task">CiNiiで論文を探す練習。まずは1本読んでみる</div>
+<div class="tl-output">やること：気になる論文を1〜3本読む</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">夏休み ── 論文を読む</div>
+<div class="tl-task">自分のテーマに近い論文を5〜10本読む</div>
+<div class="tl-output">やること：各論文の要約メモを作る</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">9〜10月 ── テーマの方向性を決める</div>
+<div class="tl-task">読んだ論文を整理して、自分の「問い」の方向を考える</div>
+<div class="tl-output">やること：テーマ案を文章にまとめる</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">11月 ── 研究の「問い」を立てる</div>
+<div class="tl-task">先行研究で何がわかっていて、何がわかっていないかを整理する</div>
+<div class="tl-output">やること：「はじめに」の下書き</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">12〜1月 ── 研究計画書（仮）を作成</div>
+<div class="tl-task">目的・方法・予定を書いてみる</div>
+<div class="tl-output">やること：研究計画書のドラフト</div>
+</div>
+<div class="tl-item">
+<div class="tl-month">2〜3月 ── 4年生の卒論発表を見学</div>
+<div class="tl-task">先輩の発表を見て、自分の計画を修正する</div>
+<div class="tl-output">やること：計画の修正メモ</div>
+</div>
+</div>
+
+<div class="homework">
+<strong>次回のゼミまでにやること</strong><br><br>
+自分の関心のあるテーマを<strong>キーワード3〜5個</strong>で書いてきてください。<br><br>
+形式は自由です（紙でもメールでもMoodleでも）。<br>
+完璧じゃなくていいです。「なんとなく気になる」レベルでOKです。<br><br>
+例：「特別支援学級」「コミュニケーション」「主体的」「生活単元学習」
+</div>
+</div>
+</div>
+
+<!-- ルール -->
+<div id="rules" class="section">
+<div class="card">
+<h2>ゼミのルール</h2>
+
+<div class="rule">
+<strong>1. 欠席・遅刻</strong><br>
+メールかLINEで事前に連絡してください。当日でも構いません。
+</div>
+
+<div class="rule">
+<strong>2. 困ったら早めに相談</strong><br>
+テーマが決まらない、文献が見つからない、書き方がわからない ── 何でもOKです。一人で抱え込まないでください。
+</div>
+
+<div class="rule">
+<strong>3. 他の人の研究にも興味を持つ</strong><br>
+質問やコメントは大歓迎です。自分の研究にも新しい視点が生まれます。
+</div>
+
+<div class="rule">
+<strong>4. ゼミの記録</strong><br>
+ゼミの内容は録音して、後日このページで振り返れるようにする予定です。聞き逃しても大丈夫です。
+</div>
+</div>
+
+<div class="card">
+<h2>連絡先</h2>
+<div class="key-point">
+<strong>森 浩平</strong><br>
+三重大学教育学部 特別支援教育講座<br>
+研究室：教育学部2号館5階<br>
+E-mail：kmori.edu@mie-u.ac.jp<br>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabs=document.querySelectorAll('.nav-tab');
+  const ids=['overview','members','schedule4','schedule3','rules'];
+  tabs[ids.indexOf(id)].classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
