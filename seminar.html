@@ -53,10 +53,8 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
 
 <div class="nav-tabs">
 <div class="nav-tab active" onclick="showSection('overview')">ゼミ概要</div>
-<div class="nav-tab" onclick="showSection('members')">メンバー</div>
-<div class="nav-tab" onclick="showSection('schedule4')">4年生の流れ</div>
 <div class="nav-tab" onclick="showSection('schedule3')">3年生の流れ</div>
-<div class="nav-tab" onclick="showSection('rules')">ルール・連絡</div>
+<div class="nav-tab" onclick="showSection('schedule4')">4年生の流れ</div>
 </div>
 
 <!-- ゼミ概要 -->
@@ -65,8 +63,8 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
 <h2>2026年度 ゼミの目標</h2>
 
 <div class="key-point">
-<strong>4年生（75期生）：</strong>卒業論文を完成させる<br>
-<strong>3年生（76期生）：</strong>自分の研究テーマを見つける
+<strong>3年生（76期生）：</strong>自分の研究テーマを見つける<br>
+<strong>4年生（75期生）：</strong>卒業論文を完成させる
 </div>
 
 <h3>ゼミの進め方</h3>
@@ -83,57 +81,6 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
 ・特別支援学級における生活単元学習を通した知的障害・自閉症児のコミュニケーションと主体性の変容<br>
 ・スクールソーシャルワーカーの活用の実態と課題<br>
 ・「気になる子ども」についての保育者の理解と対応に関する研究
-</div>
-</div>
-</div>
-
-<!-- メンバー -->
-<div id="members" class="section">
-<div class="card">
-<h2>75期生（4年生）</h2>
-<div class="member-grid">
-<div class="member-card">
-<div class="name">前田 花南</div>
-<div class="theme">原因不明の身体症状を訴える患者への診療と支援に関する調査研究</div>
-<span class="member-card .status status-active">調査準備中</span>
-</div>
-<div class="member-card">
-<div class="name">前田 涼菜</div>
-<div class="theme">（テーマ確認中）</div>
-<span class="member-card .status status-pending">確認中</span>
-</div>
-<div class="member-card">
-<div class="name">岩屋 美虹</div>
-<div class="theme">特別支援学級における生活単元学習を通した知的障害・自閉症児のコミュニケーションと主体性の変容 ──教師の働きかけに着目して──</div>
-<span class="member-card .status status-active">文献整理済み</span>
-</div>
-<div class="member-card">
-<div class="name">本田 美環</div>
-<div class="theme">（テーマ確認中）</div>
-<span class="member-card .status status-pending">確認中</span>
-</div>
-</div>
-</div>
-
-<div class="card">
-<h2>76期生（3年生）</h2>
-<p>今年度、テーマを見つけていく年です。焦らず、自分の「気になること」を大切にしてください。</p>
-</div>
-
-<div class="card">
-<h2>教職大学院</h2>
-<div class="member-grid">
-<div class="member-card"><div class="name">荒本さん</div></div>
-<div class="member-card"><div class="name">服部さん</div></div>
-<div class="member-card"><div class="name">錦織さん</div></div>
-<div class="member-card"><div class="name">上井さん</div></div>
-</div>
-</div>
-
-<div class="card">
-<h2>大学院</h2>
-<div class="member-grid">
-<div class="member-card"><div class="name">小阪 美紅</div></div>
 </div>
 </div>
 </div>
@@ -260,43 +207,6 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
 </div>
 </div>
 
-<!-- ルール -->
-<div id="rules" class="section">
-<div class="card">
-<h2>ゼミのルール</h2>
-
-<div class="rule">
-<strong>1. 欠席・遅刻</strong><br>
-メールかLINEで事前に連絡してください。当日でも構いません。
-</div>
-
-<div class="rule">
-<strong>2. 困ったら早めに相談</strong><br>
-テーマが決まらない、文献が見つからない、書き方がわからない ── 何でもOKです。一人で抱え込まないでください。
-</div>
-
-<div class="rule">
-<strong>3. 他の人の研究にも興味を持つ</strong><br>
-質問やコメントは大歓迎です。自分の研究にも新しい視点が生まれます。
-</div>
-
-<div class="rule">
-<strong>4. ゼミの記録</strong><br>
-ゼミの内容は録音して、後日このページで振り返れるようにする予定です。聞き逃しても大丈夫です。
-</div>
-</div>
-
-<div class="card">
-<h2>連絡先</h2>
-<div class="key-point">
-<strong>森 浩平</strong><br>
-三重大学教育学部 特別支援教育講座<br>
-研究室：教育学部2号館5階<br>
-E-mail：kmori.edu@mie-u.ac.jp<br>
-</div>
-</div>
-</div>
-
 </div>
 
 <script>
@@ -305,7 +215,7 @@ function showSection(id){
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   const tabs=document.querySelectorAll('.nav-tab');
-  const ids=['overview','members','schedule4','schedule3','rules'];
+  const ids=['overview','schedule3','schedule4'];
   tabs[ids.indexOf(id)].classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
