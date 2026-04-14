@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webアプリ一覧｜森浩平</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.8;padding:0 0 60px 0}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:32px 20px;text-align:center}
+.header h1{font-size:1.6em;margin-bottom:4px}
+.header .sub{font-size:.85em;opacity:.7}
+.container{max-width:760px;margin:0 auto;padding:20px}
+.category{margin:24px 0}
+.cat-title{font-size:1.15em;font-weight:bold;color:#1B3A5C;margin-bottom:12px;padding-bottom:6px;border-bottom:3px solid #e8edf2}
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.app-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;text-decoration:none;color:#333;display:block;border-left:5px solid #ccc}
+.app-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.app-card .title{font-size:1.05em;font-weight:bold;color:#1B3A5C;margin-bottom:6px}
+.app-card .desc{font-size:.85em;color:#666;margin-bottom:8px}
+.app-card .tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.72em;font-weight:bold}
+.tag-education{background:#e3f2fd;color:#1565c0}
+.tag-quiz{background:#fff3e0;color:#e65100}
+.tag-tool{background:#e8f5e9;color:#2e7d32}
+.tag-dashboard{background:#f3e5f5;color:#6a1b9a}
+
+.cat-education .app-card{border-color:#1565c0}
+.cat-it .app-card{border-color:#e65100}
+.cat-tool .app-card{border-color:#2e7d32}
+.cat-dashboard .app-card{border-color:#6a1b9a}
+
+.shortcut-section{background:#fff;border-radius:12px;padding:20px;margin:24px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.shortcut-section h2{color:#1B3A5C;font-size:1.1em;margin-bottom:12px}
+.shortcut-section p{font-size:.9em;color:#666}
+.shortcut-section code{background:#f0f0f0;padding:2px 8px;border-radius:4px;font-size:.85em}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>Webアプリ一覧</h1>
+<div class="sub">森浩平 ── 作成したWebアプリ・教材・ツール</div>
+</div>
+<div class="container">
+
+<div class="shortcut-section">
+<h2>このページをブックマークしてください</h2>
+<p>このページをスマホのホーム画面に追加すると、いつでもアクセスできます。<br>
+<strong>iPhone：</strong> Safari → 共有ボタン → 「ホーム画面に追加」<br>
+<strong>Android：</strong> Chrome → メニュー → 「ホーム画面に追加」<br>
+<strong>PC：</strong> ブックマークバーにドラッグ</p>
+</div>
+
+<div class="category cat-education">
+<div class="cat-title">教育学（桑名看護専門学校）</div>
+<div class="app-grid">
+<a href="index.html" class="app-card">
+<div class="title">教育学 Web教材（目次）</div>
+<div class="desc">序章〜第5章のレッスン＋確認テスト。看護学生向け。</div>
+<div class="tags"><span class="tag tag-education">教育</span><span class="tag tag-quiz">クイズ</span></div>
+</a>
+<a href="序章_教育学を学ぶために.html" class="app-card">
+<div class="title">序章 教育学を学ぶために</div>
+<div class="desc">教育の語源、ルソー、ハーバーマス</div>
+<div class="tags"><span class="tag tag-quiz">10問</span></div>
+</a>
+<a href="第1章①_現代社会と教育問題.html" class="app-card">
+<div class="title">第1章① 現代社会と教育問題</div>
+<div class="desc">グローバル化、NEET、PISA、不登校</div>
+<div class="tags"><span class="tag tag-quiz">10問</span></div>
+</a>
+<a href="第2章_学ぶことと教えること.html" class="app-card">
+<div class="title">第2章 学ぶことと教えること</div>
+<div class="desc">ヘルバルト、デューイ、学びの三角形</div>
+<div class="tags"><span class="tag tag-quiz">12問</span></div>
+</a>
+<a href="第3章_教育とケア.html" class="app-card">
+<div class="title">第3章 教育とケア</div>
+<div class="desc">ケアリング、ナイチンゲール、学校保健</div>
+<div class="tags"><span class="tag tag-quiz">10問</span></div>
+</a>
+<a href="第4章_学校教育と心の問題.html" class="app-card">
+<div class="title">第4章 学校教育と心の問題</div>
+<div class="desc">ロジャース、カウンセリング、いじめ、虐待</div>
+<div class="tags"><span class="tag tag-quiz">12問</span></div>
+</a>
+<a href="第5章_特別なニーズをもつ子ども.html" class="app-card">
+<div class="title">第5章 特別なニーズをもつ子ども</div>
+<div class="desc">特別支援教育、ICF、インクルーシブ教育</div>
+<div class="tags"><span class="tag tag-quiz">12問</span></div>
+</a>
+</div>
+</div>
+
+<div class="category cat-it">
+<div class="cat-title">基本情報技術者（フリースクール向け）</div>
+<div class="app-grid">
+<a href="https://ktvmk.github.io/kihonjyohogijyutusya-quiz/" class="app-card">
+<div class="title">基本情報技術者 一問一答トレーニング</div>
+<div class="desc">第19〜21章のクイズ＋過去問レベル編。順次拡張中。</div>
+<div class="tags"><span class="tag tag-quiz">クイズ</span><span class="tag tag-education">IT</span></div>
+</a>
+</div>
+</div>
+
+<div class="category cat-dashboard">
+<div class="cat-title">ダッシュボード・ツール</div>
+<div class="app-grid">
+<a href="work-map.html" class="app-card">
+<div class="title">仕事マップ</div>
+<div class="desc">研究・授業・NPO・委員会の全活動俯瞰図</div>
+<div class="tags"><span class="tag tag-dashboard">ダッシュボード</span></div>
+</a>
+</div>
+</div>
+
+</div>
+</body>
+</html>
