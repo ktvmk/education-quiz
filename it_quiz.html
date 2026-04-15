@@ -272,6 +272,27 @@ F → <strong>1111</strong>（8+4+2+1=15）<br>
 ① 全ビット反転 → 11111101<br>
 ② +1を加える &nbsp; → <strong>11111110</strong>（これが-2）</div>
 
+<div class="key-point"><strong>なぜ+1を加えるのか？</strong><br><br>
+ポイントは「元の数と足したら、ちょうど0になる」ようにすることです。<br><br>
+
+<span style="font-family:monospace;font-size:1.05em">
+ステップ①：反転しただけの場合<br>
+&nbsp; 00000010（+2）<br>
++11111101（反転しただけ）<br>
+──────────<br>
+=11111111 &nbsp;← <strong>0にならない！</strong><br><br>
+
+ステップ②：反転＋1の場合<br>
+&nbsp; 00000010（+2）<br>
++11111110（反転＋1）<br>
+──────────<br>
+=00000000 &nbsp;← <strong>ちょうど0になる！</strong>
+</span><br><br>
+
+（8ビットからあふれた9桁目の1は捨てられるので、結果はきれいに0）<br><br>
+つまり +2 と足して0になる数 = <strong>-2</strong> ということです。<br>
+反転しただけでは「11111111」になって0にならないので、+1して調整するのです。</div>
+
 <div class="key-point"><strong>符号ビット</strong>：先頭のビットで正負を判別<br>
 ・先頭が<strong>0</strong> → 正の数<br>
 ・先頭が<strong>1</strong> → 負の数<br><br>
