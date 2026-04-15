@@ -268,15 +268,20 @@
 「9倍にするには？」→ 3ビット左シフト（8倍）+ 元の値 = 8x+x = 9x</div>
 
 <div class="shift-demo">
-<h4>シフト演算シミュレーター</h4>
-<div class="shift-info">元の値：<span id="shiftDecimal">5</span>（10進数）</div>
-<div class="bit-row" id="shiftBits"></div>
-<div class="shift-result" id="shiftResultText">= 5（10進数）</div>
-<div class="shift-controls">
-<div class="shift-btn" onclick="doShift('left')">◀ 左シフト（×2）</div>
-<div class="shift-btn" onclick="doShift('right')">右シフト（÷2）▶</div>
-<div class="shift-btn" onclick="resetShift()">リセット</div>
+<h4>シフト演算を体験してみよう</h4>
+<p style="font-size:.88em;color:#666;margin-bottom:12px">下のボタンを押すと、ビット（0と1の列）が左右にずれます。<br><strong>左にずらす＝値が2倍</strong>、<strong>右にずらす＝値が半分</strong>になることを確認してください。</p>
+<div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap">
+<div style="text-align:center"><div style="font-size:.8em;color:#999">2進数</div><div class="bit-row" id="shiftBits"></div></div>
+<div style="font-size:1.5em;color:#e65100">＝</div>
+<div style="text-align:center"><div style="font-size:.8em;color:#999">10進数</div><div style="font-size:2em;font-weight:bold;color:#e65100" id="shiftDecimalDisplay">5</div></div>
 </div>
+<div class="shift-result" id="shiftMessage" style="min-height:1.5em"></div>
+<div class="shift-controls">
+<div class="shift-btn" onclick="doShift('left')">◀ 左にシフト</div>
+<div class="shift-btn" onclick="doShift('right')">右にシフト ▶</div>
+<div class="shift-btn" onclick="resetShift()" style="border-color:#999;color:#999">リセット</div>
+</div>
+<div style="font-size:.82em;color:#888;margin-top:8px">左に1回 = ×2 / 左に2回 = ×4 / 左に3回 = ×8 …</div>
 </div>
 </div>
 </div>
@@ -326,7 +331,8 @@ A B | AND &nbsp;OR &nbsp;XOR &nbsp;NAND &nbsp;NOR<br>
 NANDだけで全ての論理演算が作れるため、実際のCPUではNAND回路が基本部品として使われています。</div>
 
 <div class="logic-demo">
-<h4>論理演算シミュレーター（タップして入力を切り替えてみよう）</h4>
+<h4>論理演算を体験してみよう</h4>
+<p style="font-size:.88em;color:#666;margin-bottom:8px">① 上のボタンで演算の種類を選ぶ → ② A・Bの丸をタップして0/1を切り替える → ③ 出力とベン図が変わることを確認！</p>
 <div class="gate-selector">
 <div class="gate-btn active" onclick="setGate('AND')">AND</div>
 <div class="gate-btn" onclick="setGate('OR')">OR</div>
@@ -335,6 +341,27 @@ NANDだけで全ての論理演算が作れるため、実際のCPUではNAND回
 <div class="gate-btn" onclick="setGate('NOR')">NOR</div>
 <div class="gate-btn" onclick="setGate('NOT')">NOT</div>
 </div>
+<div style="font-size:.95em;font-weight:bold;color:#1B3A5C;text-align:center;margin:8px 0" id="gateDescription">AND = AとBの両方が1のときだけ、結果が1</div>
+
+<!-- ベン図 -->
+<div style="text-align:center;margin:12px 0">
+<svg id="vennSvg" width="220" height="150" viewBox="0 0 220 150">
+<circle cx="80" cy="75" r="55" fill="none" stroke="#1565c0" stroke-width="2" id="vennA"/>
+<circle cx="140" cy="75" r="55" fill="none" stroke="#e65100" stroke-width="2" id="vennB"/>
+<text x="45" y="45" font-size="14" fill="#1565c0" font-weight="bold">A</text>
+<text x="165" y="45" font-size="14" fill="#e65100" font-weight="bold">B</text>
+<!-- 塗りつぶし用のパス -->
+<clipPath id="clipA"><circle cx="80" cy="75" r="55"/></clipPath>
+<clipPath id="clipB"><circle cx="140" cy="75" r="55"/></clipPath>
+<!-- AND: AとBの重なり -->
+<circle cx="140" cy="75" r="55" clip-path="url(#clipA)" id="vennAND" fill="#e65100" opacity="0.4"/>
+<!-- OR: A全体 + B全体 -->
+<circle cx="80" cy="75" r="55" id="vennOrA" fill="none" opacity="0.3"/>
+<circle cx="140" cy="75" r="55" id="vennOrB" fill="none" opacity="0.3"/>
+</svg>
+<div style="font-size:.82em;color:#888" id="vennLabel">色がついた部分 = 結果が1になる範囲</div>
+</div>
+
 <div class="gate-visual">
 <div class="input-box"><div class="input-label">入力A</div><div class="input-toggle off" id="inputA" onclick="toggleInput('A')">0</div></div>
 <div class="input-box" id="inputBbox"><div class="input-label">入力B</div><div class="input-toggle off" id="inputB" onclick="toggleInput('B')">0</div></div>
@@ -345,10 +372,10 @@ NANDだけで全ての論理演算が作れるため、実際のCPUではNAND回
 </div>
 <table class="truth-table" id="truthTable">
 <tr><th>A</th><th>B</th><th id="ttHeader">AND</th></tr>
-<tr id="tt00"><td>0</td><td>0</td><td>0</td></tr>
-<tr id="tt01"><td>0</td><td>1</td><td>0</td></tr>
-<tr id="tt10"><td>1</td><td>0</td><td>0</td></tr>
-<tr id="tt11"><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
 </table>
 </div>
 
@@ -536,59 +563,75 @@ function submitQuiz(){let c=0;questions.forEach(q=>{if(q._selected!==null&&q._sh
 startQuiz();
 
 // === シフト演算デモ ===
-let shiftVal = 5;
-function renderShift(){
-  const bits = shiftVal.toString(2).padStart(8,'0');
-  const container = document.getElementById('shiftBits');
-  container.innerHTML = '';
-  for(let i=0;i<8;i++){
-    const d = document.createElement('div');
-    d.className = 'bit-cell ' + (bits[i]==='1'?'bit-1':'bit-0');
-    d.textContent = bits[i];
-    container.appendChild(d);
-  }
-  document.getElementById('shiftResultText').textContent = `= ${shiftVal}（10進数）`;
+let shiftVal=5,shiftCount=0,shiftOriginal=5;
+function renderShift(msg){
+  const bits=shiftVal.toString(2).padStart(8,'0');
+  const container=document.getElementById('shiftBits');
+  container.innerHTML='';
+  for(let i=0;i<8;i++){const d=document.createElement('div');d.className='bit-cell '+(bits[i]==='1'?'bit-1':'bit-0');d.textContent=bits[i];container.appendChild(d)}
+  document.getElementById('shiftDecimalDisplay').textContent=shiftVal;
+  document.getElementById('shiftMessage').innerHTML=msg||'';
 }
 function doShift(dir){
-  if(dir==='left'){
-    if(shiftVal < 128) shiftVal = shiftVal * 2;
-  } else {
-    shiftVal = Math.floor(shiftVal / 2);
-  }
-  renderShift();
+  const prev=shiftVal;
+  if(dir==='left'){if(shiftVal<128){shiftVal*=2;shiftCount++}else{renderShift('<span style="color:#f44336">これ以上左にシフトできません（オーバーフロー）</span>');return}}
+  else{shiftVal=Math.floor(shiftVal/2);shiftCount--}
+  const arrow=dir==='left'?'◀':'▶';
+  const op=dir==='left'?'×2':'÷2';
+  const total=dir==='left'?Math.pow(2,shiftCount):Math.pow(2,-shiftCount);
+  let msg=`${arrow} ${prev} ${op} = <strong style="color:#e65100;font-size:1.2em">${shiftVal}</strong>`;
+  if(Math.abs(shiftCount)>1){msg+=`<br><span style="font-size:.85em;color:#888">元の値${shiftOriginal}の ${shiftCount>0?'×'+Math.pow(2,shiftCount):'÷'+Math.pow(2,-shiftCount)} 倍（${Math.abs(shiftCount)}回シフト）</span>`}
+  renderShift(msg);
 }
-function resetShift(){shiftVal=5;renderShift()}
-renderShift();
+function resetShift(){shiftVal=5;shiftCount=0;shiftOriginal=5;renderShift('リセットしました。ボタンを押してシフトしてみましょう。')}
+renderShift('ボタンを押してビットを左右にずらしてみましょう。');
 
 // === 論理演算デモ ===
-let gateType='AND', inputA=0, inputB=0;
+let gateType='AND',inputA=0,inputB=0;
 const gateColors={AND:'and-gate',OR:'or-gate',XOR:'xor-gate',NAND:'nand-gate',NOR:'nor-gate',NOT:'not-gate'};
-const truthTables={AND:[[0,0,0],[0,1,0],[1,0,0],[1,1,1]],OR:[[0,0,0],[0,1,1],[1,0,1],[1,1,1]],XOR:[[0,0,0],[0,1,1],[1,0,1],[1,1,0]],NAND:[[0,0,1],[0,1,1],[1,0,1],[1,1,0]],NOR:[[0,0,1],[0,1,0],[1,0,0],[1,1,0]],NOT:[[0,0,1],[1,0,0]]};
+const gateDescs={AND:'AND = AとBの<strong>両方が1</strong>のときだけ、結果が1',OR:'OR = AとBの<strong>どちらか一方でも1</strong>なら、結果が1',XOR:'XOR = AとBが<strong>異なる</strong>ときだけ、結果が1',NAND:'NAND = ANDの<strong>反対</strong>（両方1のときだけ0、それ以外は1）',NOR:'NOR = ORの<strong>反対</strong>（両方0のときだけ1、それ以外は0）',NOT:'NOT = 入力を<strong>反転</strong>する（0→1、1→0）'};
+const truthTables={AND:[[0,0,0],[0,1,0],[1,0,0],[1,1,1]],OR:[[0,0,0],[0,1,1],[1,0,1],[1,1,1]],XOR:[[0,0,0],[0,1,1],[1,0,1],[1,1,0]],NAND:[[0,0,1],[0,1,1],[1,0,1],[1,1,0]],NOR:[[0,0,1],[0,1,0],[1,0,0],[1,1,0]],NOT:[[0,1],[1,0]]};
 
-function calcGate(){
-  switch(gateType){
-    case'AND':return inputA&inputB;case'OR':return inputA|inputB;case'XOR':return inputA^inputB;
-    case'NAND':return(inputA&inputB)?0:1;case'NOR':return(inputA|inputB)?0:1;case'NOT':return inputA?0:1;
-  }
+function calcGate(){switch(gateType){case'AND':return inputA&inputB;case'OR':return inputA|inputB;case'XOR':return inputA^inputB;case'NAND':return(inputA&inputB)?0:1;case'NOR':return(inputA|inputB)?0:1;case'NOT':return inputA?0:1}}
+
+function updateVenn(){
+  const svg=document.getElementById('vennSvg');
+  // ベン図の塗り分け
+  const and=document.getElementById('vennAND');
+  const orA=document.getElementById('vennOrA');
+  const orB=document.getElementById('vennOrB');
+  // リセット
+  and.setAttribute('opacity','0');orA.setAttribute('fill','none');orB.setAttribute('fill','none');
+  const color='rgba(230,81,0,0.3)';
+  if(gateType==='AND'){and.setAttribute('opacity','0.4');and.setAttribute('fill','#e65100')}
+  else if(gateType==='OR'){orA.setAttribute('fill',color);orA.setAttribute('opacity','0.3');orB.setAttribute('fill',color);orB.setAttribute('opacity','0.3')}
+  else if(gateType==='XOR'){orA.setAttribute('fill','rgba(21,101,192,0.25)');orA.setAttribute('opacity','0.4');orB.setAttribute('fill','rgba(230,81,0,0.25)');orB.setAttribute('opacity','0.4');and.setAttribute('opacity','0.5');and.setAttribute('fill','#fff')}
+  else if(gateType==='NAND'){/* 全体を薄く、AND部分を白で抜く */orA.setAttribute('fill',color);orA.setAttribute('opacity','0.3');orB.setAttribute('fill',color);orB.setAttribute('opacity','0.3');and.setAttribute('opacity','0.6');and.setAttribute('fill','#f5f5f0')}
+  else if(gateType==='NOR'){/* 外側だけ＝描画が難しいので説明テキストで補完 */}
+  else if(gateType==='NOT'){orA.setAttribute('fill','none');orB.setAttribute('fill','none')}
+  // ベン図の説明
+  const labels={AND:'重なった部分だけが1',OR:'どちらかの円に入っていれば1',XOR:'重ならない部分だけが1',NAND:'重なった部分以外が1',NOR:'どちらの円にも入っていない部分が1',NOT:'ベン図は使いません（1入力のため）'};
+  document.getElementById('vennLabel').textContent=labels[gateType]||'';
+  document.getElementById('vennSvg').style.display=gateType==='NOT'?'none':'block';
 }
+
 function updateGate(){
   const out=calcGate();
-  const oEl=document.getElementById('gateOutput');
-  oEl.textContent=out;oEl.className='output-display '+(out?'output-1':'output-0');
-  const aEl=document.getElementById('inputA');aEl.textContent=inputA;aEl.className='input-toggle '+(inputA?'on':'off');
-  const bEl=document.getElementById('inputB');bEl.textContent=inputB;bEl.className='input-toggle '+(inputB?'on':'off');
+  document.getElementById('gateOutput').textContent=out;document.getElementById('gateOutput').className='output-display '+(out?'output-1':'output-0');
+  document.getElementById('inputA').textContent=inputA;document.getElementById('inputA').className='input-toggle '+(inputA?'on':'off');
+  document.getElementById('inputB').textContent=inputB;document.getElementById('inputB').className='input-toggle '+(inputB?'on':'off');
   const sym=document.getElementById('gateSymbol');sym.textContent=gateType;sym.className='gate-symbol '+gateColors[gateType];
   document.getElementById('inputBbox').style.display=gateType==='NOT'?'none':'';
+  document.getElementById('gateDescription').innerHTML=gateDescs[gateType]||'';
   // 真理値表
-  const tt=truthTables[gateType];const header=document.getElementById('ttHeader');header.textContent=gateType;
-  const table=document.getElementById('truthTable');
-  const isNot=gateType==='NOT';
+  const tt=truthTables[gateType];const isNot=gateType==='NOT';
   let html=isNot?'<tr><th>A</th><th>'+gateType+'</th></tr>':'<tr><th>A</th><th>B</th><th>'+gateType+'</th></tr>';
   tt.forEach(r=>{
-    const active=(isNot?(r[0]===inputA):(r[0]===inputA&&r[1]===inputB));
-    html+=`<tr class="${active?'highlight':''}">`+(isNot?`<td>${r[0]}</td><td>${r[2]!==undefined?r[2]:r[1]}</td>`:`<td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td>`)+'</tr>';
+    const active=isNot?(r[0]===inputA):(r[0]===inputA&&r[1]===inputB);
+    html+=`<tr class="${active?'highlight':''}">`+(isNot?`<td>${r[0]}</td><td>${r[1]}</td>`:`<td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td>`)+'</tr>';
   });
-  table.innerHTML=html;
+  document.getElementById('truthTable').innerHTML=html;
+  updateVenn();
 }
 function toggleInput(which){if(which==='A')inputA=inputA?0:1;else inputB=inputB?0:1;updateGate()}
 function setGate(g){gateType=g;document.querySelectorAll('.gate-btn').forEach(b=>b.classList.toggle('active',b.textContent===g));updateGate()}
