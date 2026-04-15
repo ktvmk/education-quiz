@@ -258,6 +258,30 @@
 例⑥ &nbsp; &nbsp; &nbsp; &nbsp; 1 &nbsp; 1 &nbsp; 1 &nbsp; 1 &nbsp; → 8+4+2+1 = <strong>15 → F</strong>
 </span></div>
 
+<div class="key-point" style="background:#e8f5e9;border-color:#4caf50"><strong>「4桁で区切る」と「8桁の重みで計算」の違い</strong><br><br>
+
+どちらも2進数→10進数の変換をしていますが、<strong>目的が違います</strong>。<br><br>
+
+<strong style="color:#2e7d32">① 16進数に変換したいとき → 4桁ずつ区切る</strong><br>
+4桁の重みは <strong>8・4・2・1</strong>（最大15=F）<br>
+<span style="font-family:monospace">
+10110100 → 1011 | 0100<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8+2+1=<strong>11(B)</strong> | 4=<strong>4</strong> → <strong>B4</strong>（16進数）
+</span><br><br>
+
+<strong style="color:#1565c0">② そのまま10進数にしたいとき → 8桁全部の重みを使う</strong><br>
+8桁の重みは <strong>128・64・32・16・8・4・2・1</strong><br>
+<span style="font-family:monospace">
+10110100<br>
+128+32+16+4=<strong>180</strong>（10進数）
+</span><br><br>
+
+<strong>同じ「10110100」でも：</strong><br>
+・16進数にしたいなら → 4桁で区切って → <strong>B4</strong><br>
+・10進数にしたいなら → 8桁全部で計算 → <strong>180</strong><br>
+（B4を10進数にしても 11×16+4=180 で同じ値です！）
+</div>
+
 <div class="example"><strong>10〜15は A〜F に置き換えるだけ：</strong><br>
 10=<strong>A</strong> &nbsp; 11=<strong>B</strong> &nbsp; 12=<strong>C</strong> &nbsp; 13=<strong>D</strong> &nbsp; 14=<strong>E</strong> &nbsp; 15=<strong>F</strong><br><br>
 つまり、どんな4桁の2進数でも「8・4・2・1」で足し算するだけで16進数に変換できます。<strong>対応表を丸暗記する必要はありません。</strong></div>
