@@ -332,10 +332,13 @@ F → <strong>1111</strong>（8+4+2+1=15）<br>
 &nbsp; 11010110 → 00101001<br><br>
 ② +1を加える<br>
 &nbsp; 00101001 + 1 = 00101010<br><br>
-③ 00101010を10進数にする（8421の重みで）<br>
-&nbsp; 重み → <strong style="color:#e65100">128 64 32 16 &nbsp;8 &nbsp;4 &nbsp;2 &nbsp;1</strong><br>
-&nbsp; ビット → &nbsp;0 &nbsp;0 &nbsp;1 &nbsp;0 &nbsp;1 &nbsp;0 &nbsp;1 &nbsp;0<br>
-&nbsp; → 32 + 8 + 2 = <strong>42</strong><br><br>
+③ 00101010を10進数にする<br>
+&nbsp; 各ビットの上に重みを書いて、1がある桁だけ足す：<br><br>
+&nbsp; 重み → <strong style="color:#e65100">128 &nbsp;64 &nbsp;32 &nbsp;16 &nbsp;&nbsp;8 &nbsp;&nbsp;4 &nbsp;&nbsp;2 &nbsp;&nbsp;1</strong><br>
+&nbsp; ビット → &nbsp;0 &nbsp;&nbsp;0 &nbsp;&nbsp;<strong style="color:#e91e63">1</strong> &nbsp;&nbsp;0 &nbsp;&nbsp;<strong style="color:#e91e63">1</strong> &nbsp;&nbsp;0 &nbsp;&nbsp;<strong style="color:#e91e63">1</strong> &nbsp;&nbsp;0<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;↓ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;↓ &nbsp; &nbsp; &nbsp; &nbsp;↓<br>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>32</strong> &nbsp;&nbsp;＋ &nbsp;<strong>8</strong> &nbsp;&nbsp;＋ &nbsp;<strong>2</strong> &nbsp;＝ <strong>42</strong><br>
+&nbsp; （1がある桁は32の桁、8の桁、2の桁 → この3つを足す）<br><br>
 ④ 元が負の数なので → 答えは <strong style="font-size:1.2em;color:#e91e63">-42</strong>
 </span></div>
 
