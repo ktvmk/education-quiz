@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ドラムマシン｜Beat Lab</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#1a1a2e;color:#eee;min-height:100vh}
+.header{background:linear-gradient(135deg,#e91e63,#ff5722);padding:20px;text-align:center}
+.header h1{font-size:1.4em}.header .sub{font-size:.8em;opacity:.7}
+.container{max-width:900px;margin:0 auto;padding:16px}
+
+/* コントロール */
+.controls{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin:16px 0;padding:16px;background:rgba(255,255,255,.05);border-radius:12px}
+.ctrl-group{display:flex;flex-direction:column;gap:4px}
+.ctrl-label{font-size:.75em;color:#999;text-transform:uppercase}
+.ctrl-value{font-size:1.1em;font-weight:bold;color:#ff5722}
+.bpm-slider{width:150px;accent-color:#ff5722}
+.play-btn{padding:12px 32px;border:none;border-radius:10px;font-size:1.1em;font-weight:bold;cursor:pointer;transition:all .2s}
+.play-btn.stopped{background:#ff5722;color:#fff}
+.play-btn.playing{background:#4caf50;color:#fff}
+.clear-btn{padding:8px 16px;border:2px solid #666;border-radius:8px;background:transparent;color:#999;font-size:.85em;cursor:pointer}
+.clear-btn:hover{border-color:#ff5722;color:#ff5722}
+
+/* プリセット */
+.preset-bar{display:flex;gap:6px;margin:12px 0;flex-wrap:wrap}
+.preset-btn{padding:6px 14px;border:1.5px solid #666;border-radius:6px;background:transparent;color:#aaa;font-size:.8em;cursor:pointer;transition:all .2s}
+.preset-btn:hover{border-color:#ff5722;color:#ff5722}
+
+/* グリッド */
+.grid-container{overflow-x:auto;margin:16px 0}
+.grid{display:grid;gap:3px}
+.grid-header{display:contents}
+.inst-label{display:flex;align-items:center;gap:6px;padding:4px 8px;font-size:.82em;font-weight:bold;white-space:nowrap;min-width:90px}
+.inst-color{width:10px;height:10px;border-radius:50%}
+.cell{width:100%;aspect-ratio:1;border-radius:6px;cursor:pointer;transition:all .15s;border:1px solid rgba(255,255,255,.08);min-width:28px}
+.cell:hover{transform:scale(1.1);border-color:rgba(255,255,255,.3)}
+.cell.active{transform:scale(1.05)}
+.cell.beat-marker{border-bottom:2px solid rgba(255,255,255,.15)}
+.cell.playing-col{box-shadow:0 0 8px rgba(255,255,255,.3)}
+
+/* 音源選択 */
+.sound-select{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap;padding:12px;background:rgba(255,255,255,.03);border-radius:8px}
+.sound-group{display:flex;flex-direction:column;gap:4px;flex:1;min-width:120px}
+.sound-group label{font-size:.75em;color:#999}
+.sound-group select{padding:6px;border-radius:6px;border:1px solid #444;background:#2a2a3e;color:#eee;font-size:.82em}
+
+/* ダウンロード */
+.download-bar{display:flex;gap:8px;margin:12px 0}
+.dl-btn{padding:8px 20px;border:2px solid #ff5722;border-radius:8px;background:transparent;color:#ff5722;font-weight:bold;font-size:.85em;cursor:pointer;transition:all .2s}
+.dl-btn:hover{background:#ff5722;color:#fff}
+
+/* ステップ番号 */
+.step-numbers{display:contents}
+.step-num{font-size:.65em;color:#555;text-align:center;padding:2px 0}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>Beat Lab</h1>
+<div class="sub">ドラムマシン＆ビートメーカー</div>
+</div>
+<div class="container">
+
+<div class="controls">
+<button class="play-btn stopped" id="playBtn" onclick="togglePlay()">▶ Play</button>
+<div class="ctrl-group">
+<div class="ctrl-label">BPM</div>
+<input type="range" min="60" max="200" value="120" class="bpm-slider" id="bpmSlider" oninput="updateBPM()">
+<div class="ctrl-value" id="bpmValue">120</div>
+</div>
+<div class="ctrl-group">
+<div class="ctrl-label">STEPS</div>
+<select id="stepSelect" onchange="changeSteps()" style="padding:6px;border-radius:6px;border:1px solid #444;background:#2a2a3e;color:#eee">
+<option value="8">8</option>
+<option value="16" selected>16</option>
+<option value="32">32</option>
+</select>
+</div>
+<div class="ctrl-group">
+<div class="ctrl-label">SWING</div>
+<input type="range" min="0" max="100" value="0" style="width:80px;accent-color:#ff5722" id="swingSlider" oninput="document.getElementById('swingVal').textContent=this.value+'%'">
+<div class="ctrl-value" id="swingVal">0%</div>
+</div>
+<button class="clear-btn" onclick="clearAll()">Clear All</button>
+</div>
+
+<div class="preset-bar">
+<span style="font-size:.8em;color:#666;padding:6px 0">プリセット：</span>
+<button class="preset-btn" onclick="loadPreset('rock8')">Rock 8beat</button>
+<button class="preset-btn" onclick="loadPreset('rock16')">Rock 16beat</button>
+<button class="preset-btn" onclick="loadPreset('hiphop')">Hip Hop</button>
+<button class="preset-btn" onclick="loadPreset('house')">House</button>
+<button class="preset-btn" onclick="loadPreset('bossa')">Bossa Nova</button>
+<button class="preset-btn" onclick="loadPreset('funk')">Funk</button>
+</div>
+
+<div class="sound-select">
+<div class="sound-group">
+<label>Kick Sound</label>
+<select id="kickSound" onchange="updateSounds()">
+<option value="808">808 Deep</option>
+<option value="acoustic">Acoustic</option>
+<option value="rock" selected>Rock</option>
+<option value="tight">Tight</option>
+</select>
+</div>
+<div class="sound-group">
+<label>Snare Sound</label>
+<select id="snareSound" onchange="updateSounds()">
+<option value="808">808 Clap</option>
+<option value="acoustic" selected>Acoustic</option>
+<option value="rock">Rock</option>
+<option value="rim">Rimshot</option>
+</select>
+</div>
+<div class="sound-group">
+<label>HiHat Sound</label>
+<select id="hihatSound" onchange="updateSounds()">
+<option value="closed" selected>Closed</option>
+<option value="open">Open</option>
+<option value="electronic">Electronic</option>
+</select>
+</div>
+</div>
+
+<div class="grid-container">
+<div class="grid" id="grid" style="grid-template-columns:90px repeat(16,1fr)"></div>
+</div>
+
+<div class="download-bar">
+<button class="dl-btn" onclick="downloadMIDI()">MIDIダウンロード</button>
+</div>
+
+</div>
+
+<script>
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+// 楽器定義
+const instruments = [
+  {name:'Kick', color:'#ff5722', key:36},
+  {name:'Snare', color:'#ffeb3b', key:38},
+  {name:'HiHat Closed', color:'#4caf50', key:42},
+  {name:'HiHat Open', color:'#8bc34a', key:46},
+  {name:'Clap', color:'#e91e63', key:39},
+  {name:'Tom Hi', color:'#9c27b0', key:50},
+  {name:'Tom Lo', color:'#673ab7', key:45},
+  {name:'Crash', color:'#03a9f4', key:49},
+  {name:'Ride', color:'#00bcd4', key:51},
+];
+
+let steps = 16;
+let grid = [];
+let playing = false;
+let currentStep = 0;
+let intervalId = null;
+let bpm = 120;
+
+// 音合成
+const soundParams = {
+  kick: {
+    '808': {freq:55,decay:.5,tone:.3},
+    acoustic: {freq:80,decay:.3,tone:.5},
+    rock: {freq:70,decay:.25,tone:.4},
+    tight: {freq:100,decay:.15,tone:.6}
+  },
+  snare: {
+    '808': {noise:.3,tone:.1,freq:200},
+    acoustic: {noise:.2,tone:.15,freq:250},
+    rock: {noise:.25,tone:.12,freq:220},
+    rim: {noise:.1,tone:.05,freq:400}
+  },
+  hihat: {
+    closed: {decay:.05,freq:8000},
+    open: {decay:.3,freq:6000},
+    electronic: {decay:.08,freq:10000}
+  }
+};
+
+function playSound(instIdx) {
+  if(audioCtx.state==='suspended') audioCtx.resume();
+  const t = audioCtx.currentTime;
+
+  if(instIdx === 0) { // Kick
+    const p = soundParams.kick[document.getElementById('kickSound').value];
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(p.freq*2, t);
+    osc.frequency.exponentialRampToValueAtTime(p.freq, t+0.05);
+    gain.gain.setValueAtTime(1, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t+p.decay);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(t); osc.stop(t+p.decay);
+  }
+  else if(instIdx === 1 || instIdx === 4) { // Snare / Clap
+    const p = soundParams.snare[document.getElementById('snareSound').value];
+    // Noise
+    const bufferSize = audioCtx.sampleRate * p.noise;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for(let i=0;i<bufferSize;i++) data[i]=(Math.random()*2-1);
+    const noise = audioCtx.createBufferSource();
+    noise.buffer = buffer;
+    const nGain = audioCtx.createGain();
+    nGain.gain.setValueAtTime(.8, t);
+    nGain.gain.exponentialRampToValueAtTime(0.001, t+p.noise);
+    const filter = audioCtx.createBiquadFilter();
+    filter.type = 'highpass'; filter.frequency.value = 1000;
+    noise.connect(filter).connect(nGain).connect(audioCtx.destination);
+    noise.start(t);
+    // Tone
+    const osc = audioCtx.createOscillator();
+    const oGain = audioCtx.createGain();
+    osc.type = 'triangle'; osc.frequency.value = p.freq;
+    oGain.gain.setValueAtTime(.5, t);
+    oGain.gain.exponentialRampToValueAtTime(0.001, t+p.tone);
+    osc.connect(oGain).connect(audioCtx.destination);
+    osc.start(t); osc.stop(t+p.tone);
+  }
+  else if(instIdx === 2 || instIdx === 3) { // HiHat
+    const isOpen = instIdx === 3;
+    const p = isOpen ? {decay:.3,freq:6000} : soundParams.hihat[document.getElementById('hihatSound').value];
+    const bufferSize = audioCtx.sampleRate * p.decay;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for(let i=0;i<bufferSize;i++) data[i]=(Math.random()*2-1);
+    const src = audioCtx.createBufferSource();
+    src.buffer = buffer;
+    const gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(.3, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t+p.decay);
+    const bp = audioCtx.createBiquadFilter();
+    bp.type='bandpass'; bp.frequency.value=p.freq; bp.Q.value=1;
+    src.connect(bp).connect(gain).connect(audioCtx.destination);
+    src.start(t);
+  }
+  else if(instIdx === 5 || instIdx === 6) { // Toms
+    const freq = instIdx===5 ? 200 : 120;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type='sine';
+    osc.frequency.setValueAtTime(freq*1.5, t);
+    osc.frequency.exponentialRampToValueAtTime(freq, t+0.05);
+    gain.gain.setValueAtTime(.6, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t+.3);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(t); osc.stop(t+.3);
+  }
+  else if(instIdx === 7 || instIdx === 8) { // Crash / Ride
+    const decay = instIdx===7 ? .8 : .4;
+    const freq = instIdx===7 ? 5000 : 8000;
+    const bufferSize = audioCtx.sampleRate * decay;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for(let i=0;i<bufferSize;i++) data[i]=(Math.random()*2-1);
+    const src = audioCtx.createBufferSource();
+    src.buffer = buffer;
+    const gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(.25, t);
+    gain.gain.exponentialRampToValueAtTime(0.001, t+decay);
+    const bp = audioCtx.createBiquadFilter();
+    bp.type='bandpass'; bp.frequency.value=freq; bp.Q.value=.5;
+    src.connect(bp).connect(gain).connect(audioCtx.destination);
+    src.start(t);
+  }
+}
+
+function buildGrid() {
+  grid = instruments.map(() => new Array(steps).fill(false));
+  const g = document.getElementById('grid');
+  g.style.gridTemplateColumns = `90px repeat(${steps},1fr)`;
+  g.innerHTML = '';
+
+  // Step numbers
+  g.innerHTML += '<div></div>';
+  for(let s=0;s<steps;s++) {
+    g.innerHTML += `<div class="step-num">${s+1}</div>`;
+  }
+
+  // Instrument rows
+  instruments.forEach((inst, iIdx) => {
+    g.innerHTML += `<div class="inst-label"><div class="inst-color" style="background:${inst.color}"></div>${inst.name}</div>`;
+    for(let s=0;s<steps;s++) {
+      const beatClass = s%4===0 ? ' beat-marker' : '';
+      g.innerHTML += `<div class="cell${beatClass}" id="c${iIdx}_${s}" style="background:rgba(255,255,255,.04)" onclick="toggleCell(${iIdx},${s})" oncontextmenu="return false"></div>`;
+    }
+  });
+}
+
+function toggleCell(i, s) {
+  grid[i][s] = !grid[i][s];
+  const cell = document.getElementById(`c${i}_${s}`);
+  if(grid[i][s]) {
+    cell.style.background = instruments[i].color;
+    cell.classList.add('active');
+    playSound(i);
+  } else {
+    cell.style.background = 'rgba(255,255,255,.04)';
+    cell.classList.remove('active');
+  }
+}
+
+function togglePlay() {
+  if(playing) { stopPlay(); } else { startPlay(); }
+}
+
+function startPlay() {
+  if(audioCtx.state==='suspended') audioCtx.resume();
+  playing = true;
+  currentStep = 0;
+  document.getElementById('playBtn').textContent = '⏸ Stop';
+  document.getElementById('playBtn').className = 'play-btn playing';
+  tick();
+}
+
+function stopPlay() {
+  playing = false;
+  clearTimeout(intervalId);
+  document.getElementById('playBtn').textContent = '▶ Play';
+  document.getElementById('playBtn').className = 'play-btn stopped';
+  // Clear column highlights
+  for(let s=0;s<steps;s++) {
+    instruments.forEach((_, i) => {
+      document.getElementById(`c${i}_${s}`).classList.remove('playing-col');
+    });
+  }
+}
+
+function tick() {
+  if(!playing) return;
+
+  // Clear previous
+  const prev = (currentStep - 1 + steps) % steps;
+  instruments.forEach((_, i) => {
+    document.getElementById(`c${i}_${prev}`).classList.remove('playing-col');
+  });
+
+  // Play current
+  instruments.forEach((_, i) => {
+    const cell = document.getElementById(`c${i}_${currentStep}`);
+    cell.classList.add('playing-col');
+    if(grid[i][currentStep]) playSound(i);
+  });
+
+  currentStep = (currentStep + 1) % steps;
+
+  const swing = parseInt(document.getElementById('swingSlider').value) / 100;
+  const baseInterval = (60 / bpm / 4) * 1000; // 16th note
+  const swingOffset = currentStep % 2 === 0 ? 0 : baseInterval * swing * 0.3;
+  intervalId = setTimeout(tick, baseInterval + swingOffset);
+}
+
+function updateBPM() {
+  bpm = parseInt(document.getElementById('bpmSlider').value);
+  document.getElementById('bpmValue').textContent = bpm;
+}
+
+function changeSteps() {
+  const wasPlaying = playing;
+  if(playing) stopPlay();
+  steps = parseInt(document.getElementById('stepSelect').value);
+  buildGrid();
+  if(wasPlaying) startPlay();
+}
+
+function clearAll() {
+  grid = instruments.map(() => new Array(steps).fill(false));
+  instruments.forEach((_, i) => {
+    for(let s=0;s<steps;s++) {
+      const cell = document.getElementById(`c${i}_${s}`);
+      cell.style.background = 'rgba(255,255,255,.04)';
+      cell.classList.remove('active');
+    }
+  });
+}
+
+function updateSounds() { /* 音源変更は次回再生時に反映 */ }
+
+// プリセット
+const presets = {
+  rock8: {bpm:120, pattern:{
+    0:[0,4,8,12], // kick
+    1:[4,12], // snare
+    2:[0,2,4,6,8,10,12,14], // hh closed
+  }},
+  rock16: {bpm:130, pattern:{
+    0:[0,4,10,12], 1:[4,12], 2:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+  }},
+  hiphop: {bpm:90, pattern:{
+    0:[0,4,7,10], 1:[4,12], 2:[0,2,4,6,8,10,12,14], 3:[6],
+  }},
+  house: {bpm:128, pattern:{
+    0:[0,4,8,12], 1:[4,12], 2:[0,2,4,6,8,10,12,14], 3:[2,6,10,14],
+  }},
+  bossa: {bpm:140, pattern:{
+    0:[0,6,10], 1:[4,12], 2:[0,2,3,4,6,8,10,12,14],
+  }},
+  funk: {bpm:100, pattern:{
+    0:[0,3,6,10,12,15], 1:[4,12], 2:[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15], 3:[3,7,11],
+  }},
+};
+
+function loadPreset(name) {
+  const p = presets[name];
+  if(!p) return;
+  clearAll();
+  bpm = p.bpm;
+  document.getElementById('bpmSlider').value = bpm;
+  document.getElementById('bpmValue').textContent = bpm;
+  for(const [instIdx, steps_on] of Object.entries(p.pattern)) {
+    steps_on.forEach(s => {
+      if(s < steps) {
+        grid[parseInt(instIdx)][s] = true;
+        const cell = document.getElementById(`c${instIdx}_${s}`);
+        cell.style.background = instruments[parseInt(instIdx)].color;
+        cell.classList.add('active');
+      }
+    });
+  }
+}
+
+// MIDI export
+function downloadMIDI() {
+  // Simple MIDI file generation
+  const ticksPerBeat = 480;
+  const ticksPer16th = ticksPerBeat / 4;
+
+  function writeVarLen(v) {
+    const bytes = [];
+    bytes.push(v & 0x7f);
+    v >>= 7;
+    while(v > 0) { bytes.push((v & 0x7f) | 0x80); v >>= 7; }
+    return bytes.reverse();
+  }
+
+  // Build track data
+  let trackData = [];
+  // Tempo
+  const usPerBeat = Math.round(60000000 / bpm);
+  trackData.push(0x00, 0xFF, 0x51, 0x03,
+    (usPerBeat >> 16) & 0xff, (usPerBeat >> 8) & 0xff, usPerBeat & 0xff);
+
+  // Notes
+  for(let s = 0; s < steps; s++) {
+    let hasNote = false;
+    instruments.forEach((inst, i) => {
+      if(grid[i][s]) {
+        if(!hasNote) {
+          trackData.push(...writeVarLen(s === 0 ? 0 : 0));
+        } else {
+          trackData.push(0x00);
+        }
+        trackData.push(0x99, inst.key, 100); // Note on ch10
+        hasNote = true;
+      }
+    });
+    if(!hasNote && s === 0) {
+      // Silent first beat
+    }
+    // Advance time
+    if(s < steps - 1) {
+      const nextHasNote = instruments.some((_, i) => grid[i][s+1]);
+      if(hasNote || s === 0) {
+        // Note offs + delta
+      }
+    }
+  }
+
+  // Simplified: just create note events with proper timing
+  trackData = [];
+  const tempo_bytes = [0x00, 0xFF, 0x51, 0x03,
+    (usPerBeat >> 16) & 0xff, (usPerBeat >> 8) & 0xff, usPerBeat & 0xff];
+  trackData.push(...tempo_bytes);
+
+  let lastTick = 0;
+  for(let s = 0; s < steps; s++) {
+    const currentTick = s * ticksPer16th;
+    instruments.forEach((inst, i) => {
+      if(grid[i][s]) {
+        const delta = currentTick - lastTick;
+        trackData.push(...writeVarLen(delta));
+        trackData.push(0x99, inst.key, 100);
+        lastTick = currentTick;
+        // Note off after short duration
+        trackData.push(...writeVarLen(ticksPer16th / 2));
+        trackData.push(0x89, inst.key, 0);
+        lastTick += ticksPer16th / 2;
+      }
+    });
+  }
+  // End of track
+  trackData.push(0x00, 0xFF, 0x2F, 0x00);
+
+  // Build MIDI file
+  const header = [
+    0x4D, 0x54, 0x68, 0x64, // MThd
+    0x00, 0x00, 0x00, 0x06, // chunk length
+    0x00, 0x00, // format 0
+    0x00, 0x01, // 1 track
+    (ticksPerBeat >> 8) & 0xff, ticksPerBeat & 0xff, // ticks per beat
+  ];
+
+  const trackHeader = [
+    0x4D, 0x54, 0x72, 0x6B, // MTrk
+    (trackData.length >> 24) & 0xff,
+    (trackData.length >> 16) & 0xff,
+    (trackData.length >> 8) & 0xff,
+    trackData.length & 0xff,
+  ];
+
+  const midi = new Uint8Array([...header, ...trackHeader, ...trackData]);
+  const blob = new Blob([midi], {type: 'audio/midi'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `beat_${bpm}bpm.mid`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Init
+buildGrid();
+loadPreset('rock8');
+</script>
+</body>
+</html>
