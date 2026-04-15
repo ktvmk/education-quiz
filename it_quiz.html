@@ -39,6 +39,7 @@
 <div class="mode-select">
 <div class="mode-btn active" onclick="selectMode('lesson')">レッスン</div>
 <div class="mode-btn" onclick="selectMode('quiz')">確認テスト</div>
+<div class="mode-btn" onclick="selectMode('exam')" style="border-color:#e91e63;color:#e91e63">過去問レベル</div>
 </div>
 
 <!-- ===== 第1章 レッスン ===== -->
@@ -114,6 +115,34 @@
 </div>
 
 <script>
+// 過去問レベル
+const examPool = {
+1: [
+{q:'32ビットで表現できるビットパターンの個数は、24ビットで表現できる個数の何倍か。（平成28年度）',choices:['8','16','128','256'],answer:3,explanation:'2^32 ÷ 2^24 = 2^8 = 256倍です。'},
+{q:'次の10進小数のうち、8進数に変換すると有限小数になるものはどれか。（平成26年度改）',choices:['0.3','0.4','0.5','0.7'],answer:2,explanation:'0.5×8=4.0 → 有限小数0.4です。他は循環小数になります。'},
+{q:'16進小数2B.Dを10進数に変換した値に最も近いものはどれか。',choices:['43.8125','43.8','44.8125','42.8125'],answer:0,explanation:'2×16+11+13/16 = 32+11+0.8125 = 43.8125'},
+{q:'10進数の演算式 7÷32 の結果を2進数で表したものはどれか。（平成31年度）',choices:['0.001011','0.001101','0.00111','0.0111'],answer:2,explanation:'7=111(2進)、÷32=右に5シフト → 0.00111'},
+{q:'数値を2進数で格納するレジスタがある。正の整数xを設定した後、「2ビット左にシフトしてxを加える」操作を行うと、レジスタの値はxの何倍になるか。（平成28年度）',choices:['3','4','5','6'],answer:2,explanation:'2ビット左シフト=×4、+x → 4x+x=5x'},
+{q:'8ビットの2進数11010110を、2の補数表現の負の整数として解釈した場合、10進数での値はいくらか。',choices:['-42','-43','-44','-38'],answer:0,explanation:'反転→00101001、+1→00101010=42 → -42'},
+{q:'負の整数を2の補数で表現する8ビットの2進数10110100を10進数に変換するといくつか。',choices:['-76','-75','-74','-180'],answer:0,explanation:'反転→01001011=75、+1→01001100=76 → -76'},
+{q:'ある整数値を16ビットの2進数で表すとき、この整数の最大値（正の数）はいくつか。',choices:['32767','32768','65535','65536'],answer:0,explanation:'符号付き16ビットの正の最大値は2^15-1=32767です。'},
+{q:'論理シフトで、8ビットの値「10100000」を右に3ビットシフトした結果はどれか。',choices:['00010100','11110100','01010000','00101000'],answer:0,explanation:'右に3つずらし、左に0を入れる → 00010100'},
+{q:'2進数で表された「101」と「110」の和を求めよ。',choices:['1011','1001','1100','1111'],answer:0,explanation:'101+110: 1+0=1, 0+1=1, 1+1=10(繰り上がり) → 1011'}
+],
+2: [
+{q:'X AND Y の否定論理積 X NAND Y は、NOT(X AND Y) として定義される。X OR Y を NAND だけを使って表した論理式はどれか。（平成29年度）',choices:['(X NAND X) NAND (Y NAND Y)','(X NAND Y) NAND (X NAND Y)','X NAND (Y NAND Y)','(X NAND X) NAND Y'],answer:0,explanation:'NOT X = X NAND X なので、X OR Y = (X NAND X) NAND (Y NAND Y) です。ド・モルガンの法則を利用しています。'},
+{q:'半加算器において、2つの素子A, Bの組合せとして適切なものはどれか。（平成29年度）',choices:['A=AND, B=OR','A=XOR, B=AND','A=NAND, B=NOR','A=XOR, B=OR'],answer:1,explanation:'半加算器はXOR（和の1桁目）とAND（桁上げ）で構成されます。'},
+{q:'全加算器を表す論理回路で、x=1, y=0, z=1を入力したとき、桁上げcと和sの値はどれか。（平成21年度改）',choices:['c=1, s=0','c=0, s=0','c=1, s=1','c=0, s=1'],answer:0,explanation:'1+0+1=10(2進) → 桁上げ=1、和=0です。'},
+{q:'ある状態遷移図において、初期状態S0から入力「0,1,1」を与えた場合の最終状態はどれか。S0→(0)→S1、S0→(1)→S0、S1→(0)→S0、S1→(1)→S1',choices:['S0','S1','受理不可','不定'],answer:1,explanation:'S0→(0)→S1→(1)→S1→(1)→S1 です。'},
+{q:'ディープラーニングに関する記述として、最も適切なものはどれか。（令和元年度改）',choices:['人間がルールを一つずつプログラムする手法','ニューラルネットワークを多層化して自動で特徴を学習する手法','データベースから知識を検索する手法','統計的にデータの平均値を求める手法'],answer:1,explanation:'ディープラーニング（深層学習）はニューラルネットワークを多層化し、大量データから自動で特徴量を学習する技術です。'},
+{q:'AIにおける教師あり学習の説明として最も適切なものはどれか。',choices:['入力データだけを与えて分類させる','正解ラベル付きのデータで学習させる','試行錯誤で報酬を最大化する','大量のテキストから文章を生成する'],answer:1,explanation:'教師あり学習は入力データと正解（ラベル）のペアで学習します。'},
+{q:'生成AIの基盤モデルに対して、特定分野のデータで追加学習を行い性能を調整することを何というか。',choices:['ファインチューニング','プロンプトエンジニアリング','転移学習','データオーグメンテーション'],answer:0,explanation:'ファインチューニング（Fine Tuning）は基盤モデルに追加学習を行い、特定用途に調整することです。'},
+{q:'排他的論理和（XOR）の真理値表で、入力A=0, B=0のときの出力はどれか。',choices:['0','1','不定','エラー'],answer:0,explanation:'XORは入力が異なるときに1。A=0, B=0は同じなので出力は0です。'},
+{q:'論理式 NOT(A AND B) を満たす入力の組合せとして正しくないものはどれか。',choices:['A=0, B=0','A=0, B=1','A=1, B=0','A=1, B=1'],answer:3,explanation:'NOT(A AND B)=NAND。A=1,B=1のとき AND=1、NOT(1)=0 となり、式を満たしません。'},
+{q:'逆ポーランド表記法で「A B + C D - ×」と表される式を中置記法で表すとどれか。',choices:['(A+B)×(C-D)','A+B×C-D','(A×B)+(C-D)','A+(B×C)-D'],answer:0,explanation:'A B +→(A+B)、C D -→(C-D)、×→(A+B)×(C-D) です。'}
+]
+};
+
 // 問題プール
 const questionPool = {
 1: [
@@ -161,8 +190,13 @@ function selectChapter(ch) {
 
 function selectMode(mode) {
   currentMode = mode;
-  document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.textContent===(mode==='lesson'?'レッスン':'確認テスト')));
-  if(mode==='quiz') startQuiz();
+  document.querySelectorAll('.mode-btn').forEach(b => {
+    b.classList.remove('active');
+    if(mode==='lesson' && b.textContent==='レッスン') b.classList.add('active');
+    if(mode==='quiz' && b.textContent==='確認テスト') b.classList.add('active');
+    if(mode==='exam' && b.textContent==='過去問レベル') b.classList.add('active');
+  });
+  if(mode==='quiz' || mode==='exam') startQuiz();
   updateView();
 }
 
@@ -170,6 +204,7 @@ function updateView() {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   if(currentMode === 'lesson') {
     document.getElementById(`ch${currentChapter}-lesson`).classList.add('active');
+    document.getElementById('quiz-area').classList.remove('active');
     // 最初のサブタブをアクティブに
     const subs = document.querySelectorAll(`.ch${currentChapter}l`);
     subs.forEach((s,i) => s.classList.toggle('active', i===0));
@@ -189,10 +224,11 @@ function showSub(prefix, idx) {
 function shuffleArray(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
 
 function startQuiz() {
-  const pool = questionPool[currentChapter] || [];
+  const pool = currentMode === 'exam' ? (examPool[currentChapter] || []) : (questionPool[currentChapter] || []);
   questions = shuffleArray(pool);
   answered = 0;
-  document.getElementById('quizTitle').textContent = `確認テスト（第${currentChapter}章）`;
+  const modeLabel = currentMode === 'exam' ? '過去問レベル' : '確認テスト';
+  document.getElementById('quizTitle').textContent = `${modeLabel}（第${currentChapter}章）`;
   document.getElementById('submitBtn').style.display = 'none';
   document.getElementById('resultArea').style.display = 'none';
   document.getElementById('progressFill').style.width = '0%';
