@@ -129,6 +129,26 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
 <div class="grid" id="grid" style="grid-template-columns:90px repeat(16,1fr)"></div>
 </div>
 
+<!-- セクション -->
+<div style="margin:16px 0;padding:16px;background:rgba(255,255,255,.05);border-radius:12px">
+<div style="font-size:.8em;color:#999;margin-bottom:8px">SECTIONS（セクション切替）</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+<button class="preset-btn" style="border-color:#ff5722;color:#ff5722;font-weight:bold" id="secA" onclick="switchSection('A')">A メロ</button>
+<button class="preset-btn" id="secB" onclick="switchSection('B')">B メロ</button>
+<button class="preset-btn" id="secC" onclick="switchSection('C')">サビ</button>
+<button class="preset-btn" id="secD" onclick="switchSection('D')">Outro</button>
+<span style="color:#555;margin:0 8px">|</span>
+<button class="preset-btn" onclick="copySection()" title="現在のパターンを別セクションにコピー">コピー →</button>
+<select id="copyTarget" style="padding:4px 8px;border-radius:6px;border:1px solid #444;background:#2a2a3e;color:#eee;font-size:.82em">
+<option value="B">B メロ</option>
+<option value="C">サビ</option>
+<option value="D">Outro</option>
+</select>
+<span style="color:#555;margin:0 8px">|</span>
+<button class="preset-btn" onclick="playAllSections()" style="border-color:#4caf50;color:#4caf50">▶ 全セクション連結再生</button>
+</div>
+</div>
+
 <div class="download-bar">
 <button class="dl-btn" onclick="downloadMIDI()">MIDIダウンロード</button>
 </div>
@@ -140,15 +160,23 @@ const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 // 楽器定義
 const instruments = [
-  {name:'Kick', color:'#ff5722', key:36},
-  {name:'Snare', color:'#ffeb3b', key:38},
-  {name:'HiHat Closed', color:'#4caf50', key:42},
-  {name:'HiHat Open', color:'#8bc34a', key:46},
-  {name:'Clap', color:'#e91e63', key:39},
-  {name:'Tom Hi', color:'#9c27b0', key:50},
-  {name:'Tom Lo', color:'#673ab7', key:45},
-  {name:'Crash', color:'#03a9f4', key:49},
-  {name:'Ride', color:'#00bcd4', key:51},
+  // Drums
+  {name:'Kick', color:'#ff5722', key:36, cat:'drum'},
+  {name:'Snare', color:'#ffeb3b', key:38, cat:'drum'},
+  {name:'HiHat Closed', color:'#4caf50', key:42, cat:'drum'},
+  {name:'HiHat Open', color:'#8bc34a', key:46, cat:'drum'},
+  {name:'Clap', color:'#e91e63', key:39, cat:'drum'},
+  {name:'Tom Hi', color:'#9c27b0', key:50, cat:'drum'},
+  {name:'Tom Lo', color:'#673ab7', key:45, cat:'drum'},
+  {name:'Crash', color:'#03a9f4', key:49, cat:'drum'},
+  {name:'Ride', color:'#00bcd4', key:51, cat:'drum'},
+  // Ambient / FX
+  {name:'Sub Bass', color:'#ff6f00', key:60, cat:'fx'},
+  {name:'Riser', color:'#76ff03', key:61, cat:'fx'},
+  {name:'Rev Cymbal', color:'#18ffff', key:62, cat:'fx'},
+  {name:'White Noise', color:'#e0e0e0', key:63, cat:'fx'},
+  {name:'Vinyl Crackle', color:'#8d6e63', key:64, cat:'fx'},
+  {name:'Shaker', color:'#ffd54f', key:65, cat:'fx'},
 ];
 
 let steps = 16;
@@ -264,6 +292,81 @@ function playSound(instIdx) {
     const bp = audioCtx.createBiquadFilter();
     bp.type='bandpass'; bp.frequency.value=freq; bp.Q.value=.5;
     src.connect(bp).connect(gain).connect(audioCtx.destination);
+    src.start(t);
+  }
+  // === Ambient / FX ===
+  else if(instIdx === 9) { // Sub Bass
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type='sine'; osc.frequency.value=40;
+    gain.gain.setValueAtTime(.6,t);
+    gain.gain.exponentialRampToValueAtTime(0.001,t+.4);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(t); osc.stop(t+.4);
+  }
+  else if(instIdx === 10) { // Riser
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type='sawtooth';
+    osc.frequency.setValueAtTime(200,t);
+    osc.frequency.exponentialRampToValueAtTime(2000,t+.5);
+    gain.gain.setValueAtTime(.15,t);
+    gain.gain.exponentialRampToValueAtTime(0.001,t+.5);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(t); osc.stop(t+.5);
+  }
+  else if(instIdx === 11) { // Reverse Cymbal
+    const len=.6; const bufSz=audioCtx.sampleRate*len;
+    const buf=audioCtx.createBuffer(1,bufSz,audioCtx.sampleRate);
+    const d=buf.getChannelData(0);
+    for(let i=0;i<bufSz;i++) d[i]=(Math.random()*2-1)*(i/bufSz); // fade in = reverse feel
+    const src=audioCtx.createBufferSource(); src.buffer=buf;
+    const gain=audioCtx.createGain();
+    gain.gain.setValueAtTime(.2,t);
+    gain.gain.setValueAtTime(.001,t+len);
+    const bp=audioCtx.createBiquadFilter();
+    bp.type='bandpass'; bp.frequency.value=6000; bp.Q.value=.8;
+    src.connect(bp).connect(gain).connect(audioCtx.destination);
+    src.start(t);
+  }
+  else if(instIdx === 12) { // White Noise sweep
+    const len=.3; const bufSz=audioCtx.sampleRate*len;
+    const buf=audioCtx.createBuffer(1,bufSz,audioCtx.sampleRate);
+    const d=buf.getChannelData(0);
+    for(let i=0;i<bufSz;i++) d[i]=(Math.random()*2-1);
+    const src=audioCtx.createBufferSource(); src.buffer=buf;
+    const gain=audioCtx.createGain();
+    gain.gain.setValueAtTime(.12,t);
+    gain.gain.exponentialRampToValueAtTime(0.001,t+len);
+    src.connect(gain).connect(audioCtx.destination);
+    src.start(t);
+  }
+  else if(instIdx === 13) { // Vinyl Crackle
+    const len=.2; const bufSz=audioCtx.sampleRate*len;
+    const buf=audioCtx.createBuffer(1,bufSz,audioCtx.sampleRate);
+    const d=buf.getChannelData(0);
+    for(let i=0;i<bufSz;i++) d[i]=(Math.random()>.97?Math.random()*.3:0); // sparse crackle
+    const src=audioCtx.createBufferSource(); src.buffer=buf;
+    const gain=audioCtx.createGain();
+    gain.gain.setValueAtTime(.4,t);
+    gain.gain.exponentialRampToValueAtTime(0.001,t+len);
+    const lp=audioCtx.createBiquadFilter();
+    lp.type='lowpass'; lp.frequency.value=3000;
+    src.connect(lp).connect(gain).connect(audioCtx.destination);
+    src.start(t);
+  }
+  else if(instIdx === 14) { // Shaker
+    const len=.08; const bufSz=audioCtx.sampleRate*len;
+    const buf=audioCtx.createBuffer(1,bufSz,audioCtx.sampleRate);
+    const d=buf.getChannelData(0);
+    for(let i=0;i<bufSz;i++) d[i]=(Math.random()*2-1);
+    const src=audioCtx.createBufferSource(); src.buffer=buf;
+    const gain=audioCtx.createGain();
+    gain.gain.setValueAtTime(.2,t);
+    gain.gain.exponentialRampToValueAtTime(0.001,t+len);
+    const hp=audioCtx.createBiquadFilter();
+    hp.type='highpass'; hp.frequency.value=7000;
+    src.connect(hp).connect(gain).connect(audioCtx.destination);
     src.start(t);
   }
 }
@@ -521,9 +624,97 @@ function downloadMIDI() {
   URL.revokeObjectURL(url);
 }
 
+// === Section management ===
+let currentSection = 'A';
+const sections = {A:null, B:null, C:null, D:null};
+
+function saveCurrentSection() {
+  sections[currentSection] = grid.map(row => [...row]);
+}
+
+function switchSection(name) {
+  saveCurrentSection();
+  currentSection = name;
+  document.querySelectorAll('[id^="sec"]').forEach(b => {
+    b.style.borderColor = '#666'; b.style.color = '#aaa'; b.style.fontWeight = 'normal';
+  });
+  document.getElementById('sec'+name).style.borderColor = '#ff5722';
+  document.getElementById('sec'+name).style.color = '#ff5722';
+  document.getElementById('sec'+name).style.fontWeight = 'bold';
+
+  if(sections[name]) {
+    grid = sections[name].map(row => [...row]);
+    // Update visual
+    instruments.forEach((inst, i) => {
+      for(let s=0;s<steps;s++) {
+        const cell = document.getElementById(`c${i}_${s}`);
+        if(grid[i][s]) {
+          cell.style.background = inst.color;
+          cell.classList.add('active');
+        } else {
+          cell.style.background = 'rgba(255,255,255,.04)';
+          cell.classList.remove('active');
+        }
+      }
+    });
+  } else {
+    clearAll();
+  }
+}
+
+function copySection() {
+  saveCurrentSection();
+  const target = document.getElementById('copyTarget').value;
+  sections[target] = grid.map(row => [...row]);
+}
+
+function playAllSections() {
+  saveCurrentSection();
+  const order = ['A','B','C','D'].filter(s => sections[s] && sections[s].some(row => row.some(v=>v)));
+  if(order.length === 0) { order.push(currentSection); }
+
+  let secIdx = 0;
+  function playNextSection() {
+    if(secIdx >= order.length) { stopPlay(); switchSection(order[0]); return; }
+    switchSection(order[secIdx]);
+    secIdx++;
+    playing = true;
+    currentStep = 0;
+    document.getElementById('playBtn').textContent = '⏸ Stop (' + order[secIdx-1] + ')';
+    document.getElementById('playBtn').className = 'play-btn playing';
+
+    let stepsPlayed = 0;
+    function sectionTick() {
+      if(!playing) return;
+      if(stepsPlayed >= steps) { playNextSection(); return; }
+
+      const prev = (currentStep - 1 + steps) % steps;
+      instruments.forEach((_, i) => {
+        document.getElementById(`c${i}_${prev}`).classList.remove('playing-col');
+      });
+      instruments.forEach((_, i) => {
+        const cell = document.getElementById(`c${i}_${currentStep}`);
+        cell.classList.add('playing-col');
+        if(grid[i][currentStep]) playSound(i);
+      });
+      currentStep = (currentStep + 1) % steps;
+      stepsPlayed++;
+
+      const swing = parseInt(document.getElementById('swingSlider').value) / 100;
+      const baseInterval = (60 / bpm / 4) * 1000;
+      const swingOffset = currentStep % 2 === 0 ? 0 : baseInterval * swing * 0.3;
+      intervalId = setTimeout(sectionTick, baseInterval + swingOffset);
+    }
+    sectionTick();
+  }
+  if(playing) stopPlay();
+  playNextSection();
+}
+
 // Init
 buildGrid();
 loadPreset('rock8');
+saveCurrentSection();
 </script>
 </body>
 </html>
