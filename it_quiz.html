@@ -212,11 +212,34 @@
 答え：<strong>10110</strong></div>
 
 <h3>2進数 ↔ 16進数の変換</h3>
-<div class="key-point">2進数を<strong>4桁ずつ区切って</strong>、各グループを16進数に変換するだけ。逆も同様。</div>
-<div class="formula"><strong>2進数→16進数：</strong><br>
-10110100 → 1011 | 0100 → B | 4 → <strong>B4</strong><br><br>
-<strong>16進数→2進数：</strong><br>
-3F → 0011 | 1111 → <strong>00111111</strong></div>
+<div class="key-point"><strong>なぜ4桁ずつ？</strong><br>
+2進数の4桁 = 2<sup>4</sup> = <strong>16通り</strong>（0〜15）。これは16進数の1桁（0〜F）とぴったり対応します。だから4桁ずつ区切れば、そのまま16進数になるのです。</div>
+
+<div class="key-point"><strong>2進数4桁と16進数の対応表（覚える！）</strong><br><br>
+<span style="font-family:monospace">
+0000=<strong>0</strong> &nbsp; 0100=<strong>4</strong> &nbsp; 1000=<strong>8</strong> &nbsp; 1100=<strong>C</strong>(12)<br>
+0001=<strong>1</strong> &nbsp; 0101=<strong>5</strong> &nbsp; 1001=<strong>9</strong> &nbsp; 1101=<strong>D</strong>(13)<br>
+0010=<strong>2</strong> &nbsp; 0110=<strong>6</strong> &nbsp; 1010=<strong>A</strong>(10) 1110=<strong>E</strong>(14)<br>
+0011=<strong>3</strong> &nbsp; 0111=<strong>7</strong> &nbsp; 1011=<strong>B</strong>(11) 1111=<strong>F</strong>(15)
+</span></div>
+
+<div class="formula"><strong>2進数→16進数の例：</strong><br><br>
+10110100<br>
+↓ 4桁ずつ区切る<br>
+<strong>1011</strong> | <strong>0100</strong><br>
+↓ それぞれ上の表で変換<br>
+1011 = 8+0+2+1 = 11 → <strong>B</strong><br>
+0100 = 0+4+0+0 = 4 &nbsp;→ <strong>4</strong><br>
+↓ 並べる<br>
+答え：<strong>B4</strong></div>
+
+<div class="formula"><strong>16進数→2進数の例：</strong><br><br>
+3F<br>
+↓ 1桁ずつ4桁の2進数に変換<br>
+3 → <strong>0011</strong>（0+0+2+1=3）<br>
+F → <strong>1111</strong>（8+4+2+1=15）<br>
+↓ 並べる<br>
+答え：<strong>00111111</strong></div>
 
 <div class="example"><strong>試験のコツ：</strong>基数変換は計算量が多く時間がかかるため、コストパフォーマンスが悪い問題です。計算が苦手な人は後回しにして、他の問題を先に解くのが得策です。</div>
 </div>
