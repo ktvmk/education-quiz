@@ -215,13 +215,23 @@
 <div class="key-point"><strong>なぜ4桁ずつ？</strong><br>
 2進数の4桁 = 2<sup>4</sup> = <strong>16通り</strong>（0〜15）。これは16進数の1桁（0〜F）とぴったり対応します。だから4桁ずつ区切れば、そのまま16進数になるのです。</div>
 
-<div class="key-point"><strong>2進数4桁と16進数の対応表（覚える！）</strong><br><br>
-<span style="font-family:monospace">
-0000=<strong>0</strong> &nbsp; 0100=<strong>4</strong> &nbsp; 1000=<strong>8</strong> &nbsp; 1100=<strong>C</strong>(12)<br>
-0001=<strong>1</strong> &nbsp; 0101=<strong>5</strong> &nbsp; 1001=<strong>9</strong> &nbsp; 1101=<strong>D</strong>(13)<br>
-0010=<strong>2</strong> &nbsp; 0110=<strong>6</strong> &nbsp; 1010=<strong>A</strong>(10) 1110=<strong>E</strong>(14)<br>
-0011=<strong>3</strong> &nbsp; 0111=<strong>7</strong> &nbsp; 1011=<strong>B</strong>(11) 1111=<strong>F</strong>(15)
+<div class="key-point"><strong>覚えるのは「8・4・2・1」だけ！</strong><br><br>
+2進数の4桁には、左から順に<strong style="font-size:1.3em;color:#e65100">8 &nbsp; 4 &nbsp; 2 &nbsp; 1</strong> という重みがあります。<br>
+1がついている桁の数字を足すだけで、10進数（＝16進数の1桁）に変換できます。<br><br>
+
+<span style="font-family:monospace;font-size:1.1em;line-height:2.5">
+&nbsp; &nbsp; 重み → &nbsp;<strong style="color:#e65100">8</strong> &nbsp; <strong style="color:#e65100">4</strong> &nbsp; <strong style="color:#e65100">2</strong> &nbsp; <strong style="color:#e65100">1</strong><br>
+例① &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; 0 &nbsp; 0 &nbsp; 0 &nbsp; → 何も足さない &nbsp; = <strong>0</strong><br>
+例② &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; 0 &nbsp; 0 &nbsp; 1 &nbsp; → &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1 = <strong>1</strong><br>
+例③ &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; 1 &nbsp; 0 &nbsp; 0 &nbsp; → &nbsp; &nbsp; 4 &nbsp; &nbsp; &nbsp; &nbsp; = <strong>4</strong><br>
+例④ &nbsp; &nbsp; &nbsp; &nbsp; 0 &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; → &nbsp; &nbsp; 4 &nbsp;+ &nbsp;1 = <strong>5</strong><br>
+例⑤ &nbsp; &nbsp; &nbsp; &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; 1 &nbsp; → 8 &nbsp; &nbsp; +2+1 = <strong>11 → B</strong><br>
+例⑥ &nbsp; &nbsp; &nbsp; &nbsp; 1 &nbsp; 1 &nbsp; 1 &nbsp; 1 &nbsp; → 8+4+2+1 = <strong>15 → F</strong>
 </span></div>
+
+<div class="example"><strong>10〜15は A〜F に置き換えるだけ：</strong><br>
+10=<strong>A</strong> &nbsp; 11=<strong>B</strong> &nbsp; 12=<strong>C</strong> &nbsp; 13=<strong>D</strong> &nbsp; 14=<strong>E</strong> &nbsp; 15=<strong>F</strong><br><br>
+つまり、どんな4桁の2進数でも「8・4・2・1」で足し算するだけで16進数に変換できます。<strong>対応表を丸暗記する必要はありません。</strong></div>
 
 <div class="formula"><strong>2進数→16進数の例：</strong><br><br>
 10110100<br>
