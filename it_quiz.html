@@ -210,7 +210,50 @@
 
 <div class="example"><strong>10進数の「26」を各進数で表すと：</strong><br>
 ・2進数 →「11010」<br>
+・8進数 →「32」（3×8 + 2 = 26）<br>
 ・16進数 →「1A」（1×16 + A(10) = 26）</div>
+
+<div class="key-point"><strong>8進数とは？</strong><br>
+<span class="vocab">8進数</span>：0〜7の8種類の数字を使い、8で桁が上がる。<br><br>
+試験ではたまにしか出ませんが、出たときに知らないと解けません。<br>
+変換方法は10進数・2進数と同じ考え方です。<br><br>
+
+<strong>10進数 → 8進数：</strong>8で割り続けて余りを下から読む<br>
+<span style="font-family:monospace">
+26÷8=3 余り<strong>2</strong> ↑<br>
+3÷8=0 &nbsp;余り<strong>3</strong> ↓ → 答え：<strong>32</strong>（8進数）
+</span><br><br>
+
+<strong>8進数 → 10進数：</strong>各桁×8<sup>n</sup>を足す<br>
+<span style="font-family:monospace">
+32（8進数）= 3×8<sup>1</sup> + 2×8<sup>0</sup> = 24+2 = <strong>26</strong>
+</span><br><br>
+
+<strong>2進数 ↔ 8進数：</strong>3桁ずつ区切る（16進数は4桁、8進数は3桁）<br>
+<span style="font-family:monospace">
+2進数 011 010 → 3 2 → 8進数 <strong>32</strong><br>
+（3桁の重みは <strong>4・2・1</strong>）
+</span>
+</div>
+
+<div class="key-point"><strong>10進小数 → 8進小数の変換</strong><br><br>
+整数部は8で割りますが、<strong>小数部は8をかけ続けて</strong>、整数部分を上から読みます。<br><br>
+
+<span style="font-family:monospace">
+例：0.5 を8進数に変換<br>
+0.5 × 8 = <strong>4</strong>.0 ← 整数部の4を取り出す。小数部が0になったので終了！<br>
+答え：<strong>0.4</strong>（8進小数）→ <strong>有限小数</strong><br><br>
+
+例：0.3 を8進数に変換<br>
+0.3 × 8 = <strong>2</strong>.4<br>
+0.4 × 8 = <strong>3</strong>.2<br>
+0.2 × 8 = <strong>1</strong>.6<br>
+0.6 × 8 = <strong>4</strong>.8<br>
+0.8 × 8 = <strong>6</strong>.4 ← また0.4が出た！終わらない…<br>
+答え：0.23146… → <strong>無限小数（循環小数）</strong>
+</span><br><br>
+<strong>ポイント：</strong>かけ算の結果の小数部が<strong>0になれば有限小数</strong>、<strong>同じ数が繰り返し出てきたら無限小数</strong>です。
+</div>
 
 <h3>桁の重み</h3>
 <p><span class="vocab">桁の重み</span>とは、各桁の位置が持つ値の大きさです。右端が最も軽く、左に行くほど重くなります。</p>
@@ -648,7 +691,7 @@ NANDだけで全ての論理演算が作れるため、実際のCPUではNAND回
 <script>
 const examPool={1:[
 {q:'32ビットで表現できるビットパターンの個数は、24ビットで表現できる個数の何倍か。（H28）',choices:['8','16','128','256'],answer:3,explanation:'2<sup>32</sup>÷2<sup>24</sup>=2<sup>8</sup>=256倍'},
-{q:'次の10進小数のうち、8進数に変換すると有限小数になるものはどれか。',choices:['0.3','0.4','0.5','0.7'],answer:2,explanation:'0.5×8=4.0→有限小数。他は循環小数。'},
+{q:'次の10進小数のうち、8進数に変換すると有限小数になるものはどれか。',choices:['0.3','0.4','0.5','0.7'],answer:2,explanation:'小数を8進数に変換するには「×8」を繰り返します。小数部が0になれば有限小数、ならなければ無限小数です。0.5×8=4.0 → 小数部が0！→ 有限小数（0.4）。一方 0.3×8=2.4, 0.4×8=3.2, 0.2×8=1.6… と永遠に続くので無限小数です。'},
 {q:'16進小数2B.Dを10進数に変換した値に最も近いものはどれか。',choices:['43.8125','43.8','44.8125','42.8125'],answer:0,explanation:'2×16+11+13/16=43.8125'},
 {q:'10進数の演算式7÷32の結果を2進数で表したものはどれか。（H31）',choices:['0.001011','0.001101','0.00111','0.0111'],answer:2,explanation:'7=111(2進)、÷32=右に5シフト→0.00111'},
 {q:'正の整数xを2ビット左にシフトしてxを加えると何倍か。（H28）',choices:['3','4','5','6'],answer:2,explanation:'x×4+x=5x'},
