@@ -5,96 +5,300 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>第4章 学校教育と心の問題｜教育学 Web教材</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.8;padding:0 0 60px 0}.header{background:linear-gradient(135deg,#1B3A5C,#2d5a8e);color:#fff;padding:24px 20px;text-align:center}.header h1{font-size:1.3em;margin-bottom:4px}.header .sub{font-size:.85em;opacity:.8}.container{max-width:720px;margin:0 auto;padding:16px}.nav-tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:.82em;cursor:pointer;transition:all .2s}.nav-tab:hover,.nav-tab.active{background:#1B3A5C;color:#fff}.section{display:none}.section.active{display:block}.lesson-card{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}.lesson-card h2{color:#1B3A5C;font-size:1.2em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}.lesson-card h3{color:#2d5a8e;font-size:1.05em;margin:20px 0 10px 0}.key-point{background:#eef3f9;border-left:4px solid #1B3A5C;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.95em}.key-point strong{color:#1B3A5C}.vocab{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 8px;margin:2px 4px;font-weight:bold;font-size:.9em;color:#e65100}.example{background:#f9f9f9;border:1px solid #ddd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:.9em}.person{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}.person strong{color:#2e7d32}.stat{background:#fce4ec;border-left:4px solid #e91e63;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}.stat strong{color:#c2185b}.quiz-area{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}.quiz-area h2{color:#1B3A5C;margin-bottom:16px}.question-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:20px;margin:16px 0}.q-number{font-size:.8em;color:#999;margin-bottom:6px}.q-text{font-size:1.05em;font-weight:bold;margin-bottom:14px;line-height:1.6}.choices{list-style:none}.choices li{padding:12px 16px;margin:6px 0;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all .2s;font-size:.95em}.choices li:hover{border-color:#1B3A5C;background:#f0f4f8}.choices li.correct{border-color:#4caf50;background:#e8f5e9}.choices li.wrong{border-color:#f44336;background:#ffebee}.explanation{display:none;margin-top:12px;padding:14px;background:#f5f5f5;border-radius:8px;font-size:.9em;line-height:1.7}.explanation.show{display:block}.explanation .correct-label{color:#4caf50;font-weight:bold}.explanation .wrong-label{color:#f44336;font-weight:bold}.result-area{display:none;text-align:center;padding:30px;background:#fff;border-radius:12px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}.result-score{font-size:2.5em;font-weight:bold;color:#1B3A5C;margin:10px 0}.result-msg{font-size:1.1em;margin:10px 0}.btn{display:inline-block;padding:12px 28px;background:#1B3A5C;color:#fff;border:none;border-radius:8px;font-size:1em;cursor:pointer;margin:8px}.btn:hover{background:#2d5a8e}.btn-outline{background:#fff;color:#1B3A5C;border:2px solid #1B3A5C}.progress-bar{width:100%;height:6px;background:#e0e0e0;border-radius:3px;margin:12px 0}.progress-fill{height:100%;background:#1B3A5C;border-radius:3px;transition:width .3s}.back-link{display:inline-block;margin:16px 0;color:#1B3A5C;text-decoration:none;font-weight:bold}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.85;padding:0 0 60px 0}
+.header{background:linear-gradient(135deg,#1B3A5C,#2d5a8e);color:#fff;padding:24px 20px;text-align:center}
+.header h1{font-size:1.3em;margin-bottom:4px}
+.header .sub{font-size:.85em;opacity:.8}
+.container{max-width:760px;margin:0 auto;padding:16px}
+.nav-tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:.82em;cursor:pointer;transition:all .2s}
+.nav-tab:hover,.nav-tab.active{background:#1B3A5C;color:#fff}
+.section{display:none}.section.active{display:block}
+.lesson-card{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.lesson-card h2{color:#1B3A5C;font-size:1.25em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}
+.lesson-card h3{color:#2d5a8e;font-size:1.08em;margin:22px 0 10px 0;padding-left:8px;border-left:4px solid #2d5a8e}
+.lesson-card h4{color:#1B3A5C;font-size:.98em;margin:14px 0 8px 0}
+.lesson-card p{margin:8px 0}
+.key-point{background:#eef3f9;border-left:4px solid #1B3A5C;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.95em}
+.key-point strong{color:#1B3A5C}
+.vocab{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:1px 7px;margin:1px 3px;font-weight:bold;font-size:.92em;color:#e65100}
+.example{background:#f9f9f9;border:1px solid #ddd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:.92em}
+.example::before{content:"📘 例 ";font-weight:bold;color:#666}
+.person{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.person strong{color:#2e7d32}
+.stat{background:#fce4ec;border-left:4px solid #e91e63;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.stat strong{color:#c2185b}
+.timeline{background:#fff8e1;border-left:4px solid #f9a825;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.timeline strong{color:#f57f17}
+.timeline .yr{display:inline-block;min-width:80px;font-weight:bold;color:#f57f17}
+.note-nurse{background:#f3e5f5;border-left:4px solid #8e24aa;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.92em}
+.note-nurse strong{color:#6a1b9a}
+.note-nurse::before{content:"🩺 看護現場との関連　";font-weight:bold}
+.compare-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9em}
+.compare-table th{background:#1B3A5C;color:#fff;padding:10px;border:1px solid #ddd;text-align:left}
+.compare-table td{padding:10px;border:1px solid #ddd;background:#fff}
+.compare-table tr:nth-child(even) td{background:#f9f9f9}
+.quiz-area{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.quiz-area h2{color:#1B3A5C;margin-bottom:16px}
+.question-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:20px;margin:16px 0}
+.q-number{font-size:.8em;color:#999;margin-bottom:6px}
+.q-text{font-size:1.05em;font-weight:bold;margin-bottom:14px;line-height:1.6}
+.choices{list-style:none}
+.choices li{padding:12px 16px;margin:6px 0;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all .2s;font-size:.95em}
+.choices li:hover{border-color:#1B3A5C;background:#f0f4f8}
+.choices li.correct{border-color:#4caf50;background:#e8f5e9}
+.choices li.wrong{border-color:#f44336;background:#ffebee}
+.explanation{display:none;margin-top:12px;padding:14px;background:#f5f5f5;border-radius:8px;font-size:.9em;line-height:1.7}
+.explanation.show{display:block}
+.explanation .correct-label{color:#4caf50;font-weight:bold}
+.explanation .wrong-label{color:#f44336;font-weight:bold}
+.result-area{display:none;text-align:center;padding:30px;background:#fff;border-radius:12px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.result-score{font-size:2.5em;font-weight:bold;color:#1B3A5C;margin:10px 0}
+.result-msg{font-size:1.1em;margin:10px 0}
+.btn{display:inline-block;padding:12px 28px;background:#1B3A5C;color:#fff;border:none;border-radius:8px;font-size:1em;cursor:pointer;margin:8px;transition:background .2s}
+.btn:hover{background:#2d5a8e}
+.btn-outline{background:#fff;color:#1B3A5C;border:2px solid #1B3A5C}
+.btn-outline:hover{background:#f0f4f8}
+.progress-bar{width:100%;height:6px;background:#e0e0e0;border-radius:3px;margin:12px 0}
+.progress-fill{height:100%;background:#1B3A5C;border-radius:3px;transition:width .3s}
+.back-link{display:inline-block;margin:16px 0;color:#1B3A5C;text-decoration:none;font-weight:bold}
+.back-link:hover{text-decoration:underline}
+.intro-box{background:linear-gradient(135deg,#eef3f9,#fff);border:1px solid #cdd9e8;border-radius:10px;padding:18px;margin:14px 0;font-size:.95em}
+.intro-box strong{color:#1B3A5C}
 </style>
 </head>
 <body>
-<div class="header"><h1>第4章 学校教育と心の問題</h1><div class="sub">桑名看護専門学校　教育学　Web教材</div></div>
+
+<div class="header">
+  <h1>第4章 学校教育と心の問題</h1>
+  <div class="sub">桑名看護専門学校　教育学　Web教材</div>
+</div>
+
 <div class="container">
+  <a href="index.html" class="back-link">&#x1F3E0; ホーム</a>
 
-<div class="nav-tabs">
-<div class="nav-tab active" onclick="showSection('lesson1')">A <span class="vocab">生徒指導</span>と教育相談</div>
-<div class="nav-tab" onclick="showSection('lesson2')">B カウンセリング</div>
-<div class="nav-tab" onclick="showSection('lesson3')">C 問題行動の理解</div>
-<div class="nav-tab" onclick="showSection('quiz')">確認テスト</div>
-</div>
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showSection('lesson1')">① 教育相談と問題行動の理解</div>
+    <div class="nav-tab" onclick="showSection('lesson2')">② 不登校</div>
+    <div class="nav-tab" onclick="showSection('lesson3')">③ 非行と反社会的問題行動</div>
+    <div class="nav-tab" onclick="showSection('lesson4')">④ いじめ・虐待</div>
+    <div class="nav-tab" onclick="showSection('quiz')">確認テスト</div>
+  </div>
 
-<div id="lesson1" class="section active">
-<div class="lesson-card">
-<h2>A　生徒指導と教育相談</h2>
-<h3>1. 生徒指導とは</h3>
-<p>教育の目標には教科指導と並んで<span class="vocab">生徒指導（guidance）</span>があります。生徒指導の目的は、児童・生徒の人格の発展、すなわち一人ひとりの個性を伸長させるとともに、社会の成員としての資質・能力・態度を発達させることです。</p>
-<div class="key-point"><strong>生徒指導の課題（文部科学省「生徒指導の手引き」）</strong><br>① 人間関係の改善と望ましい人間関係の促進<br>② 学校生活への適応や自己実現に関する問題への援助・指導<br>③ 望ましい習慣形成への学校教育の貢献<br>④ 児童・生徒の問題行動への適切な対応<br>⑤ 個性の尊重と自己指導能力の育成</div>
-<div class="key-point"><strong>生徒指導の究極の目的</strong><br><span class="vocab">自己指導能力</span>を育成すること。自分で考え、判断し、行動できる力を養う。</div>
-<h3>2. 生徒指導の2つの方法</h3>
-<div class="key-point"><strong>集団指導と個別指導</strong><br><span class="vocab">集団指導</span>：集団のもつ機能を利用して、個性の伸長や社会的資質の発展を図る<br>→ <span class="vocab">現実原則</span>に立つ（外界に適応するために欲求を延期する）<br>→ 例：「遅刻をしてはいけないよ」<br><br><span class="vocab">個別指導</span>：カウンセリング的手法で課題への取り組みを援助する<br>→ <span class="vocab">快楽原則</span>に立つ（不快を回避し快を求める傾向を受け止める）<br>→ 例：「遅刻の理由を話してほしい」</div>
-<div class="example">看護の現場でも同じです。患者さんに「薬を飲んでください」と指示する（現実原則）だけでなく、「なぜ飲みたくないのですか」と理由を聴く（快楽原則）ことで、より良い支援につながります。</div>
-</div>
-</div>
+  <!-- Lesson 1 -->
+  <div id="lesson1" class="section active">
+    <div class="lesson-card">
+      <h2>① 教育相談と問題行動の理解</h2>
+      <div class="intro-box">子ども・親・教師が抱える苦悩に向き合う<strong>「教育相談」</strong>の理念と、<strong>「問題行動」</strong>の見方を学びます。問題行動は単に「困った行動」ではなく、子ども自身が「困っている」ことの表れであるという視点が重要です。</div>
 
-<div id="lesson2" class="section">
-<div class="lesson-card">
-<h2>B　カウンセリング</h2>
-<h3>1. カウンセリングとは</h3>
-<p>教育相談の中核をなすのが<span class="vocab">カウンセリング</span>です。特に、<span class="vocab">ロジャース</span>の<span class="vocab">来談者中心療法</span>が教育現場に大きな影響を与えています。</p>
-<div class="person"><strong>ロジャース（Rogers, C. R.）の来談者中心療法</strong><br>カウンセラーの基本的態度として3つの条件を示しました：<br><br><span class="vocab">① <span class="vocab">自己一致</span>（純粋性）</span>：カウンセラー自身が自分に対して正直であること<br><span class="vocab">② <span class="vocab">無条件の肯定的関心</span>（受容）</span>：相手をありのままに受け入れること<br><span class="vocab">③ <span class="vocab">共感的理解</span></span>：相手の立場に立って理解しようとすること</div>
-<div class="key-point"><strong>パーソナリティ変容のための条件</strong><br>ロジャースは、カウンセラーがこの3つの態度を示すことで、クライエント（相談者）のパーソナリティが変容し、成長が起こると考えました。技法よりも<strong>態度</strong>が重要だとしています。</div>
-<h3>2. マイクロカウンセリングの基本技法</h3>
-<div class="key-point"><strong>カウンセリングの基本技法</strong><br><span class="vocab">傾聴</span>：相手の話を注意深く聴くこと<br><span class="vocab">励まし</span>：うなずき、「それで？」等で話を促す<br><span class="vocab">言い換え</span>：相手の言葉を別の言葉で返す<br><span class="vocab">開かれた質問</span>：「どう感じましたか？」（自由に答えられる質問）<br><span class="vocab">閉ざされた質問</span>：「はい/いいえ」で答えられる質問<br><span class="vocab">感情の反映</span>：相手の感情を言葉にして返す</div>
-<div class="example">カウンセリング技法は看護師にとっても必須のスキルです。患者さんの不安を受け止め、安心感を提供するためには、「傾聴」「共感的理解」「感情の反映」が特に重要です。</div>
-</div>
-</div>
+      <h3>1. 教育相談の基本姿勢</h3>
+      <div class="key-point"><strong><span class="vocab">教育相談</span>とは</strong>：子ども・保護者・教師が抱える教育上の問題について、心理的支援を中心としつつ、教育的・福祉的観点も含めた包括的な援助を行うこと。</div>
+      <div class="key-point"><strong><span class="vocab">共感的理解</span>（empathic understanding）</strong><br>相手の立場に立ち、相手が感じている気持ちを「あたかも自分のことのように」理解しようとする姿勢。ロジャーズ（C. R. Rogers）のクライエント中心療法における中核概念。</div>
+      <div class="example">引きこもりや不登校のクライエントの気持ちを共感的に理解しようとすると、「学校に行けない」苦しさだけでなく、「行きたいのに行けない」自己との葛藤、周囲の期待への重圧、自己評価の低下といった複層的な苦悩が見えてきます。</div>
 
-<div id="lesson3" class="section">
-<div class="lesson-card">
-<h2>C　問題行動の理解と援助</h2>
-<h3>1. 不登校</h3>
-<div class="key-point"><strong>不登校の現状と分類</strong><br>・かつては「登校拒否」「学校恐怖症」と呼ばれていた<br>・不登校の分類：神経症的不登校、怠学型、混合型など<br>・きっかけ：いじめ、教師との関係、学業不振、家庭の問題など<br>・近年は「明るい不登校」など、理由が特定できないケースも増加</div>
-<div class="key-point"><strong>不登校への対応の変化</strong><br>・従来：とにかく学校に行かせる（登校促進）<br>・現在：フリースクールなど多様な学びの場を認める方向へ<br>・1992年以降、文部科学省も学校外の学びを認知</div>
-<h3>2. 非行</h3>
-<div class="key-point"><strong>反社会的問題行動</strong><br>・万引き、暴力、薬物乱用、いじめの加害など<br>・背景：家庭環境、貧困、学業不振、自己肯定感の低さ<br>・処遇：家庭裁判所、少年院、保護観察など司法的対応と教育的対応の両面</div>
-<h3>3. いじめ</h3>
-<div class="key-point"><strong>いじめの理解</strong><br>・いじめの定義：一定の人間関係にある者から、心理的・物理的攻撃を受け、精神的な苦痛を感じているもの<br>・<span class="vocab">現代型いじめの特徴</span>：SNSでの誹謗中傷、集団での無視、巧妙で大人から見えにくい<br>・いじめはどの学校でも起こりうるという認識が重要</div>
-<h3>4. 児童虐待</h3>
-<div class="key-point"><strong>児童虐待の4類型</strong><br><span class="vocab">① <span class="vocab">身体的虐待</span></span>：殴る、蹴る、やけどを負わせるなど<br><span class="vocab">② <span class="vocab">性的虐待</span></span>：性的行為の強要、わいせつな行為<br><span class="vocab">③ <span class="vocab">ネグレクト</span>（養育放棄）</span>：食事を与えない、不衛生な環境に放置<br><span class="vocab">④ <span class="vocab">心理的虐待</span></span>：暴言、無視、きょうだい間の差別的扱い</div>
-<div class="stat"><strong>虐待の兆候</strong><br>・不自然なあざや傷が繰り返し見られる<br>・極端に痩せている、衣服が汚れている<br>・表情が乏しい、おびえた様子がある<br>・食事に対して異常な執着を見せる<br><br>看護師は虐待の早期発見において重要な役割を担います。</div>
-<div class="example">看護師は、外来や入院時に児童虐待の兆候に気づく立場にあります。「おかしいな」と感じたら、児童相談所（<span class="vocab">189番</span>）に通告する義務があります（児童虐待防止法）。通告は確証がなくてもよく、通告者の秘密は守られます。</div>
-</div>
-</div>
+      <h3>2. 問題行動の二大分類</h3>
+      <p>学校場面における問題行動は大きく2つに分類できます。</p>
+      <table class="compare-table">
+        <tr><th></th><th>非社会的問題行動</th><th>反社会的問題行動</th></tr>
+        <tr><td><strong>方向性</strong></td><td>対社会的なつながりを<strong>避ける</strong></td><td>対社会的なつながりを<strong>壊す</strong></td></tr>
+        <tr><td><strong>代表例</strong></td><td><span class="vocab">不登校</span>、引きこもり</td><td><span class="vocab">非行</span>、校内暴力、授業離脱、いじめ、家出</td></tr>
+        <tr><td><strong>困っているのは</strong></td><td>本人（学校に行けないこと自体）</td><td>周囲（被害者、社会）</td></tr>
+        <tr><td><strong>共通する側面</strong></td><td colspan="2" style="text-align:center"><strong>「困っている」存在としての子ども</strong>。両者とも自己防衛的反応の側面を持つ</td></tr>
+      </table>
 
-<div id="quiz" class="section">
-<div class="quiz-area">
-<h2>確認テスト（第4章）</h2><p>12問出題します。</p>
-<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-<div id="quizContainer"></div>
-<div style="text-align:center;margin-top:20px"><button class="btn" id="submitBtn" onclick="submitQuiz()" style="display:none">結果を見る</button></div>
-</div>
-<div class="result-area" id="resultArea"><h2>結果</h2><div class="result-score" id="resultScore"></div><div class="result-msg" id="resultMsg"></div><button class="btn" onclick="retryQuiz()">もう一度</button><button class="btn btn-outline" onclick="showSection('lesson1')">レッスンに戻る</button></div>
-</div>
+      <h3>3. 「困った子」ではなく「困っている子」</h3>
+      <div class="key-point"><strong>視点の転換</strong><br>・問題行動は本人にとって「<strong>不安解消行動</strong>」「<strong>防衛反応</strong>」としての側面がある<br>・不登校：学校へ行かないことで心の安定を図る防衛反応<br>・非行：将来への不安を「今この瞬間」を充実させることで忘れる防衛機制</div>
+
+      <div class="person"><strong>大平光代『だからあなたも生き抜いて』</strong>（講談社, 2000）<br>中学2年でいじめを苦に自殺未遂、その後非行に走り16歳で極道の妻に。養父との出会いで立ち直り、宅建・司法書士・司法試験に一発合格して弁護士に。<br><br>少年事件を担当する大平は、「事件を起こした子どもたちにとって、自分の境遇のことだけが問題。『おまえが昔、悪かったことなんて、どうでもいい。今の俺をなんとかしてくれ』って感じ」と語る。<br>→非行少年は社会から見ると「困った」存在だが、実は自分自身が「困っている」存在であることを示す。</div>
+
+      <div class="note-nurse">看護の現場でも、患者が示す「困った行動」（治療拒否、感情爆発、コンプライアンス不良など）の背後にある「困っている」気持ちを共感的に理解することが、信頼関係構築の第一歩になります。問題視せず、まず話を聴く姿勢が重要です。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 2 -->
+  <div id="lesson2" class="section">
+    <div class="lesson-card">
+      <h2>② 不登校の理解と対応</h2>
+      <div class="intro-box">不登校は<strong>非社会的問題行動の代表</strong>です。文部科学省は「どの子どもにも起こりうる」と位置付けており、特定のタイプを画一的に当てはめるのではなく、<strong>子ども一人ひとりの背景</strong>を理解する視点が求められます。</div>
+
+      <h3>1. 不登校の定義と歴史</h3>
+      <div class="timeline"><strong>不登校概念の変遷</strong><br><span class="yr">1941年</span>ジョンソンが「学校恐怖症（school phobia）」概念提唱<br><span class="yr">1960s〜</span>「登校拒否（school refusal）」と呼ぶ<br><span class="yr">1992年</span>文部省「学校不適応対策調査研究協力者会議」が「<strong>不登校はどの子どもにも起こりうる</strong>」と提言<br><span class="yr">現在</span>「不登校（non-attendance at school）」が定着</div>
+
+      <div class="key-point"><strong>文部科学省による不登校の定義</strong><br>「何らかの心理的、情緒的、身体的あるいは社会的要因・背景により、登校しないあるいはしたくともできない状況にあるため<strong>年間30日以上欠席</strong>した者のうち、病気や経済的な理由による者を除いた者」</div>
+
+      <div class="stat"><strong>不登校児童生徒数の推移</strong><br>・<span class="yr">2001年</span>13万8722人（ピーク）<br>・スクールカウンセラー制度拡充により一時減少<br>・近年は再び増加傾向、<strong>17〜18万人</strong>規模で推移<br>・最多は<strong>中学1年生</strong>＝<span class="vocab">中1ギャップ</span></div>
+
+      <h3>2. 不登校の6タイプ（文部科学省）</h3>
+      <table class="compare-table">
+        <tr><th>タイプ</th><th>特徴</th><th>割合</th></tr>
+        <tr><td><strong>① 学校生活起因型</strong></td><td>いじめ・教職員との関係などが原因。原因が外部にあり取り除ければ登校可能</td><td>6.4%</td></tr>
+        <tr><td><strong>② あそび・非行型</strong></td><td>遊ぶため／非行グループに入るため登校しない</td><td>9.3%</td></tr>
+        <tr><td><strong>③ 無気力型</strong></td><td>登校しないことへの罪悪感が少ない。迎えに行けば登校するが長続きしない</td><td>26.8%</td></tr>
+        <tr><td><strong>④ 不安など情緒的混乱型</strong></td><td>登校の意思はあるが身体不調・漠然とした不安。<strong>神経症タイプ</strong>とも</td><td>26.8%</td></tr>
+        <tr><td><strong>⑤ 意図的な拒否型</strong></td><td>学校に行く意義を認めず、自分の方向を選ぶ</td><td>4.5%</td></tr>
+        <tr><td><strong>⑥ 複合型</strong></td><td>複数の要因が重なり、いずれが主か決めがたい</td><td>27.8%</td></tr>
+      </table>
+
+      <h3>3. 不安・情緒的混乱型の2サブタイプ</h3>
+      <div class="key-point"><strong>(a) 息切れタイプ</strong><br>周囲の期待に応えようと頑張った結果、エネルギーが乏しくなり学校へ行けなくなる。完璧主義・真面目で素直な性格が多い。<br><br><strong>対応</strong>：当面学校へ行かなくてよいことを保証 → 心理的安定 → コントロールを緩める → 保健室登校・適応指導教室で段階的復帰</div>
+      <div class="key-point"><strong>(b) 分離不安タイプ</strong><br>保護者から離れることに不安を感じ、学校へ行けない。幼く自立心が弱い場合が多い。<br><br><strong>対応</strong>：休ませるよりも母子同伴登校を認め、親子関係の安定を図る。保護者への心理的サポートを通じて間接的に子どもの安定を図る</div>
+
+      <h3>4. 不登校のきっかけ（文部科学省調査）</h3>
+      <table class="compare-table">
+        <tr><th></th><th>学校側がみる視点</th><th>不登校経験者本人の視点</th></tr>
+        <tr><td>1位</td><td>本人の問題（35.9%）</td><td>友人関係の問題（44.5%）</td></tr>
+        <tr><td>2位</td><td>友人関係（20.0%）</td><td>学業の不振（27.6%）</td></tr>
+        <tr><td>3位</td><td>家庭生活（19.2%）</td><td>教師との関係（20.8%）</td></tr>
+      </table>
+      <div class="example">学校側の見方と本人の見方には大きな隔たりがあります。<strong>本人視点では「教師との関係」が3位</strong>に上がるのに対し、学校側は「本人の問題」を最大要因とみなす傾向。問題理解は「複数の視点」から行う必要があります。</div>
+
+      <h3>5. 適応指導教室・フリースクール</h3>
+      <div class="key-point"><strong><span class="vocab">適応指導教室</span></strong>：都道府県・区市町村教育委員会が設置する<strong>サポート機関</strong>。在籍校と連携し、カウンセリング・集団活動・教科指導により学校復帰や社会復帰を支援。名称は「○○広場」「○○スクール」「○○教室」など多様。</div>
+      <div class="key-point"><strong><span class="vocab">フリースクール</span></strong>：民間の不登校児支援機関。1992年以降、文部科学省も認める方向に転換。2005年からはITを活用した自宅学習も出席扱いになる。</div>
+
+      <div class="note-nurse">看護学生として、入院中の小児・思春期患者が学校復帰に不安を抱えている場面に出会うかもしれません。「学校＝行くべき場所」という単一価値観で励ますのではなく、「適応指導教室」「フリースクール」「自宅学習」など多様な選択肢があることを理解しておくと、患者・家族への声かけの幅が広がります。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 3 -->
+  <div id="lesson3" class="section">
+    <div class="lesson-card">
+      <h2>③ 非行と反社会的問題行動</h2>
+      <div class="intro-box">非行は<strong>反社会的問題行動の代表</strong>です。「困った行動」の背後にある<strong>非行少年の心理</strong>を理解することで、効果的な援助への糸口が見えてきます。</div>
+
+      <h3>1. 反社会的問題行動の範囲</h3>
+      <div class="key-point"><strong><span class="vocab">反社会的問題行動</span></strong>：既存の社会的価値や制度に反対し、攻撃しようとする行動。<br><br><strong>被害対象が明らか</strong>：暴力・盗み・万引・恐喝・いじめ<br><strong>被害対象が明らかでない</strong>：飲酒・喫煙・家出・不純異性交遊・薬物乱用</div>
+
+      <h3>2. 非行少年の性格傾向（4つの特徴）</h3>
+      <h4>① 自己概念の問題</h4>
+      <div class="key-point">・<span class="vocab">自尊心が低く、劣等感が強い</span><br>・「どうせ自分なんか」という言葉に表れる<br>・どこかで自分も認められたい気持ちがあるが、裏付ける経験に乏しく、その反動で<strong>否定的同一性（negative identity）</strong>の形成に至る</div>
+
+      <h4>② 共感性（empathy）の問題</h4>
+      <div class="key-point">・他人の喜怒哀楽を分有する能力が乏しい<br>・暴力行為を行う少年に被害者への共感はない<br>・ただし<strong>仲間に対しては共感的態度を示しうる</strong>→共感能力の問題ではなく、対象に偏りがある</div>
+
+      <h4>③ 刹那主義</h4>
+      <div class="key-point">・過去や未来を考慮せず、今この瞬間が充実すればよい<br>・将来へのイメージを失っている／失わざるをえない状況<br>・「明日への不安を忘れる」防衛機制としての側面</div>
+
+      <h4>④ 現実感の欠如</h4>
+      <div class="key-point">・自己の行為の結果の重大性に対する認識の欠如<br>・例：ひったくった相手の女性が転倒死しても「おれの知ったことか」と言う<br>・<strong>正の現実感</strong>（達成感）：「とうとうやり遂げた！」<br>・<strong>負の現実感</strong>（罪悪感）：「大変なことをしてしまった！」<br>どちらも乏しい</div>
+
+      <h3>3. 非行少年の人間関係</h3>
+      <div class="key-point"><strong>親子関係（池田 1983）</strong><br>・母親：<strong>過干渉</strong>。強い愛情を示すが信頼しきれず、過剰な統制をする<br>・父親：<strong>放任的</strong>。父親らしい毅然とした態度に乏しく、子どもと接触しない<br>・結果：自律性・能動性・葛藤の調和の獲得に失敗</div>
+
+      <div class="key-point"><strong>友人関係（桑原 1999）</strong><br>・親子関係が悪いほど友人関係は重要<br>・しかし本音の付き合いができず、建前優先・相互不信の世界<br>・自己主張を抑え同調することで関係維持<br>・近年の暴力事件の凶悪化の背景に、こうした緊張感のある友人関係が存在</div>
+
+      <h3>4. 非行への対応</h3>
+      <div class="key-point"><strong>連携機関</strong><br>個人での対応だけでなく、<strong>児童相談所、警察少年課、家庭裁判所</strong>などの専門機関と連携した対応が必要。</div>
+
+      <div class="example">台（1983）は「非行少年もまた悩んでいる存在」と指摘。黒川（2002）は「問題の所在を知らせてくれるという意味で『非行はよいことである』」とまで述べる。<br>→反社会的問題は厳しく対応する必要があるが、同時に<strong>非行に至る心理に共感的理解を試みる</strong>姿勢が重要。</div>
+
+      <div class="note-nurse">非行歴のある若年患者と関わる際、過去の行為そのものを判断するのではなく、「今、何に困っているか」「なぜそうせざるを得なかったか」という視点で接することで、信頼関係の構築につながります。看護師は道徳的判断者ではなく、ケアの専門家としての立場で接します。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 4 -->
+  <div id="lesson4" class="section">
+    <div class="lesson-card">
+      <h2>④ いじめと児童虐待</h2>
+      <div class="intro-box">現代型のいじめは<strong>陰湿化・流動化・集団化</strong>という特徴を持ちます。また児童虐待は近年急増しており、看護現場でも気づきの最前線に立つことが求められます。</div>
+
+      <h3>1. いじめの定義の変遷</h3>
+      <div class="timeline"><strong>文部科学省によるいじめの定義の変化</strong><br><span class="yr">旧定義</span>「自分より弱いものに対して一方的に、身体的・物理的な攻撃を継続的に加え、相手が深刻な苦痛を感じているもの」<br><span class="yr">2007年</span>新定義「<strong>一定の人間関係のある者から、心理的・物理的な攻撃を受けたことにより、精神的な苦痛を感じているもの</strong>」<br>→「<strong>当人がいじめられていると感じたら、それをいじめととらえる</strong>」という考え方に転換</div>
+
+      <h3>2. いじめ集団の4層構造（森田・清水 1986）</h3>
+      <table class="compare-table">
+        <tr><th>層</th><th>役割</th></tr>
+        <tr><td><strong>① 被害者</strong></td><td>いじめられっ子</td></tr>
+        <tr><td><strong>② 加害者</strong></td><td>いじめっ子</td></tr>
+        <tr><td><strong>③ 観衆</strong></td><td>いじめをはやし立て、面白がって見ている子</td></tr>
+        <tr><td><strong>④ 傍観者</strong></td><td>見て見ぬふりをする子</td></tr>
+      </table>
+      <div class="key-point">加害者・観衆・傍観者を合わせると<strong>クラスの大部分</strong>がいじめに関与。観衆や傍観者の態度次第でいじめは沈静化も悪化もしうる。<br>→現代のいじめは<strong>クラス全体を巻き込み相互に傷つけ合う構造</strong>を持つ。</div>
+
+      <h3>3. 現代型いじめの3つの特徴</h3>
+      <div class="key-point"><strong>① 陰湿化</strong><br>加害行為が外から見てわかりにくい形で行われる。「ふざけ」を装う巧妙化・偽装化。被害者は報復を恐れ申告しないため<strong>潜在化</strong>しやすい。</div>
+      <div class="key-point"><strong>② 加害・被害の流動性</strong><br>クラスのだれもが加害者にも被害者にもなりうる。身体的特徴や個性は「口実」にすぎず、加害意識の希薄化につながる。</div>
+      <div class="key-point"><strong>③ 集団化・エスカレート</strong><br>当初は「ふざけ」型だったいじめが次第にエスカレートし、脅しや身体的攻撃に至る。</div>
+
+      <h3>4. いじめへの取り組み</h3>
+      <div class="key-point"><strong>予防的取り組み</strong><br>・学級内の心理的つながり育成<br>・<span class="vocab">構成的グループ・エンカウンター</span>等を活用した本音の交流促進<br>・人権教育による人権感覚の育成</div>
+      <div class="key-point"><strong>解決的取り組み</strong><br>・被害者：話をありのまま聴く、心理を共感的に受け止める、登校困難な場合は登校を求めない場合も<br>・加害者：話をありのまま聴く、ただし加害行為を一方的に責めない、被害者の心情を理解させ謝罪させる<br>・<strong>「手打ち式」を避ける</strong>：表面的な解決は新たないじめの再生産のきっかけになる<br>・教師・保護者が「いじめは絶対容認しない」基準を断固として示す</div>
+
+      <h3>5. 児童虐待の4類型</h3>
+      <div class="timeline"><strong>児童虐待防止法の整備</strong><br><span class="yr">1994年</span>児童相談所の虐待相談1,961件<br><span class="yr">2000年</span>「<strong>児童虐待の防止等に関する法律</strong>」（児童虐待防止法）成立で初めて児童虐待が定義<br><span class="yr">2004年</span>同法改正（虐待の定義・通告義務拡大）<br><span class="yr">2013年</span>相談処理件数<strong>73,802件</strong>に増加（約37倍）</div>
+
+      <table class="compare-table">
+        <tr><th>類型</th><th>具体例</th></tr>
+        <tr><td><strong>① 身体的虐待</strong><br>(physical abuse)</td><td>打撲傷、あざ、骨折、頭部外傷、刺傷、たばこによる火傷／首を絞める、殴る、蹴る、投げ落とす、熱湯をかける、食事を与えない、冬季に戸外に閉め出す</td></tr>
+        <tr><td><strong>② 性的虐待</strong><br>(sexual abuse)</td><td>性交、性的暴行、性的行為の強要・教唆／性器や性交を見せる／ポルノグラフィの被写体強要</td></tr>
+        <tr><td><strong>③ ネグレクト</strong><br>(neglect)</td><td>遺棄・置き去り、家に閉じ込める、重大な病気でも病院に連れていかない、乳幼児を家に残し外出、車内放置、情緒的欲求に応えない、食事を与えない、極度な不衛生</td></tr>
+        <tr><td><strong>④ 心理的虐待</strong><br>(psychological abuse)</td><td>言葉による脅かし・脅迫、子どもを無視、拒否的態度、配偶者への暴力（DV）を子どもに見せる<span style="color:#c2185b;font-weight:bold">＝面前DV</span></td></tr>
+      </table>
+
+      <div class="note-nurse">看護師は<strong>児童虐待の早期発見</strong>の最前線に立つ職種です。不自然な外傷、繰り返す事故、衣服の汚れ、子どもの過度の警戒や逆におびえなさ、親子の不自然な距離感などの「気づき」を活かし、<strong>児童相談所への通告（児童虐待防止法による義務）</strong>へ繋ぐ役割があります。「確証がなくても疑いの段階で通告」が原則です。</div>
+    </div>
+  </div>
+
+  <!-- Quiz -->
+  <div id="quiz" class="section">
+    <div class="quiz-area">
+      <h2>確認テスト（第4章）</h2>
+      <p style="margin-bottom:12px">出題数を選んでください：</p>
+      <div style="text-align:center;margin-bottom:16px">
+        <button class="btn" onclick="startQuiz(10)">10問でチャレンジ</button>
+        <button class="btn btn-outline" onclick="startQuiz(20)">20問でチャレンジ</button>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div id="quizContainer"></div>
+      <div style="text-align:center;margin-top:20px"><button class="btn" id="submitBtn" onclick="submitQuiz()" style="display:none">結果を見る</button></div>
+    </div>
+    <div class="result-area" id="resultArea">
+      <h2>結果</h2>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-msg" id="resultMsg"></div>
+      <button class="btn" onclick="retryQuiz()">もう一度</button>
+      <button class="btn btn-outline" onclick="showSection('lesson1')">レッスンに戻る</button>
+    </div>
+  </div>
 </div>
 
 <script>
 const allQuestions=[
-{q:'生徒指導の究極の目的は何か。',choices:['成績の向上','校則の遵守','自己指導能力の育成','進路の決定'],answer:2,explanation:'生徒指導の究極の目的は「自己指導能力」を育成すること、すなわち自分で考え、判断し、行動できる力を養うことです。'},
-{q:'集団指導が基づく原則はどれか。',choices:['快楽原則','現実原則','自律原則','道徳原則'],answer:1,explanation:'集団指導は現実原則に立ちます。外界に適応するために欲求の充足を延期したり不快に耐えたりする原則です。個別指導は快楽原則に立ちます。'},
-{q:'ロジャースのカウンセラーの3つの条件に含まれないものはどれか。',choices:['自己一致','無条件の肯定的関心','共感的理解','問題解決力'],answer:3,explanation:'ロジャースの3条件は「自己一致（純粋性）」「無条件の肯定的関心（受容）」「共感的理解」です。「問題解決力」は含まれません。'},
-{q:'「自己一致（純粋性）」とはどういう意味か。',choices:['相手と同じ意見を持つこと','カウンセラーが自分に対して正直であること','技法を正確に使えること','経験が豊富であること'],answer:1,explanation:'自己一致とは、カウンセラー自身が自分に対して正直であること、自分の感情に気づき、それを偽らないことを意味します。'},
-{q:'「開かれた質問」の例として適切なものはどれか。',choices:['熱はありますか？','薬は飲みましたか？','どのように感じましたか？','昨日学校に行きましたか？'],answer:2,explanation:'開かれた質問は自由に答えられる質問です。「どのように感じましたか？」は相手が自分の言葉で答えられます。他は「はい/いいえ」で答える閉ざされた質問です。'},
-{q:'相手の感情を言葉にして返す技法を何というか。',choices:['傾聴','言い換え','感情の反映','励まし'],answer:2,explanation:'感情の反映とは、相手が感じている感情を言葉にして返す技法です。例：「それは悲しかったですね」'},
-{q:'不登校への対応として、1992年以降の文部科学省の方針の変化はどれか。',choices:['より厳しく登校を促す方針','学校外の学びを認める方向','不登校を病気として治療する方針','保護者の責任を追及する方針'],answer:1,explanation:'1992年以降、文部科学省はフリースクールなど学校外の学びを認知し、多様な学びの場を認める方向に転換しました。'},
-{q:'現代型いじめの特徴として最も適切なものはどれか。',choices:['暴力が中心','大人から見えやすい','SNSでの誹謗中傷など巧妙化','特定の学校だけで起きる'],answer:2,explanation:'現代型いじめはSNSでの誹謗中傷、集団での無視など巧妙で大人から見えにくいのが特徴です。'},
-{q:'児童虐待の4類型に含まれないものはどれか。',choices:['身体的虐待','経済的虐待','ネグレクト','心理的虐待'],answer:1,explanation:'児童虐待の4類型は「身体的虐待」「性的虐待」「ネグレクト（養育放棄）」「心理的虐待」です。「経済的虐待」は高齢者虐待の類型です。'},
-{q:'食事を与えない、不衛生な環境に放置するなどの虐待を何というか。',choices:['身体的虐待','心理的虐待','ネグレクト','性的虐待'],answer:2,explanation:'ネグレクト（養育放棄）とは、食事を与えない、不衛生な環境に放置する、必要な医療を受けさせないなどの虐待です。'},
-{q:'児童虐待の通告先の電話番号は何番か。',choices:['110番','119番','189番','118番'],answer:2,explanation:'児童虐待の通告先は児童相談所の全国共通ダイヤル「189番」（いちはやく）です。通告は確証がなくてもよく、通告者の秘密は守られます。'},
-{q:'ロジャースが技法よりも重要だとしたのは何か。',choices:['経験年数','態度','知識量','資格'],answer:1,explanation:'ロジャースは、カウンセラーの技法よりも「態度」（自己一致・無条件の肯定的関心・共感的理解）が重要だと考えました。'}
+{q:'問題行動を「非社会的問題行動」と「反社会的問題行動」に分類した場合、不登校はどちらに属するか。',choices:['非社会的問題行動','反社会的問題行動','どちらにも属さない','どちらにも属する'],answer:0,explanation:'不登校は対社会的なつながりを「避ける」性質を持つため、非社会的問題行動の代表とされます。一方、対社会的なつながりを「壊す」性質をもつ非行・暴力・いじめなどは反社会的問題行動です。'},
+{q:'文部科学省による不登校の定義で、「年間何日以上の欠席」が基準となっているか。',choices:['10日以上','20日以上','30日以上','60日以上'],answer:2,explanation:'文部科学省の不登校の定義では「年間30日以上欠席した者のうち、病気や経済的な理由による者を除いた者」とされています。'},
+{q:'1992年に文部省（当時）が「学校不適応対策調査研究協力者会議」で示した不登校に関する基本的な見解はどれか。',choices:['不登校は特定の家庭環境の子に起こる','不登校はどの子どもにも起こりうる','不登校は本人の性格の問題である','不登校は教師の責任である'],answer:1,explanation:'1992年の同会議で「不登校はどの子どもにも起こりうる」という考え方が示され、不登校を病理的・特殊的な問題ではなく、誰にでも起こりうる現象として捉える視点が定着しました。'},
+{q:'文部科学省の不登校6タイプのうち、神経症タイプとも呼ばれ、「息切れ型」と「分離不安型」の2サブタイプを持つのはどれか。',choices:['学校生活起因型','あそび・非行型','無気力型','不安など情緒的混乱型'],answer:3,explanation:'「不安など情緒的混乱型」は神経症タイプとも呼ばれます。サブタイプとして、頑張りすぎてエネルギー切れになる「息切れ型」と、保護者から離れることへの不安からくる「分離不安型」があります。'},
+{q:'不安・情緒的混乱型のうち「息切れタイプ」への基本的対応として最も適切なのはどれか。',choices:['強く登校を促す','当面学校へ行かなくてよいことを保証し、心理的安定を図る','母子同伴登校を認める','友人を励ましに送る'],answer:1,explanation:'息切れタイプは頑張りすぎてエネルギーが枯渇している状態です。まず学校へ行かなくてよいことを保証して心理的安定を図り、コントロールを緩めることが必要。寄せ書きなどの「登校刺激」は逆効果になります。'},
+{q:'分離不安タイプの不登校への基本的対応として最も適切なのはどれか。',choices:['長期間休ませる','母子同伴登校を認め、親子関係の安定を図る','本人だけで登校するよう励ます','保護者にしっかり登校させるよう指導する'],answer:1,explanation:'分離不安タイプは保護者（特に母親）との関係に十分安心できていない子どもに見られます。休ませるよりも母子同伴登校を認め、親子関係の安定を通じて間接的に子どもの安定を図るのが効果的です。'},
+{q:'不登校児童生徒への支援を行う、教育委員会が設置するサポート機関はどれか。',choices:['フリースクール','適応指導教室','児童相談所','家庭裁判所'],answer:1,explanation:'適応指導教室は都道府県・区市町村教育委員会が設置するサポート機関で、在籍校と連携しカウンセリング・集団活動・教科指導などにより学校復帰や社会復帰を支援します。名称は「○○広場」「○○スクール」など多様です。'},
+{q:'非行少年の自己概念の特徴として最も適切なのはどれか。',choices:['自尊心が高く自信に満ちている','自尊心が低く劣等感が強い','他者への共感性が高い','明確な将来像を持っている'],answer:1,explanation:'非行少年は一般に自己概念が良好でなく、自尊心が低く劣等感が強い傾向があります。「どうせ自分なんか」という言葉に表れます。これが反動として反社会的なものへの同一化＝否定的同一性（negative identity）の形成に至ることもあります。'},
+{q:'非行少年の心理特徴として、過去や未来を考慮せず「今この瞬間が充実すればよい」とする考え方を何と呼ぶか。',choices:['完璧主義','刹那主義','利他主義','合理主義'],answer:1,explanation:'刹那主義は、明日への不安を「今この瞬間」を充実させることで忘れる、一種の防衛機制としての側面を持ちます。健常児が「明日に向けて今日をコントロールする」のに対し、非行少年は「明日よりも今日を大事にする」傾向があるとされます。'},
+{q:'池田（1983）が指摘する非行少年の親の養育態度として、母親と父親に共通して当てはまらないのはどれか。',choices:['母親は過干渉','父親は放任的','両親とも子どもに無関心','母親の心配性的な態度'],answer:2,explanation:'池田は非行少年の母親は過干渉、父親は放任的と指摘しています。両親とも子どもに無関心という指摘ではなく、関わり方が偏っている（母は強すぎ、父は弱すぎ）という構造です。'},
+{q:'森田・清水（1986）が示したいじめ集団の「4層構造」に含まれないのはどれか。',choices:['被害者','加害者','観衆','介入者'],answer:3,explanation:'いじめ集団の4層構造は ①被害者 ②加害者 ③観衆（はやし立て見ている子）④傍観者（見て見ぬふりをする子）です。「介入者」は含まれません。観衆・傍観者を含めるとクラスの大部分がいじめに関与している構造が見えます。'},
+{q:'文部科学省が2007年に改めたいじめの新定義のキーポイントとして最も適切なのはどれか。',choices:['身体的攻撃のみをいじめとする','継続性が要件である','当人がいじめられていると感じたらいじめととらえる','加害者が複数の場合に限る'],answer:2,explanation:'2007年の新定義は「一定の人間関係のある者から、心理的・物理的な攻撃を受けたことにより、精神的な苦痛を感じているもの」とし、「当人がいじめられていると感じたら、それをいじめととらえる」考え方に転換しました。'},
+{q:'現代型いじめの3つの特徴に含まれないのはどれか。',choices:['陰湿化','加害・被害の流動性','集団化・エスカレート','対決の二者関係化'],answer:3,explanation:'現代型いじめの3特徴は①陰湿化、②加害・被害の流動性、③集団化・エスカレート。むしろ「二者関係」ではなく集団全体を巻き込むのが特徴です。'},
+{q:'いじめへの解決的取り組みについて、最も適切でないのはどれか。',choices:['被害者の話をありのままに聴く','加害者と被害者の表面的な「手打ち式」で早期に決着させる','加害者にも話を聴き、被害者の心情を理解させ謝罪させる','大人がいじめは絶対容認しないという基準を断固として示す'],answer:1,explanation:'「手打ち式」のような表面的な決着は、新たないじめの再生産のきっかけになるため避けなければなりません。被害者・加害者双方の話を丁寧に聴き、教師・保護者が断固たる基準を示すことが重要です。'},
+{q:'2000年に成立した「児童虐待の防止等に関する法律」（児童虐待防止法）が定める虐待類型に含まれないのはどれか。',choices:['身体的虐待','性的虐待','経済的虐待','心理的虐待'],answer:2,explanation:'児童虐待防止法は4類型を定義しています：①身体的虐待、②性的虐待、③ネグレクト、④心理的虐待。「経済的虐待」は含まれていません（高齢者虐待防止法には経済的虐待が含まれます）。'},
+{q:'児童虐待のうち、子どもの面前で配偶者に対する暴力（DV）を行うことはどれに分類されるか。',choices:['身体的虐待','性的虐待','ネグレクト','心理的虐待'],answer:3,explanation:'子どもが同居する家庭で配偶者に対する暴力（面前DV）を行うことは、心理的虐待に分類されます。2004年の児童虐待防止法改正で明確化されました。'},
+{q:'児童相談所における虐待相談処理件数は、1994年と2013年でどのように変化したか。',choices:['ほぼ横ばい','約2倍に増加','約10倍に増加','約37倍に増加'],answer:3,explanation:'1994年に1,961件だった児童相談所の虐待相談処理件数は、2013年には73,802件に増加しています。約37倍の増加であり、児童虐待が深刻な社会問題化していることを示しています。'},
+{q:'いじめの予防的取り組みとして用いられる「構成的グループ・エンカウンター」の目的として最も適切なのはどれか。',choices:['学力向上','生徒同士の本音の交流促進と心理的気づき','教科の理解度向上','体力の向上'],answer:1,explanation:'構成的グループ・エンカウンターは、あらかじめ用意されたエクササイズに小グループで取り組むことを通じて、本音の交流を促進し、人格的成長や行動の変容、人間関係の発展を促す心理的活動です。'},
+{q:'非行少年の友人関係について、桑原（1999）の指摘として正しいのはどれか。',choices:['本音で深く付き合える親密な関係である','建前優先で相互不信の芽を含んだ関係である','一切友人関係を持たない','成人と同等の対等な関係である'],answer:1,explanation:'桑原は、非行少年の友人関係は本音の付き合いができず建前が優先し、お互いの評価を気にする厳しい世界であると指摘。自己主張を抑え同調しなければならず、相互不信の芽が準備されているとしました。'},
+{q:'問題行動への対応における「困った子」と「困っている子」の区別について、最も適切な姿勢はどれか。',choices:['困った行動は即座に厳罰で対応する','困った行動の背後に「困っている」気持ちがあるという視点で接する','困っている気持ちだけ見て、行動の責任は問わない','どちらかに二者択一で判断する'],answer:1,explanation:'問題行動を示す子は、社会から見ると「困った」存在ですが、本人もまた「困っている」存在であるという視点が重要です。共感的理解と同時に、反社会的問題には毅然とした対応も必要であり、両立させる姿勢が求められます。'}
 ];
-let questions=[],answered=0;function shuffleArray(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
-function initQuiz(){questions=shuffleArray(allQuestions);answered=0;document.getElementById('submitBtn').style.display='none';document.getElementById('resultArea').style.display='none';document.getElementById('progressFill').style.width='0%';const c=document.getElementById('quizContainer');c.innerHTML='';questions.forEach((q,idx)=>{const sc=q.choices.map((c,i)=>({text:c,origIdx:i}));for(let i=sc.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[sc[i],sc[j]]=[sc[j],sc[i]]}q._shuffled=sc;q._selected=null;let h=`<div class="question-card"><div class="q-number">問題 ${idx+1} / ${questions.length}</div><div class="q-text">${q.q}</div><ul class="choices">`;sc.forEach((c,ci)=>{h+=`<li onclick="selectChoice(${idx},${ci})" id="q${idx}c${ci}">${c.text}</li>`});h+=`</ul><div class="explanation" id="exp${idx}"><div id="expText${idx}"></div></div></div>`;c.innerHTML+=h})}
+
+let questions=[],answered=0;
+function shuffleArray(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function initQuiz(count){const n=count||allQuestions.length;questions=shuffleArray(allQuestions).slice(0,n);answered=0;document.getElementById('submitBtn').style.display='none';document.getElementById('resultArea').style.display='none';document.getElementById('progressFill').style.width='0%';const c=document.getElementById('quizContainer');c.innerHTML='';questions.forEach((q,idx)=>{const sc=q.choices.map((c,i)=>({text:c,origIdx:i}));for(let i=sc.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[sc[i],sc[j]]=[sc[j],sc[i]]}q._shuffled=sc;q._selected=null;let h=`<div class="question-card" id="qcard${idx}"><div class="q-number">問題 ${idx+1} / ${questions.length}</div><div class="q-text">${q.q}</div><ul class="choices">`;sc.forEach((c,ci)=>{h+=`<li onclick="selectChoice(${idx},${ci})" id="q${idx}c${ci}">${c.text}</li>`});h+=`</ul><div class="explanation" id="exp${idx}"><div id="expText${idx}"></div></div></div>`;c.innerHTML+=h})}
 function selectChoice(qi,ci){const q=questions[qi];if(q._selected!==null)return;q._selected=ci;answered++;const corr=q.answer,sel=q._shuffled[ci].origIdx,ok=sel===corr;q._shuffled.forEach((c,i)=>{const li=document.getElementById(`q${qi}c${i}`);if(c.origIdx===corr)li.classList.add('correct');if(i===ci&&!ok)li.classList.add('wrong')});const e=document.getElementById(`exp${qi}`),t=document.getElementById(`expText${qi}`);t.innerHTML=(ok?'<span class="correct-label">&#x2B55; 正解！</span>':'<span class="wrong-label">&#x274C; 不正解</span>')+'<br>'+q.explanation;e.classList.add('show');document.getElementById('progressFill').style.width=(answered/questions.length*100)+'%';if(answered===questions.length)document.getElementById('submitBtn').style.display='inline-block'}
-function submitQuiz(){let c=0;questions.forEach(q=>{if(q._selected!==null&&q._shuffled[q._selected].origIdx===q.answer)c++});document.getElementById('resultArea').style.display='block';document.getElementById('resultScore').textContent=`${c} / ${questions.length}`;const p=c/questions.length*100;let m='';if(p===100)m='満点です！';else if(p>=80)m='よく理解できています！';else if(p>=60)m='合格ライン！';else m='レッスンをもう一度確認しましょう。';document.getElementById('resultMsg').textContent=m;document.getElementById('resultArea').scrollIntoView({behavior:'smooth'})}
-function retryQuiz(){initQuiz();document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'})}
-function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');const tabs=document.querySelectorAll('.nav-tab');if(id==='lesson1')tabs[0].classList.add('active');else if(id==='lesson2')tabs[1].classList.add('active');else if(id==='lesson3')tabs[2].classList.add('active');else if(id==='quiz'){tabs[3].classList.add('active');initQuiz()}window.scrollTo({top:0,behavior:'smooth'})}
-initQuiz();
+function submitQuiz(){let c=0;questions.forEach(q=>{if(q._selected!==null&&q._shuffled[q._selected].origIdx===q.answer)c++});document.getElementById('resultArea').style.display='block';document.getElementById('resultScore').textContent=`${c} / ${questions.length}`;const p=c/questions.length*100;let m='';if(p===100)m='満点です！素晴らしい！';else if(p>=80)m='よく理解できています！';else if(p>=60)m='合格ライン！もう少し復習しましょう。';else m='レッスンをもう一度確認してみましょう。';document.getElementById('resultMsg').textContent=m;document.getElementById('resultArea').scrollIntoView({behavior:'smooth'})}
+function retryQuiz(){initQuiz(questions.length);document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'})}
+function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');const tabs=document.querySelectorAll('.nav-tab');const ids=['lesson1','lesson2','lesson3','lesson4','quiz'];tabs[ids.indexOf(id)].classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function startQuiz(count){
+  initQuiz(count);
+  document.querySelector('.quiz-area .progress-bar').scrollIntoView({behavior:'smooth'});
+}
+// 初期化（出題数選択画面はそのまま、Quizはまだ生成しない）
 </script>
 </body>
 </html>

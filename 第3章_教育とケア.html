@@ -5,97 +5,467 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>第3章 教育とケア｜教育学 Web教材</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.8;padding:0 0 60px 0}.header{background:linear-gradient(135deg,#1B3A5C,#2d5a8e);color:#fff;padding:24px 20px;text-align:center}.header h1{font-size:1.3em;margin-bottom:4px}.header .sub{font-size:.85em;opacity:.8}.container{max-width:720px;margin:0 auto;padding:16px}.nav-tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:.82em;cursor:pointer;transition:all .2s}.nav-tab:hover,.nav-tab.active{background:#1B3A5C;color:#fff}.section{display:none}.section.active{display:block}.lesson-card{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}.lesson-card h2{color:#1B3A5C;font-size:1.2em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}.lesson-card h3{color:#2d5a8e;font-size:1.05em;margin:20px 0 10px 0}.key-point{background:#eef3f9;border-left:4px solid #1B3A5C;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.95em}.key-point strong{color:#1B3A5C}.vocab{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 8px;margin:2px 4px;font-weight:bold;font-size:.9em;color:#e65100}.example{background:#f9f9f9;border:1px solid #ddd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:.9em}.person{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}.person strong{color:#2e7d32}.stat{background:#fce4ec;border-left:4px solid #e91e63;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}.stat strong{color:#c2185b}.quiz-area{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}.quiz-area h2{color:#1B3A5C;margin-bottom:16px}.question-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:20px;margin:16px 0}.q-number{font-size:.8em;color:#999;margin-bottom:6px}.q-text{font-size:1.05em;font-weight:bold;margin-bottom:14px;line-height:1.6}.choices{list-style:none}.choices li{padding:12px 16px;margin:6px 0;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all .2s;font-size:.95em}.choices li:hover{border-color:#1B3A5C;background:#f0f4f8}.choices li.correct{border-color:#4caf50;background:#e8f5e9}.choices li.wrong{border-color:#f44336;background:#ffebee}.explanation{display:none;margin-top:12px;padding:14px;background:#f5f5f5;border-radius:8px;font-size:.9em;line-height:1.7}.explanation.show{display:block}.explanation .correct-label{color:#4caf50;font-weight:bold}.explanation .wrong-label{color:#f44336;font-weight:bold}.result-area{display:none;text-align:center;padding:30px;background:#fff;border-radius:12px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}.result-score{font-size:2.5em;font-weight:bold;color:#1B3A5C;margin:10px 0}.result-msg{font-size:1.1em;margin:10px 0}.btn{display:inline-block;padding:12px 28px;background:#1B3A5C;color:#fff;border:none;border-radius:8px;font-size:1em;cursor:pointer;margin:8px}.btn:hover{background:#2d5a8e}.btn-outline{background:#fff;color:#1B3A5C;border:2px solid #1B3A5C}.progress-bar{width:100%;height:6px;background:#e0e0e0;border-radius:3px;margin:12px 0}.progress-fill{height:100%;background:#1B3A5C;border-radius:3px;transition:width .3s}.back-link{display:inline-block;margin:16px 0;color:#1B3A5C;text-decoration:none;font-weight:bold}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.85;padding:0 0 60px 0}
+.header{background:linear-gradient(135deg,#1B3A5C,#2d5a8e);color:#fff;padding:24px 20px;text-align:center}
+.header h1{font-size:1.3em;margin-bottom:4px}
+.header .sub{font-size:.85em;opacity:.8}
+.container{max-width:760px;margin:0 auto;padding:16px}
+.nav-tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:.82em;cursor:pointer;transition:all .2s}
+.nav-tab:hover,.nav-tab.active{background:#1B3A5C;color:#fff}
+.section{display:none}.section.active{display:block}
+.lesson-card{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.lesson-card h2{color:#1B3A5C;font-size:1.25em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}
+.lesson-card h3{color:#2d5a8e;font-size:1.08em;margin:22px 0 10px 0;padding-left:8px;border-left:4px solid #2d5a8e}
+.lesson-card h4{color:#1B3A5C;font-size:.98em;margin:14px 0 8px 0}
+.lesson-card p{margin:8px 0}
+.key-point{background:#eef3f9;border-left:4px solid #1B3A5C;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.95em}
+.key-point strong{color:#1B3A5C}
+.vocab{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:1px 7px;margin:1px 3px;font-weight:bold;font-size:.92em;color:#e65100}
+.example{background:#f9f9f9;border:1px solid #ddd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:.92em}
+.example::before{content:"📘 例 ";font-weight:bold;color:#666}
+.person{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.person strong{color:#2e7d32}
+.stat{background:#fce4ec;border-left:4px solid #e91e63;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.stat strong{color:#c2185b}
+.timeline{background:#fff8e1;border-left:4px solid #f9a825;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.timeline strong{color:#f57f17}
+.timeline .yr{display:inline-block;min-width:80px;font-weight:bold;color:#f57f17}
+.note-nurse{background:#f3e5f5;border-left:4px solid #8e24aa;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.92em}
+.note-nurse strong{color:#6a1b9a}
+.note-nurse::before{content:"🩺 看護現場との関連　";font-weight:bold}
+.compare-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9em}
+.compare-table th{background:#1B3A5C;color:#fff;padding:10px;border:1px solid #ddd;text-align:left}
+.compare-table td{padding:10px;border:1px solid #ddd;background:#fff}
+.compare-table tr:nth-child(even) td{background:#f9f9f9}
+.quiz-area{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.quiz-area h2{color:#1B3A5C;margin-bottom:16px}
+.question-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:20px;margin:16px 0}
+.q-number{font-size:.8em;color:#999;margin-bottom:6px}
+.q-text{font-size:1.05em;font-weight:bold;margin-bottom:14px;line-height:1.6}
+.choices{list-style:none}
+.choices li{padding:12px 16px;margin:6px 0;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all .2s;font-size:.95em}
+.choices li:hover{border-color:#1B3A5C;background:#f0f4f8}
+.choices li.correct{border-color:#4caf50;background:#e8f5e9}
+.choices li.wrong{border-color:#f44336;background:#ffebee}
+.explanation{display:none;margin-top:12px;padding:14px;background:#f5f5f5;border-radius:8px;font-size:.9em;line-height:1.7}
+.explanation.show{display:block}
+.explanation .correct-label{color:#4caf50;font-weight:bold}
+.explanation .wrong-label{color:#f44336;font-weight:bold}
+.result-area{display:none;text-align:center;padding:30px;background:#fff;border-radius:12px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.result-score{font-size:2.5em;font-weight:bold;color:#1B3A5C;margin:10px 0}
+.result-msg{font-size:1.1em;margin:10px 0}
+.btn{display:inline-block;padding:12px 28px;background:#1B3A5C;color:#fff;border:none;border-radius:8px;font-size:1em;cursor:pointer;margin:8px;transition:background .2s}
+.btn:hover{background:#2d5a8e}
+.btn-outline{background:#fff;color:#1B3A5C;border:2px solid #1B3A5C}
+.btn-outline:hover{background:#f0f4f8}
+.progress-bar{width:100%;height:6px;background:#e0e0e0;border-radius:3px;margin:12px 0}
+.progress-fill{height:100%;background:#1B3A5C;border-radius:3px;transition:width .3s}
+.back-link{display:inline-block;margin:16px 0;color:#1B3A5C;text-decoration:none;font-weight:bold}
+.back-link:hover{text-decoration:underline}
+.intro-box{background:linear-gradient(135deg,#eef3f9,#fff);border:1px solid #cdd9e8;border-radius:10px;padding:18px;margin:14px 0;font-size:.95em}
+.intro-box strong{color:#1B3A5C}
 </style>
 </head>
 <body>
-<div class="header"><h1>第3章 教育とケア ── 人間の成長・発達と健康</h1><div class="sub">桑名看護専門学校　教育学　Web教材</div></div>
+
+<div class="header">
+  <h1>第3章 教育とケア —— 人間の成長・発達と健康</h1>
+  <div class="sub">桑名看護専門学校　教育学　Web教材</div>
+</div>
+
 <div class="container">
+  <a href="index.html" class="back-link">&#x1F3E0; ホーム</a>
 
-<div class="nav-tabs">
-<div class="nav-tab active" onclick="showSection('lesson1')">A ケアと人間形成</div>
-<div class="nav-tab" onclick="showSection('lesson2')">B 健康と教育</div>
-<div class="nav-tab" onclick="showSection('lesson3')">C 学校保健</div>
-<div class="nav-tab" onclick="showSection('quiz')">確認テスト</div>
-</div>
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showSection('lesson1')">① ケアと人間形成</div>
+    <div class="nav-tab" onclick="showSection('lesson2')">② ケア理論と看護</div>
+    <div class="nav-tab" onclick="showSection('lesson3')">③ 健康教育の歴史と理論</div>
+    <div class="nav-tab" onclick="showSection('lesson4')">④ 学校保健と養護教諭</div>
+    <div class="nav-tab" onclick="showSection('quiz')">確認テスト</div>
+  </div>
 
-<div id="lesson1" class="section active">
-<div class="lesson-card">
-<h2>A　ケアと人間形成</h2>
-<h3>1. ケアの概念</h3>
-<p>人間は、他の生物と異なり、次世代を意識的に育て上げ自立させることに意欲を持つ存在です。この自他への関心に基づく形成的行為を<span class="vocab">ケア（care）</span>と呼びます。</p>
-<div class="key-point"><strong>ケアとケアリングの違い</strong><br><span class="vocab">ケア</span>：提供主体から分離して客観化・評価できる事象（「ケアの質を評価する」等）<br><span class="vocab">ケアリング</span>：ケア行為者の意識や感情、文化的・社会的文脈に規定された行為の過程<br><br>ケアは代替可能でシステム化できるが、ケアリングは行為者の人格に依存し、代替が難しい。</div>
-<div class="person"><strong><span class="vocab">ハイデガー</span>（Heidegger, M.）</strong><br>「ケア」の概念を哲学的に最も深く検討した思想家。人間が本来的に持っている自他への関心に基づく形成的行為としてケアを位置づけました。</div>
+  <!-- Lesson 1 -->
+  <div id="lesson1" class="section active">
+    <div class="lesson-card">
+      <h2>① ケアと人間形成</h2>
+      <div class="intro-box">
+        本章は<strong>「教育」と「ケア」の共通性</strong>を考えます。ケアは保健医療や看護・福祉だけの課題ではなく、<strong>人間形成（教育）</strong>に深く関わる根源的な営みです。看護学生にとってこの章は専門領域の理論的基盤を理解する重要なパートです。
+      </div>
 
-<h3>2. ケアの理論的モデル</h3>
-<div class="person"><strong>ヒポクラテス（古典的ケア論）</strong><br>医学の父。治療の方法だけでなく、患者に対する配慮や顧慮のあり方を重視。「人間に対する愛があれば技術に対する愛もある」と述べ、医師の誠実さが患者の回復を助けると説きました。</div>
-<div class="person"><strong><span class="vocab">ナイチンゲール</span>（近代ケア論）</strong><br>科学的看護の確立者。疾病は自然が癒す（患者の内的回復力）と考え、看護の役割は「<span class="vocab">健康の規則</span>」「<span class="vocab">衛生の規則</span>」に基づいて内的回復力を高めることとしました。<br><br>重視したのは<span class="vocab">「<span class="vocab">観察</span>」</span>。換気、気温、清潔、採光、物音など、詳細な配慮のあり方を示しました。</div>
-<div class="key-point"><strong>フーコーの養生論</strong><br>養生とは単に病気にならないための注意ではなく、<strong>自己の生への配慮を通じて自己自身を形成していく</strong>あり方。自己への配慮を通じて世界と関わり、その関わりの中で自己を形成する。</div>
+      <h3>1. ケアとは何か</h3>
+      <div class="key-point">
+        <strong><span class="vocab">ケア（care）</span>の定義</strong><br>
+        人間が本来的・本質的に具有している<strong>自他への関心に基づく形成的行為</strong>。次世代を育てる「世話」「気遣い」「配慮」を含む。<br>
+        哲学的に最も深く検討した思想家：<strong>ハイデガー（Heidegger, M.）</strong>
+      </div>
 
-<h3>3. ケアの人間形成作用</h3>
-<div class="key-point"><strong>セルフケアと人間形成</strong><br>自分自身をケアすることは、自己を知り、自己を形成する行為。<br><span class="vocab">セルフケア</span>は単なる健康管理ではなく、人間としての成長そのもの。</div>
-<div class="key-point"><strong>ケアと<span class="vocab">相互応答性</span></strong><br>ケアは一方通行ではなく、ケアする者とされる者が相互に応答し合う関係。ケアする経験が、ケアする者自身を成長させる。</div>
-<div class="example">看護師が患者をケアする経験は、看護師自身の人間的成長につながります。「ケアする」ことと「ケアされる」ことは表裏一体であり、この相互性こそがケアの本質です。</div>
-</div>
-</div>
+      <div class="key-point">
+        <strong>ケアの根源性</strong><br>
+        他者への世話や気遣いは、自らの生命の活力を他者に譲ること。それでも多くの人間が世話をするのは、人間が本来的に他者に関心を持つ生物だから。<br>
+        →労働・社会形成・文化創造もすべて、人間の<strong>「事物への関心」</strong>に基づく意識的な働きかけの結果
+      </div>
 
-<div id="lesson2" class="section">
-<div class="lesson-card">
-<h2>B　健康と教育</h2>
-<h3>1. 健康と教育の理論的基礎</h3>
-<div class="key-point"><strong>2つの方向性</strong><br><span class="vocab">教育をとおした健康</span>：健康に関する知識や行動を教育によって身につける<br><span class="vocab">健康をとおした教育</span>：健康な状態であることが、学びの基盤になる</div>
-<h3>2. 健康教育の歴史</h3>
-<div class="key-point"><strong>健康教育の発展</strong><br>・19世紀：学校衛生の成立（感染症対策が中心）<br>・20世紀前半：体育・衛生教育の体系化<br>・20世紀後半〜現在：<span class="vocab">参加型健康教育</span>・<span class="vocab">健康学習論</span>へ<br>・現代：<span class="vocab">エンパワメント</span>と<span class="vocab">アドボカシー</span>の重視</div>
-<div class="key-point"><strong>エンパワメントとアドボカシー</strong><br><span class="vocab">エンパワメント</span>：人々が自らの健康をコントロールし、改善できるようになる過程<br><span class="vocab">アドボカシー</span>：健康に関する権利を主張し、社会的な条件の改善を求める活動</div>
-<div class="example">看護師は患者のエンパワメントを支援する重要な役割を担います。「教える」のではなく、患者自身が健康について考え、行動できるよう支えることが求められます。</div>
-</div>
-</div>
+      <div class="example">
+        <strong>『老子』第7章</strong>「是を以て聖人は、其の身を後にして而も身は先んず」<br>
+        →自らに先んじて他者を慮ることこそが、自己形成に他ならない、という思想は洋の東西を問わず存在。
+      </div>
 
-<div id="lesson3" class="section">
-<div class="lesson-card">
-<h2>C　学校保健</h2>
-<h3>1. 学校保健の3つの領域</h3>
-<div class="key-point"><strong>学校保健活動の構成</strong><br><span class="vocab">① 学校保健管理</span>：健康診断、環境衛生管理、感染症対策など<br><span class="vocab">② 学校保健教育</span>：保健の授業、健康に関する指導<br><span class="vocab">③ 学校保健組織活動</span>：学校保健委員会、地域との連携など</div>
-<h3>2. 近代日本における学校衛生の成立</h3>
-<div class="key-point"><strong>歴史的経緯</strong><br>・明治時代：トラホーム（伝染性眼疾患）対策として学校衛生が始まる<br>・戦後：GHQの指導のもと、<span class="vocab">学校保健法</span>制定（1958年）<br>・現在：心の健康、アレルギー、生活習慣病予防なども対象に</div>
-<h3>3. 学校でのケアと教育</h3>
-<div class="key-point"><strong><span class="vocab">養護教諭</span>の役割</strong><br>・保健室は「心の居場所」としても機能<br>・身体的なケアだけでなく、心理的・教育的支援も担う<br>・<span class="vocab">ヘルスプロモーション</span>の考え方に基づく健康教育の推進者</div>
-<div class="key-point"><strong>学校保健におけるケアの特質</strong><br>・教育の場でのケア → 子どもの成長・発達を見据えた長期的視点<br>・地域社会との連携 → 学校だけで完結しない健康づくり<br>・子ども自身の主体性 → セルフケア能力の育成</div>
-<div class="example">看護師が学校保健に関わる場面も増えています。医療的ケア児の増加に伴い、特別支援学校や通常の学校に看護師が配置されるケースが広がっています。</div>
-</div>
-</div>
+      <h3>2. ケアとケアリングの区別</h3>
 
-<div id="quiz" class="section">
-<div class="quiz-area">
-<h2>確認テスト（第3章）</h2><p>10問出題します。</p>
-<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-<div id="quizContainer"></div>
-<div style="text-align:center;margin-top:20px"><button class="btn" id="submitBtn" onclick="submitQuiz()" style="display:none">結果を見る</button></div>
-</div>
-<div class="result-area" id="resultArea"><h2>結果</h2><div class="result-score" id="resultScore"></div><div class="result-msg" id="resultMsg"></div><button class="btn" onclick="retryQuiz()">もう一度</button><button class="btn btn-outline" onclick="showSection('lesson1')">レッスンに戻る</button></div>
-</div>
+      <table class="compare-table">
+        <tr><th></th><th>ケア（care）</th><th>ケアリング（caring）</th></tr>
+        <tr>
+          <td><strong>性質</strong></td>
+          <td>客観化・対象化が可能</td>
+          <td>個別的・文脈依存的</td>
+        </tr>
+        <tr>
+          <td><strong>例</strong></td>
+          <td>「ケアの質を評価する」</td>
+          <td>ケアの行為主体の意識・感情を含む過程</td>
+        </tr>
+        <tr>
+          <td><strong>社会化</strong></td>
+          <td>可能（システム化できる）</td>
+          <td>困難（再現不可能な現象）</td>
+        </tr>
+        <tr>
+          <td><strong>関係性</strong></td>
+          <td>主体から分離可能</td>
+          <td>担い手と受け手の相互関係に依存</td>
+        </tr>
+      </table>
+
+      <div class="key-point">
+        <strong>両者の相補性</strong><br>
+        ・<strong>ケア</strong>：質的水準を求めて社会化される方向<br>
+        ・<strong>ケアリング</strong>：相互の関係性のなかで個別化される方向<br>
+        どちらも欠かせない。
+      </div>
+
+      <h3>3. 古典的ケア論</h3>
+
+      <div class="person">
+        <strong>ヒポクラテス（Hippocrates）</strong>『ヒポクラテス集典』<br>
+        「医師の心得」のなかで治療における配慮のあり方を多数述べる。<br>
+        「人間に対する愛があれば技術に対する愛もある」<br>
+        →西洋医学思想におけるケアの原点。
+      </div>
+
+      <div class="key-point">
+        <strong>東洋のケア思想</strong><br>
+        ・<strong>仏教の「慈悲」</strong>：一切の衆生に注がれる関心と顧慮<br>
+        ・<strong>『老子』『荘子』</strong>：「養生」「衛生」「摂生」の思想＝自己へのケア
+      </div>
+
+      <div class="note-nurse">
+        看護はケアの専門職ですが、「ケア」と「ケアリング」を区別する視点は重要です。看護記録や評価指標で測れる客観的な「ケア」の質と、患者一人ひとりとの関係性のなかで生まれる「ケアリング」の温かみの両方を意識することで、機械的な業務にならない深い看護が可能になります。
+      </div>
+    </div>
+  </div>
+
+  <!-- Lesson 2 -->
+  <div id="lesson2" class="section">
+    <div class="lesson-card">
+      <h2>② ケア理論と看護</h2>
+      <div class="intro-box">
+        看護理論の祖<strong>ナイチンゲール</strong>から現代の<strong>ノディングス</strong>まで、ケア論は人間形成・発達論の中核として発展してきました。看護学生にとって直接的な専門基礎となる重要な理論群です。
+      </div>
+
+      <h3>1. ナイチンゲールのケア思想</h3>
+
+      <div class="person">
+        <strong>フローレンス・ナイチンゲール（Florence Nightingale, 1820-1910）</strong><br>
+        近代看護の祖。クリミア戦争で野戦病院の衛生状態を改革し、死亡率を激減させた。<br>
+        著書『看護覚え書』で、看護の本質を体系化。
+      </div>
+
+      <div class="key-point">
+        <strong>ナイチンゲールの看護観</strong><br>
+        ・疾病は<strong>自然が癒す</strong>、すなわち患者である人間自身の自然治癒力が癒す<br>
+        ・看護師の役割：自然治癒力が最大限に発揮されるよう<strong>環境を整える</strong>こと（換気・採光・清潔・食事・休息など）<br>
+        ・<strong>「見過ごされやすい現状への批判的精神」</strong>こそがナイチンゲール看護の核心
+      </div>
+
+      <div class="example">
+        ナイチンゲールが取り組んだのは、戦場の負傷者たちの傷そのものよりも、彼らを取り巻く環境（不衛生・換気不足・栄養不足）でした。これにより死亡率が激減した事実は、ケアの本質が「患者の生活全体への配慮」であることを示しています。
+      </div>
+
+      <h3>2. 発達論としてのケア</h3>
+
+      <div class="person">
+        <strong>エリク・H・エリクソン（Erikson, E. H.）</strong><br>
+        ライフサイクル論の提唱者。「ケアを受ける」ことだけでなく「<strong>ケアをなしうる</strong>」ことが人間の発達と成熟に不可欠と主張。
+      </div>
+
+      <div class="key-point">
+        <strong>エリクソンのケア論</strong><br>
+        「人間の発達は、ケアを受けるということばかりでなく、<strong>ケアをなしうる</strong>ことにもまた依存しているのである。人間の発達と成熟は、ケアを学ぶことなしには達成されえない」<br>
+        →ケアの能力は<strong>養成されるべきもの</strong>。
+      </div>
+
+      <h3>3. メイヤロフのケア論</h3>
+
+      <div class="person">
+        <strong>ミルトン・メイヤロフ（Mayeroff, M.）</strong>『ケアの本質』<br>
+        哲学的立場からケアの概念を検討。
+      </div>
+
+      <div class="key-point">
+        <strong>メイヤロフのケア</strong><br>
+        ケアとは「他者の人格を成長させる」こと、すなわちエリクソン的にいえば<strong>「アイデンティティ」を持たせる</strong>こと。<br>
+        ケアは人間存在にとって不可欠であり、<strong>人間をして人間たらしめる</strong>。<br>
+        ハイデガーのいう「気遣い、関心」と通底する。
+      </div>
+
+      <h3>4. ノディングスのケア論</h3>
+
+      <div class="person">
+        <strong>ネル・ノディングス（Noddings, N.）</strong><br>
+        アメリカの教育哲学者。教育におけるケアの倫理を提唱。
+      </div>
+
+      <div class="key-point">
+        <strong>ノディングスの中核概念</strong><br>
+        ・<span class="vocab">engrossment</span>（没頭・全面的関心）：相手に対する全面的な没頭・独占を前提<br>
+        ・他者のreality（現実）と possibility（可能性）を、自己のうちに置き換えて感じる<br>
+        ・ケアは<strong>相互性</strong>に由来する行為。受け手のあり方が担い手のケアを規定する
+      </div>
+
+      <div class="example">
+        ノディングスのケア論では、ケアは一方的な「与える」行為ではなく、ケアする者とされる者の<strong>相互の現実と可能性の置換</strong>として捉えられます。これは看護のあり方を考えるうえで根本的な視座を提供します。
+      </div>
+
+      <div class="note-nurse">
+        看護理論は単なる学問ではなく、日々のベッドサイドケアに直結します。ナイチンゲールの「環境」、エリクソンの「ケアする能力の発達」、メイヤロフの「他者の成長」、ノディングスの「engrossment（没頭）」——これらの視点を持つことで、忙しい臨床の中でも患者一人ひとりに向き合う質の高い看護が可能になります。
+      </div>
+    </div>
+  </div>
+
+  <!-- Lesson 3 -->
+  <div id="lesson3" class="section">
+    <div class="lesson-card">
+      <h2>③ 健康教育の歴史と理論</h2>
+      <div class="intro-box">
+        健康教育は<strong>公衆衛生における衛生思想の普及</strong>として始まりました。アメリカが「牽引車」として制度化を進め、現代では<strong>知識・行動・態度論</strong>や<strong>PRECEDE-PROCEEDモデル</strong>などが理論基盤となっています。
+      </div>
+
+      <h3>1. 健康教育の定義</h3>
+
+      <div class="key-point">
+        <strong>グラウト（Grout, R. E.）の定義</strong>（古典的定義）<br>
+        「健康教育とは、健康についての<strong>知識を教育過程の手段に</strong>よって望ましい個人・地域社会の<strong>習慣や態度に翻訳する</strong>こと」
+      </div>
+
+      <div class="key-point">
+        <strong>現代的視点</strong><br>
+        健康教育とは「健康という現象やそれに向けた行動を学習する過程」と捉えられる。単なる知識伝達ではなく、<strong>行動変容</strong>と<strong>態度形成</strong>を含む包括的な教育営為。
+      </div>
+
+      <h3>2. アメリカ合衆国の健康教育の歴史</h3>
+
+      <div class="timeline">
+        <strong>米国近代健康教育のあゆみ</strong><br>
+        <span class="yr">1837年</span>マン（Mann, H.）が学校保健サービス・健康教育に関する小論を執筆<br>
+        <span class="yr">1850年</span>「シャタック報告」（公衆衛生制度の必要性）<br>
+        <span class="yr">1911年</span>全米教育協会（NEA）が学校衛生委員会設置<br>
+        <span class="yr">1921年</span>歴史上初めて明確に健康教育の重要性を提示<br>
+        <span class="yr">1944年</span>デンバー研究（Denver study）開始。実証的健康教育プログラムの研究<br>
+        <span class="yr">1961年</span>「学校保健教育研究」プロジェクト開始<br>
+        <span class="yr">1971年</span>健康教育に関する大統領委員会設立<br>
+        <span class="yr">1974年</span>疾病管理センター（CDC）に健康教育部門設置<br>
+        <span class="yr">1980s</span>エイズ問題で健康教育がさらに充実
+      </div>
+
+      <h3>3. 知識・行動・態度論</h3>
+
+      <div class="key-point">
+        <strong>健康教育の三要素</strong><br>
+        ・<strong>知識</strong>（knowledge）：健康に関する正しい情報を知っているか<br>
+        ・<strong>態度</strong>（attitude）：健康に向き合う価値観・姿勢<br>
+        ・<strong>行動</strong>（behavior）：実際の生活習慣・行動<br>
+        →3つすべてが揃って初めて健康教育の目的が達成される
+      </div>
+
+      <div class="example">
+        「タバコは肺がんの原因」と<strong>知識</strong>として知っていても、「自分は大丈夫」という<strong>態度</strong>では<strong>行動</strong>変容（禁煙）に結びつきません。逆に、嫌悪感（態度）だけでも知識がなければ正確な予防行動には繋がりません。三者の統合が必要です。
+      </div>
+
+      <h3>4. PRECEDE-PROCEEDモデル</h3>
+
+      <div class="person">
+        <strong>グリーン（Green, L. W.）のPRECEDE-PROCEEDモデル</strong><br>
+        ・健康教育の過程を「被教育者と教育者の相互的な介入とフィードバック」として捉える<br>
+        ・健康教育を診断（PRECEDE）と評価（PROCEED）の循環として体系化<br>
+        ・現代の公衆衛生・健康増進プログラムの理論的基盤として広く使われる
+      </div>
+
+      <div class="key-point">
+        <strong>モデルの特徴</strong><br>
+        理論的議論にとどまらず、<strong>常に実践的アプローチ</strong>を重視。<br>
+        プログラムの計画段階（準備要因・強化要因・実現要因の診断）から実施・評価まで一貫して扱える点が画期的。
+      </div>
+
+      <div class="note-nurse">
+        看護師が患者教育を行う際、「正しい知識を伝えれば行動が変わる」という単純な発想では失敗します。患者の価値観・生活背景・周囲の支援体制（強化要因）まで含めて評価し、行動変容を支援する視点が重要です。糖尿病・高血圧・禁煙指導などすべてに通底する考え方です。
+      </div>
+    </div>
+  </div>
+
+  <!-- Lesson 4 -->
+  <div id="lesson4" class="section">
+    <div class="lesson-card">
+      <h2>④ 学校保健と養護教諭</h2>
+      <div class="intro-box">
+        学校保健は<strong>子どもの健康を守る学校教育の柱</strong>であり、その中心にいるのが<strong>養護教諭</strong>です。看護師資格を活かして養護教諭を目指す道もあり、看護学生にとって関心の高い領域です。
+      </div>
+
+      <h3>1. 学校保健の3領域</h3>
+
+      <table class="compare-table">
+        <tr><th>領域</th><th>内容</th></tr>
+        <tr>
+          <td><strong>① 保健管理</strong></td>
+          <td>健康診断、保健調査、健康相談、感染症対策、学校環境衛生など。子どもの健康状態を把握・管理する活動</td>
+        </tr>
+        <tr>
+          <td><strong>② 保健教育</strong></td>
+          <td>保健学習（教科として）と保健指導（学校生活全般を通じた指導）。健康に関する知識・態度・行動の育成</td>
+        </tr>
+        <tr>
+          <td><strong>③ 保健組織活動</strong></td>
+          <td>学校保健委員会、PTAとの連携、地域医療機関との協力など。学校全体・地域全体を巻き込んだ取り組み</td>
+        </tr>
+      </table>
+
+      <h3>2. 養護教諭の役割</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">養護教諭</span>とは</strong><br>
+        学校教育法に基づき、児童・生徒の<strong>養護をつかさどる</strong>教員。保健室を拠点に活動。<br>
+        資格：養護教諭免許状（看護師資格を持つ者は所定の単位を修得すれば取得可能）
+      </div>
+
+      <div class="key-point">
+        <strong>養護教諭の主な職務</strong><br>
+        ・救急処置・健康診断の実施<br>
+        ・健康相談・健康観察<br>
+        ・保健指導（個別・集団）<br>
+        ・保健室経営<br>
+        ・学校保健計画の立案・実施<br>
+        ・学校環境衛生管理への参画<br>
+        ・教職員・保護者・地域との連携
+      </div>
+
+      <div class="example">
+        近年、養護教諭は単なる「けがの手当てをする人」ではなく、<strong>子どものメンタルヘルス・虐待の早期発見・発達障害への対応</strong>など、複雑化する子どもの問題への第一線の対応者としての役割が拡大しています。
+      </div>
+
+      <h3>3. 学校保健の歴史</h3>
+
+      <div class="timeline">
+        <strong>日本の学校保健のあゆみ</strong><br>
+        <span class="yr">明治期</span>「学校衛生」として始まる（伝染病予防、衛生環境整備中心）<br>
+        <span class="yr">戦後</span>「学校保健法」制定（1958年）<br>
+        <span class="yr">1990s</span>子どものメンタルヘルス問題が顕在化、養護教諭の役割拡大<br>
+        <span class="yr">2008年</span>「学校保健安全法」に改称・改正（学校安全を統合）<br>
+        <span class="yr">現在</span>感染症対策、心身の健康、安全教育を統合した包括的な学校保健へ
+      </div>
+
+      <h3>4. 学校給食と食育</h3>
+
+      <div class="key-point">
+        <strong>学校給食法（1954年制定）</strong><br>
+        学校給食は単なる栄養補給ではなく、<strong>食育（食に関する教育）</strong>の場として位置付けられている。<br>
+        2005年「食育基本法」制定で食育の重要性が国家戦略として明確化。
+      </div>
+
+      <h3>5. ヘルスプロモーティング・スクール</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">ヘルスプロモーティング・スクール（Health Promoting School）</span></strong><br>
+        WHO（世界保健機関）が提唱する、学校全体を健康促進の場として捉える概念。<br>
+        ・カリキュラム<br>
+        ・物理的環境<br>
+        ・社会的環境<br>
+        ・地域との連携<br>
+        これらを統合した健康支援システムを学校が築く。
+      </div>
+
+      <div class="key-point">
+        <strong>関連する概念</strong><br>
+        ・<span class="vocab">コミュニティ・オーガニゼーション</span>：地域住民の主体的な健康づくり<br>
+        ・<span class="vocab">エンパワメント</span>：本人・地域が力を発揮できる環境づくり<br>
+        ・<span class="vocab">アドボカシー</span>：健康問題への社会的代弁・擁護
+      </div>
+
+      <div class="note-nurse">
+        将来、養護教諭を目指す看護学生にとって、学校保健の3領域・養護教諭の職務・学校保健安全法の枠組みを理解しておくことは必須です。また、病院看護師として活動する場合でも、地域の小児・思春期の患者ケアにおいて、学校との連携場面が頻繁にあります。学校保健の制度を理解していることで、より効果的な多機関連携が可能になります。
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz -->
+  <div id="quiz" class="section">
+    <div class="quiz-area">
+      <h2>確認テスト（第3章）</h2>
+      <p style="margin-bottom:12px">出題数を選んでください：</p>
+      <div style="text-align:center;margin-bottom:16px">
+        <button class="btn" onclick="startQuiz(10)">10問でチャレンジ</button>
+        <button class="btn btn-outline" onclick="startQuiz(20)">20問でチャレンジ</button>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div id="quizContainer"></div>
+      <div style="text-align:center;margin-top:20px"><button class="btn" id="submitBtn" onclick="submitQuiz()" style="display:none">結果を見る</button></div>
+    </div>
+    <div class="result-area" id="resultArea">
+      <h2>結果</h2>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-msg" id="resultMsg"></div>
+      <button class="btn" onclick="retryQuiz()">もう一度</button>
+      <button class="btn btn-outline" onclick="showSection('lesson1')">レッスンに戻る</button>
+    </div>
+  </div>
 </div>
 
 <script>
 const allQuestions=[
-{q:'人間が本来的に持つ自他への関心に基づく形成的行為を何というか。',choices:['教育','ケア','療養','社会化'],answer:1,explanation:'人間が本来的・本質的に具有している自他への関心に基づく形成的行為を「ケア（care）」と呼びます。'},
-{q:'ケアとケアリングの違いについて、正しい説明はどれか。',choices:['ケアは主観的、ケアリングは客観的','ケアは客観化可能、ケアリングは行為者の意識に依存','ケアとケアリングは同じ意味','ケアリングの方が範囲が狭い'],answer:1,explanation:'ケアは客観化・評価が可能で代替可能ですが、ケアリングは行為者の意識・感情・文化的文脈に規定された行為の過程であり、代替が難しいものです。'},
-{q:'「人間に対する愛があれば技術に対する愛もある」と述べたのは誰か。',choices:['ナイチンゲール','フーコー','ヒポクラテス','ハイデガー'],answer:2,explanation:'古代ギリシャの医学の父ヒポクラテスの言葉です。医師の誠実さが患者の回復を助けると説きました。'},
-{q:'ナイチンゲールが看護の基本として最も重視したのは何か。',choices:['投薬管理','手術の補助','観察','カウンセリング'],answer:2,explanation:'ナイチンゲールは「観察」を最も重視し、換気・気温・清潔・採光・物音など、患者の環境に関する詳細な配慮のあり方を示しました。'},
-{q:'ナイチンゲールの看護観において、疾病を癒すのは何か。',choices:['医師の治療','薬物療法','自然（患者の内的回復力）','看護師の技術'],answer:2,explanation:'ナイチンゲールは「疾病は自然が癒す」と考え、患者自身の内的回復力を高めることが看護の役割だとしました。'},
-{q:'フーコーが述べた「養生」の本質として最も適切なものはどれか。',choices:['病気にならないための食事制限','自己の生への配慮を通じた自己形成','医師の指示に従う生活習慣','薬を正しく服用すること'],answer:1,explanation:'フーコーによれば、養生とは自己の生への配慮を通じて世界と関わり、その関わりの中で自己を形成していくあり方です。'},
-{q:'「教育をとおした健康」とはどういう意味か。',choices:['健康な人だけが教育を受けられる','健康に関する知識や行動を教育で身につける','教育機関で医療行為を行う','健康診断を学校で実施する'],answer:1,explanation:'「教育をとおした健康」とは、健康に関する知識や行動を教育によって身につけることを意味します。'},
-{q:'人々が自らの健康をコントロールし改善できるようになる過程を何というか。',choices:['アドボカシー','ノーマライゼーション','エンパワメント','インクルージョン'],answer:2,explanation:'エンパワメントとは、人々が自らの健康をコントロールし、改善できるようになる過程を指します。'},
-{q:'学校保健活動の3つの領域に含まれないものはどれか。',choices:['学校保健管理','学校保健教育','学校保健組織活動','学校保健治療'],answer:3,explanation:'学校保健活動は「学校保健管理」「学校保健教育」「学校保健組織活動」の3つの領域で構成されます。'},
-{q:'保健室の機能として、近年特に注目されているのはどれか。',choices:['薬の処方','心の居場所','入院施設','給食管理'],answer:1,explanation:'保健室は身体的なケアの場だけでなく、「心の居場所」としても機能しており、心理的・教育的支援の場としても注目されています。'}
+{q:'ケア（care）の概念を哲学的に最も深く検討した思想家は誰か。',choices:['カント','ハイデガー','ヘーゲル','ニーチェ'],answer:1,explanation:'ハイデガー（Heidegger, M.）はケアを「気遣い・関心」として人間存在の根源的な在り方として位置づけ、哲学的に最も深く検討しました。'},
+{q:'「ケア」と「ケアリング」の違いとして最も適切なのはどれか。',choices:['ケアは個別的、ケアリングは客観化可能','ケアは客観化可能、ケアリングは個別的・文脈依存的','どちらも同じ意味','ケアは医療、ケアリングは福祉'],answer:1,explanation:'ケアは「ケアの質を評価する」のように客観化・対象化が可能で社会化できますが、ケアリングは行為主体の意識・感情を含む過程で、個別的・文脈依存的な再現不可能な現象とされます。'},
+{q:'近代看護の祖とされ、「疾病は自然が癒す」という看護観を示したのは誰か。',choices:['ヒポクラテス','ナイチンゲール','メイヤロフ','ノディングス'],answer:1,explanation:'フローレンス・ナイチンゲール（1820-1910）は近代看護の祖。患者の自然治癒力を最大限に発揮させるため、環境を整えることが看護師の役割と説きました。'},
+{q:'ナイチンゲールが示した、看護師の役割として最も中心的なのはどれか。',choices:['薬を投与すること','手術の補助をすること','自然治癒力が発揮される環境を整えること','患者を励ますこと'],answer:2,explanation:'ナイチンゲールは「疾病は自然が癒す」と考え、看護師の役割は患者の自然治癒力が最大限に発揮されるよう環境（換気・採光・清潔・食事・休息など）を整えることと位置づけました。'},
+{q:'「人間の発達はケアを受けることだけでなく、ケアをなしうることにも依存している」と述べたのは誰か。',choices:['エリクソン','メイヤロフ','ノディングス','ハイデガー'],answer:0,explanation:'エリクソン（Erikson, E. H.）はライフサイクル論を提唱。ケアを受けるだけでなく、ケアする能力も発達と成熟に不可欠と主張しました。「ケアの能力は養成されるべきもの」と位置づけました。'},
+{q:'ノディングス（Noddings, N.）のケア論における中核概念はどれか。',choices:['カタルシス','engrossment（没頭・全面的関心）','エンパシー','コンプライアンス'],answer:1,explanation:'ノディングスは「engrossment（没頭・全面的関心）」をケアの特質として挙げ、相手に対する全面的な没頭・独占を前提とし、他者のrealityとpossibilityを自己のうちに置き換えて感じることを重視しました。'},
+{q:'メイヤロフ（Mayeroff, M.）のケア論で、ケアは何をすることだとされるか。',choices:['他者を治療すること','他者の人格を成長させること（アイデンティティを持たせる）','他者を保護すること','他者を導くこと'],answer:1,explanation:'メイヤロフはケアとは「他者の人格を成長させる」こと、エリクソン的にいえば「アイデンティティ」を持たせることだと位置づけました。ケアは人間存在にとって不可欠であり、人間を人間たらしめるとしました。'},
+{q:'ヒポクラテスの著作に示される、ケアの本質として強調されているのはどれか。',choices:['正確な薬剤投与','技術の優越','人間に対する愛','医療機器の活用'],answer:2,explanation:'ヒポクラテスは「人間に対する愛があれば技術に対する愛もある」と述べ、誠実な人間愛が治療の核心であり、ケアの本質であるとしました。'},
+{q:'グラウト（Grout, R. E.）による健康教育の古典的定義における中心概念はどれか。',choices:['知識を望ましい習慣や態度に翻訳する','病気の予防方法を教える','医療技術を伝える','医薬品の使い方を教える'],answer:0,explanation:'グラウトは「健康教育とは、健康についての知識を教育過程の手段によって、望ましい個人・地域社会の習慣や態度に翻訳すること」と定義しました。単なる知識伝達ではなく、習慣・態度への翻訳が核心です。'},
+{q:'健康教育の三要素「知識・態度・行動」のうち、「正しい知識を持っているのに行動が変わらない」原因として最も関係するのはどれか。',choices:['知識','態度','行動','どれも関係ない'],answer:1,explanation:'三要素のうち「態度」（健康に向き合う価値観・姿勢）が変わらないと、知識があっても行動変容に結びつきません。「自分は大丈夫」という態度が行動変容を妨げる代表的な例です。'},
+{q:'健康教育の理論モデルで、被教育者と教育者の相互的な介入とフィードバックを体系化したのは誰か。',choices:['ナイチンゲール','グラウト','グリーン','ヒポクラテス'],answer:2,explanation:'グリーン（Green, L. W.）のPRECEDE-PROCEEDモデルは、健康教育を診断（PRECEDE）と評価（PROCEED）の循環として体系化。現代の公衆衛生プログラムの理論的基盤になっています。'},
+{q:'近代健康教育の制度化を世界的に牽引した国はどこか。',choices:['イギリス','フランス','アメリカ合衆国','ドイツ'],answer:2,explanation:'アメリカ合衆国は近代健康教育の「牽引車」とされます。1837年のマンの活動から1974年のCDC健康教育部門設置に至るまで、制度・実証研究の両面で先進的な役割を果たしました。'},
+{q:'学校保健の3領域に含まれないのはどれか。',choices:['保健管理','保健教育','保健組織活動','保健経営'],answer:3,explanation:'学校保健の3領域は ①保健管理 ②保健教育 ③保健組織活動 です。「保健経営」は含まれません。'},
+{q:'養護教諭の資格として、看護師資格を持つ者が取得する場合の説明として正しいのはどれか。',choices:['看護師資格があれば自動的に取得できる','所定の単位を修得すれば取得可能','取得は不可能','医師資格が必要'],answer:1,explanation:'養護教諭免許状は、看護師資格を持つ者が大学等で所定の単位（教職に関する科目等）を修得することで取得可能です。看護師から養護教諭への道は看護学生にとって重要なキャリアパスです。'},
+{q:'2008年に「学校保健法」から改称された法律の名称はどれか。',choices:['学校教育法','学校保健安全法','学校環境法','学校福祉法'],answer:1,explanation:'2008年に学校保健法は「学校保健安全法」に改称・改正され、学校安全（事件・事故・災害への対応）も統合されました。'},
+{q:'WHO（世界保健機関）が提唱する、学校全体を健康促進の場として捉える概念はどれか。',choices:['ヘルスプロモーティング・スクール','スクールヘルスケア','ヘルスエデュケーションスクール','コミュニティヘルススクール'],answer:0,explanation:'ヘルスプロモーティング・スクール（Health Promoting School）は、カリキュラム・物理的環境・社会的環境・地域連携を統合した健康支援システムを学校が築くというWHOの提唱概念です。'},
+{q:'地域住民が自ら主体的に健康づくりに取り組むことを示す概念はどれか。',choices:['コミュニティ・オーガニゼーション','メディカル・モデル','コンプライアンス','スクリーニング'],answer:0,explanation:'コミュニティ・オーガニゼーションは地域住民の主体的な健康づくりを示す概念。エンパワメント（本人・地域が力を発揮できる環境づくり）、アドボカシー（健康問題への社会的代弁）と並んで現代健康教育の重要概念です。'},
+{q:'学校給食は単なる栄養補給ではなく、何の場として位置付けられているか。',choices:['福祉','食育','医療','体力測定'],answer:1,explanation:'学校給食は「食育（食に関する教育）」の場として位置付けられています。2005年「食育基本法」制定で食育の重要性が国家戦略として明確化されました。'},
+{q:'『老子』第7章の「身を後にして而も身は先んず」という言葉は、ケアに関してどのような考え方を示しているか。',choices:['自分を最優先せよ','自らに先んじて他者を慮ることが自己形成になる','他者よりも自分を大切にせよ','他者に依存することの重要性'],answer:1,explanation:'『老子』第7章の言葉は、自らに先んじて他者を慮ることこそが自己形成に他ならないという思想を示します。これは洋の東西を問わず存在する、ケアの根源的な考え方です。'},
+{q:'看護師が患者教育（例：糖尿病・禁煙指導）を行う際の最も適切なアプローチはどれか。',choices:['正しい知識を一方的に伝達する','患者の価値観・生活背景・支援体制まで含めて評価し、行動変容を支援する','医療機器を使った治療のみに集中する','患者の意見は聞かず、医師の指示通りに伝える'],answer:1,explanation:'PRECEDE-PROCEEDモデルが示すように、患者の価値観・生活背景・周囲の支援体制（強化要因）まで含めて評価し、行動変容を支援する視点が重要です。糖尿病・高血圧・禁煙指導などすべての患者教育に通底する考え方です。'}
 ];
-let questions=[],answered=0;function shuffleArray(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
-function initQuiz(){questions=shuffleArray(allQuestions);answered=0;document.getElementById('submitBtn').style.display='none';document.getElementById('resultArea').style.display='none';document.getElementById('progressFill').style.width='0%';const c=document.getElementById('quizContainer');c.innerHTML='';questions.forEach((q,idx)=>{const sc=q.choices.map((c,i)=>({text:c,origIdx:i}));for(let i=sc.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[sc[i],sc[j]]=[sc[j],sc[i]]}q._shuffled=sc;q._selected=null;let h=`<div class="question-card"><div class="q-number">問題 ${idx+1} / ${questions.length}</div><div class="q-text">${q.q}</div><ul class="choices">`;sc.forEach((c,ci)=>{h+=`<li onclick="selectChoice(${idx},${ci})" id="q${idx}c${ci}">${c.text}</li>`});h+=`</ul><div class="explanation" id="exp${idx}"><div id="expText${idx}"></div></div></div>`;c.innerHTML+=h})}
+
+let questions=[],answered=0;
+function shuffleArray(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function initQuiz(count){const n=count||allQuestions.length;questions=shuffleArray(allQuestions).slice(0,n);answered=0;document.getElementById('submitBtn').style.display='none';document.getElementById('resultArea').style.display='none';document.getElementById('progressFill').style.width='0%';const c=document.getElementById('quizContainer');c.innerHTML='';questions.forEach((q,idx)=>{const sc=q.choices.map((c,i)=>({text:c,origIdx:i}));for(let i=sc.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[sc[i],sc[j]]=[sc[j],sc[i]]}q._shuffled=sc;q._selected=null;let h=`<div class="question-card" id="qcard${idx}"><div class="q-number">問題 ${idx+1} / ${questions.length}</div><div class="q-text">${q.q}</div><ul class="choices">`;sc.forEach((c,ci)=>{h+=`<li onclick="selectChoice(${idx},${ci})" id="q${idx}c${ci}">${c.text}</li>`});h+=`</ul><div class="explanation" id="exp${idx}"><div id="expText${idx}"></div></div></div>`;c.innerHTML+=h})}
 function selectChoice(qi,ci){const q=questions[qi];if(q._selected!==null)return;q._selected=ci;answered++;const corr=q.answer,sel=q._shuffled[ci].origIdx,ok=sel===corr;q._shuffled.forEach((c,i)=>{const li=document.getElementById(`q${qi}c${i}`);if(c.origIdx===corr)li.classList.add('correct');if(i===ci&&!ok)li.classList.add('wrong')});const e=document.getElementById(`exp${qi}`),t=document.getElementById(`expText${qi}`);t.innerHTML=(ok?'<span class="correct-label">&#x2B55; 正解！</span>':'<span class="wrong-label">&#x274C; 不正解</span>')+'<br>'+q.explanation;e.classList.add('show');document.getElementById('progressFill').style.width=(answered/questions.length*100)+'%';if(answered===questions.length)document.getElementById('submitBtn').style.display='inline-block'}
-function submitQuiz(){let c=0;questions.forEach(q=>{if(q._selected!==null&&q._shuffled[q._selected].origIdx===q.answer)c++});document.getElementById('resultArea').style.display='block';document.getElementById('resultScore').textContent=`${c} / ${questions.length}`;const p=c/questions.length*100;let m='';if(p===100)m='満点です！';else if(p>=80)m='よく理解できています！';else if(p>=60)m='合格ライン！';else m='レッスンをもう一度確認しましょう。';document.getElementById('resultMsg').textContent=m;document.getElementById('resultArea').scrollIntoView({behavior:'smooth'})}
-function retryQuiz(){initQuiz();document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'})}
-function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');const tabs=document.querySelectorAll('.nav-tab');if(id==='lesson1')tabs[0].classList.add('active');else if(id==='lesson2')tabs[1].classList.add('active');else if(id==='lesson3')tabs[2].classList.add('active');else if(id==='quiz'){tabs[3].classList.add('active');initQuiz()}window.scrollTo({top:0,behavior:'smooth'})}
-initQuiz();
+function submitQuiz(){let c=0;questions.forEach(q=>{if(q._selected!==null&&q._shuffled[q._selected].origIdx===q.answer)c++});document.getElementById('resultArea').style.display='block';document.getElementById('resultScore').textContent=`${c} / ${questions.length}`;const p=c/questions.length*100;let m='';if(p===100)m='満点です！素晴らしい！';else if(p>=80)m='よく理解できています！';else if(p>=60)m='合格ライン！もう少し復習しましょう。';else m='レッスンをもう一度確認してみましょう。';document.getElementById('resultMsg').textContent=m;document.getElementById('resultArea').scrollIntoView({behavior:'smooth'})}
+function retryQuiz(){initQuiz(questions.length);document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'})}
+function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');const tabs=document.querySelectorAll('.nav-tab');const ids=['lesson1','lesson2','lesson3','lesson4','quiz'];tabs[ids.indexOf(id)].classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+function startQuiz(count){
+  initQuiz(count);
+  document.querySelector('.quiz-area .progress-bar').scrollIntoView({behavior:'smooth'});
+}
+// 初期化（出題数選択画面はそのまま、Quizはまだ生成しない）
 </script>
 </body>
 </html>

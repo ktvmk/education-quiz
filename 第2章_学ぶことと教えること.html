@@ -3,29 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第2章 学ぶことと教えること｜教育学 Web教材</title>
+<title>第2章 学ぶこと・教えることの理論と方法｜教育学 Web教材</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.8;padding:0 0 60px 0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.85;padding:0 0 60px 0}
 .header{background:linear-gradient(135deg,#1B3A5C,#2d5a8e);color:#fff;padding:24px 20px;text-align:center}
 .header h1{font-size:1.3em;margin-bottom:4px}
-.header .sub{font-size:0.85em;opacity:0.8}
-.container{max-width:720px;margin:0 auto;padding:16px}
+.header .sub{font-size:.85em;opacity:.8}
+.container{max-width:760px;margin:0 auto;padding:16px}
 .nav-tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
-.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:0.82em;cursor:pointer;transition:all .2s}
+.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:.82em;cursor:pointer;transition:all .2s}
 .nav-tab:hover,.nav-tab.active{background:#1B3A5C;color:#fff}
 .section{display:none}.section.active{display:block}
 .lesson-card{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.lesson-card h2{color:#1B3A5C;font-size:1.2em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}
-.lesson-card h3{color:#2d5a8e;font-size:1.05em;margin:20px 0 10px 0}
+.lesson-card h2{color:#1B3A5C;font-size:1.25em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}
+.lesson-card h3{color:#2d5a8e;font-size:1.08em;margin:22px 0 10px 0;padding-left:8px;border-left:4px solid #2d5a8e}
+.lesson-card h4{color:#1B3A5C;font-size:.98em;margin:14px 0 8px 0}
+.lesson-card p{margin:8px 0}
 .key-point{background:#eef3f9;border-left:4px solid #1B3A5C;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.95em}
 .key-point strong{color:#1B3A5C}
-.vocab{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 8px;margin:2px 4px;font-weight:bold;font-size:.9em;color:#e65100}
-.example{background:#f9f9f9;border:1px solid #ddd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:.9em}
+.vocab{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:1px 7px;margin:1px 3px;font-weight:bold;font-size:.92em;color:#e65100}
+.example{background:#f9f9f9;border:1px solid #ddd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:.92em}
+.example::before{content:"📘 例 ";font-weight:bold;color:#666}
 .person{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
 .person strong{color:#2e7d32}
 .stat{background:#fce4ec;border-left:4px solid #e91e63;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
 .stat strong{color:#c2185b}
+.timeline{background:#fff8e1;border-left:4px solid #f9a825;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.timeline strong{color:#f57f17}
+.timeline .yr{display:inline-block;min-width:80px;font-weight:bold;color:#f57f17}
+.note-nurse{background:#f3e5f5;border-left:4px solid #8e24aa;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.92em}
+.note-nurse strong{color:#6a1b9a}
+.note-nurse::before{content:"🩺 看護現場との関連　";font-weight:bold}
+.compare-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9em}
+.compare-table th{background:#1B3A5C;color:#fff;padding:10px;border:1px solid #ddd;text-align:left}
+.compare-table td{padding:10px;border:1px solid #ddd;background:#fff}
+.compare-table tr:nth-child(even) td{background:#f9f9f9}
 .quiz-area{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 .quiz-area h2{color:#1B3A5C;margin-bottom:16px}
 .question-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:20px;margin:16px 0}
@@ -51,12 +64,14 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
 .progress-fill{height:100%;background:#1B3A5C;border-radius:3px;transition:width .3s}
 .back-link{display:inline-block;margin:16px 0;color:#1B3A5C;text-decoration:none;font-weight:bold}
 .back-link:hover{text-decoration:underline}
+.intro-box{background:linear-gradient(135deg,#eef3f9,#fff);border:1px solid #cdd9e8;border-radius:10px;padding:18px;margin:14px 0;font-size:.95em}
+.intro-box strong{color:#1B3A5C}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>第2章 学ぶことと教えること ── 理論と方法</h1>
+  <h1>第2章 学ぶこと・教えることの理論と方法</h1>
   <div class="sub">桑名看護専門学校　教育学　Web教材</div>
 </div>
 
@@ -64,183 +79,646 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
   <a href="index.html" class="back-link">&#x1F3E0; ホーム</a>
 
   <div class="nav-tabs">
-    <div class="nav-tab active" onclick="showSection('lesson1')">A 教育方法の理論</div>
-    <div class="nav-tab" onclick="showSection('lesson2')">B 出会いとしての学び</div>
-    <div class="nav-tab" onclick="showSection('lesson3')">C カリキュラムと評価</div>
+    <div class="nav-tab active" onclick="showSection('lesson1')">① 教育方法の理論</div>
+    <div class="nav-tab" onclick="showSection('lesson2')">② 出会いとしての学び</div>
+    <div class="nav-tab" onclick="showSection('lesson3')">③ カリキュラムと教材</div>
+    <div class="nav-tab" onclick="showSection('lesson4')">④ 教師の態度（見る・聴く）</div>
+    <div class="nav-tab" onclick="showSection('lesson5')">⑤ 学力と評価・生活指導</div>
     <div class="nav-tab" onclick="showSection('quiz')">確認テスト</div>
   </div>
 
-  <!-- A 教育課程・方法の理論 -->
+  <!-- =========================================================== -->
+  <!-- Lesson 1: 教育方法の理論                                      -->
+  <!-- =========================================================== -->
   <div id="lesson1" class="section active">
     <div class="lesson-card">
-      <h2>A　教育方法の理論 ── 学ぶ・教えるの歴史</h2>
+      <h2>① 学ぶ・教えるの理論と歴史</h2>
 
-      <h3>1. 教育方法の変遷</h3>
+      <div class="intro-box">
+        現代は<strong>教師の権威が揺らぎ、教育がサービス業化</strong>しつつある時代です。教師という立場そのものが尊敬の対象とはならず、子どもや保護者の人気を集める授業が求められるようになっています。こうした時代だからこそ、<strong>「学ぶこと」「教えること」</strong>を哲学者や思想家がどう論じてきたかを丁寧にたどることが求められます。
+      </div>
 
-      <p>教育方法は時代とともに変化してきました。大きく2つの流れがあります。</p>
+      <h3>1. 現代の子どもと学びの状況</h3>
 
       <div class="key-point">
-        <strong>近代以前の教育</strong><br>
-        古代ギリシャの<span class="vocab">ソクラテス</span>は<span class="vocab"><span class="vocab">問答法</span>（対話法）</span>を用い、教師と生徒が対話を通じて真理を探求しました。教育の原点は「対話」にあります。
+        <strong>現代の教育環境の特徴</strong><br>
+        ・教師の権威の喪失：教師という存在自体が尊敬の対象でなくなった<br>
+        ・教育の<span class="vocab">サービス業化</span>：人気のある授業が求められる<br>
+        ・<span class="vocab">生涯学習時代</span>：学校は唯一の教授の場ではなくなりつつある<br>
+        ・コンピュータ・インターネットによる情報獲得の容易化<br>
+        ・子ども自身の変化：他者・世界とのつながりを失い孤立化、「うざい」「むかつく」「キレる」などの<span class="vocab">「新しい荒れ」</span>
+      </div>
+
+      <div class="example">
+        地べたに座り込む高校生は、世界に対する安心感と将来への方向性を失い、「もう立ち上がりたくないので放っておいてくれ」と訴えているように見える──と本書は述べています。教師であること自体への尊敬がなくなった時代に、従来の教育方法に固執すれば<strong>学級崩壊</strong>になりかねません。
+      </div>
+
+      <div class="key-point">
+        <strong>2006年改正教育基本法</strong>の方向性<br>
+        ・人格の完成・個人の尊厳は従来どおり<br>
+        ・新たに<span class="vocab">「公共の精神」</span>「豊かな人間性と創造性」「伝統の継承」を規定<br>
+        ・幼児期の教育・家庭教育、学校・家庭・地域の連携を新たに規定<br>
+        → 規範意識・社会性・基本的生活習慣・学ぶ意欲の低下に歯止めをかける狙い
+      </div>
+
+      <h3>2. 学ぶ・教えるの理論（カント、ルソー、ペスタロッチ）</h3>
+
+      <div class="person">
+        <strong>カント（Kant, I.）</strong><br>
+        「人間は<span class="vocab">教育されなければならない唯一の被造物</span>である」「人間は教育によってはじめて人間となることができる」<br>
+        → 教育は人間が人間である限り必要だと主張。野生児の例にも示されるように、人間は一定の環境のなかで初めて人間らしく成長する。
+      </div>
+
+      <div class="person">
+        <strong>ルソー（Rousseau, J.-J.）</strong>──著書『エミール』<br>
+        「造物主の手から出る時にはすべてが善いものであるが、人間の手にかかると悪いものになっていく」<br>
+        → 既成の社会秩序を前提にした教育の<strong>不自然さ</strong>を痛烈に批判。子どもは知識を詰め込まれる白紙ではなく、<strong>初めから主体的存在</strong>であると主張。
+      </div>
+
+      <div class="person">
+        <strong>ペスタロッチ（Pestalozzi, J. H.）</strong><br>
+        「<span class="vocab">生活が陶冶する</span>」──子どもの<strong>生活</strong>を尊重した。<br>
+        → 「生活」をキーワードとすることで、主体性と社会化のバランスのとれた教育が可能になる。
+      </div>
+
+      <h3>3. 教育における教えること（ヘルバルト）</h3>
+
+      <div class="key-point">
+        <strong>19世紀の公教育の流れ</strong><br>
+        ・公教育が学校を<span class="vocab">詰め込みの場</span>として位置づけるように<br>
+        ・効率重視・教師主導の<strong>一斉授業</strong>が通常のスタイルに<br>
+        ・子どもは知識を受け入れる<strong>受動的存在</strong>として扱われる
       </div>
 
       <div class="person">
         <strong>ヘルバルト（Herbart, J. F.）</strong><br>
-        19世紀ドイツの教育学者。<span class="vocab">一斉授業</span>を段階化して整理した。教師が主導して知識を伝達する「教授中心」の教育方法を体系化しました。
+        一斉授業を<strong>段階化</strong>して整理した。教師主導の教授（教えること）の理論を体系化。
       </div>
+
+      <h3>4. 学ぶこと中心の新教育（デューイ）</h3>
 
       <div class="person">
-        <strong>デューイ（Dewey, J.）</strong><br>
-        20世紀アメリカの教育学者。<span class="vocab">新教育運動</span>の中心人物。一斉授業による知識の教え込みに代わり、<strong>協同的で探求的な学び</strong>を重視しました。学びの個別化と子どもの能動性を主張。
+        <strong>デューイ（Dewey, J.）</strong>──20世紀の<span class="vocab">新教育運動</span>の中心人物<br>
+        ・子どもの<strong>個性や主体性</strong>を尊重<br>
+        ・教育方法の中心が「いかに教えるか」から<span class="vocab">「いかに学びを成立させるか」</span>へ移行<br>
+        ・一斉授業による知識の教え込みに代わり、<strong>協同的で探求的な学び</strong>を重視<br>
+        ・学びの個別化、子どもたちの能動性を強調
       </div>
 
       <div class="key-point">
-        <strong>教育方法の2つの流れ</strong><br>
-        <span class="vocab">ヘルバルト</span>：教師が教える → 一斉授業・知識伝達型<br>
-        <span class="vocab">デューイ</span>：子どもが学ぶ → 協同的・探求的学習型<br><br>
-        現代の教育は、両者のバランスを取りながら、「いかに教えるか」から<strong>「いかに学びを成立させるか」</strong>へと重心が移っています。
+        今日の教育に強い影響をもっているのは<strong>デューイの新教育の流れ</strong>。改正教育基本法にもこの流れが見られる。一方では中央集権的・画一的な教育が批判され「個性化」「自由化」が推進される反面、「心のノート」のような<strong>道徳教育による国家主義的な教育改革</strong>も進行している。
       </div>
 
-      <h3>2. 授業の2つの様式</h3>
+      <h3>5. 教育の必要性と押しつけがましさ（教育の両義性）</h3>
 
       <div class="key-point">
-        <strong>模倣的様式と変容的様式</strong><br>
-        <span class="vocab">模倣的様式</span>：教師が一方的に知識・技能を伝達し、学習者がそれを習得する授業<br>
-        <span class="vocab">変容的様式</span>：学習者の思考の態度や探究の方法を育成することを目指す授業<br><br>
-        これからの社会では、<strong>変容的様式</strong>の学びがより求められる。創造性、コミュニケーション能力、情報選択能力など。
+        <strong><span class="vocab">教育の両義性</span></strong><br>
+        教育は人間の成長に<strong>必要</strong>であると同時に、度を過ぎたり方法を間違えると人間の成長を<strong>歪める危険性</strong>をもつ。
       </div>
 
-      <h3>3. 学力低下問題と新学習指導要領</h3>
+      <div class="example">
+        ・<strong>必要性</strong>：野生児の例が示すように、人間は教育されてはじめて人間になる<br>
+        ・<strong>押しつけがましさ</strong>：歴史的に見ると、教育は人間の主体性を押さえつけてきた側面をもつ<br>
+        → だからこそ「教授から学習へ」「教えることから学ぶことへ」と言われる。<br>
+        → 教育とは「共に教え・学ぶこと」、すなわち<span class="vocab">「共育」</span>である。
+      </div>
+
+      <h3>6. 学力低下問題と新学習指導要領</h3>
 
       <div class="stat">
-        <strong>PISA調査と学力観の転換</strong><br>
-        OECDのPISA調査では、現代社会で求められる<span class="vocab">「<span class="vocab">キー・コンピテンシー</span>」</span>（主要能力）が問われている。単なる暗記ではなく：<br>
-        ・<strong>基礎的・基本的な知識・技能</strong>の習得<br>
-        ・知識・技能を<strong>活用</strong>して課題を解決する思考力・判断力・表現力<br>
-        ・<strong>主体的に学習に取り組む態度</strong>
+        <strong>PISA（OECD学習到達度調査）の概要</strong><br>
+        ・実施機関：<strong>OECD（経済協力開発機構）</strong><br>
+        ・実施年：<strong>2000年から3年ごと</strong><br>
+        ・対象：義務教育修了段階（15歳）<br>
+        ・調査領域：読解力・数学的リテラシー・科学的リテラシー<br>
+        → 日本は調査のたびに順位を下げ、学力低下問題・<strong>学力の質</strong>が問われた
       </div>
 
-      <div class="example">
-        看護の現場でも同じことが言えます。教科書の知識を暗記するだけでなく、患者さんの状態に応じて判断し、適切に対応する「活用力」が求められます。
+      <div class="key-point">
+        <strong><span class="vocab">キー・コンピテンシー</span>（主要能力）</strong>──PISAが現代社会で求める能力として挙げる3項目<br>
+        ① 社会・文化的、技術的<strong>ツールを相互作用的に活用</strong>する力<br>
+        ② 多様な社会グループにおける<strong>人間関係形成能力</strong><br>
+        ③ <strong>自立的に行動する能力</strong>
+      </div>
+
+      <div class="stat">
+        <strong>深刻な学習意欲の問題</strong><br>
+        日本の子どもたちは<strong>学習習慣・学習意欲</strong>の点で他国と比べて著しく劣っている、とPISA調査は指摘している。
+      </div>
+
+      <div class="timeline">
+        <strong>新学習指導要領のポイント（改正教育基本法を踏まえた改訂）</strong><br>
+        <span class="yr">①</span>改正教育基本法を踏まえた改訂<br>
+        <span class="yr">②</span>「生きる力」の理念の共有<br>
+        <span class="yr">③</span>基礎的・基本的な知識・技能の習得<br>
+        <span class="yr">④</span>思考力・判断力・表現力等の育成<br>
+        <span class="yr">⑤</span>確実な習得のために必要な授業時数の確保<br>
+        <span class="yr">⑥</span>学習意欲・学習習慣の確立<br>
+        <span class="yr">⑦</span>豊かな心や健やかな体の育成のための指導
+      </div>
+
+      <div class="key-point">
+        <strong>育てる学力の3要素</strong>（新学習指導要領）<br>
+        ① 基礎的・基本的な<strong>知識・技能</strong>の習得<br>
+        ② 知識・技能を活用して課題を解決するために必要な<strong>思考力・判断力・表現力</strong>などの能力<br>
+        ③ 主体的に学習に取り組む<strong>態度</strong><br>
+        → 特に<strong>「活用力」</strong>を育てる学習を重視
+      </div>
+
+      <div class="note-nurse">
+        看護教育の場面でも、現代の学生は「教師の権威」だけでは動きません。<strong>主体的に学ぶこと、知識を活用する力、コミュニケーション能力</strong>が求められる時代です。看護師として後輩や患者に「教える」立場に立つときも、<strong>「教え込み」ではなく「共に学ぶ姿勢」</strong>を意識することで、現代の学習者により深く届く指導になります。
       </div>
     </div>
   </div>
 
-  <!-- B 出会いとしての学び -->
+  <!-- =========================================================== -->
+  <!-- Lesson 2: 出会いとしての学び                                  -->
+  <!-- =========================================================== -->
   <div id="lesson2" class="section">
     <div class="lesson-card">
-      <h2>B　出会いとしての学びと教育方法</h2>
+      <h2>② 出会いとしての学びと教育方法</h2>
 
-      <h3>1. 教育とは「出会い」</h3>
-
-      <p>教育とは出会うことです。子どもたちが教師に出会い、教材に出会い、他の子どもたちに出会い、そして<strong>自分自身とも出会う</strong>。教師もまた同様です。</p>
-
-      <div class="key-point">
-        <strong><span class="vocab">学びの三角形</span>（学びの三要素）</strong><br>
-        学びは3つの出会いから成り立ちます：<br><br>
-        <strong>① 世界との出会い</strong>（教材）── 様々な対象について学ぶ<br>
-        <strong>② 他者との出会い</strong>（教師・他の子どもたち）── コミュニケーションを通して学ぶ<br>
-        <strong>③ 自己との出会い</strong>（わたし）── 自分自身と向き合い、自らの存在を確認する<br><br>
-        この3つの出会いが豊かであるほど、学びは深くなります。
+      <div class="intro-box">
+        本節のキーワードは<strong>「出会い」</strong>です。教育とは知識を一方的に伝達することではなく、<strong>教師・教材・他の子ども・自分自身に出会うこと</strong>そのものです。学びの本質は出会いのなかで「変わる」ことであり、絶対的な教育方法は存在しません。
       </div>
 
-      <h3>2. 学ぶことの証は「変わること」</h3>
+      <h3>1. 教育とは「出会い」である</h3>
 
       <div class="key-point">
-        <strong>学びによる変容</strong><br>
-        真の出会いは、常にその当事者を高みへと引き上げる。自己の限界を壊し、<strong>新たな自己として生まれ変わること</strong>を可能にする。<br><br>
-        教える側と学ぶ側は一方通行ではなく、<strong>関係はいつも相互的</strong>。教師や看護師は教える人・助ける人であるだけでなく、学ぶ人でもある。
-      </div>
-
-      <h3>3. 絶対的な教育方法はない</h3>
-
-      <div class="key-point">
-        <strong>出会いのなかでしか方法は生まれない</strong><br>
-        ・教育方法を決めておいて子どもたちを閉じ込める態度は、子どもの主体性を軽視した間違った態度<br>
-        ・具体的な出会いのなかで常に教育方法を鍛えていくことが、一番の教育方法<br>
-        ・失敗を恐れていては出会いは訪れない。失敗そのものが次の出会いを支える
-      </div>
-
-      <h3>4. 教師にとって大切なこと</h3>
-
-      <div class="key-point">
-        <strong>「見えること」と「聴くこと」</strong><br><br>
-        <strong>「見えること」</strong> ── 教師の存在のすべて<br>
-        ・具体的にとらえる力：一般論ではなく、一人ひとりの子どもを個別的に丁寧にとらえる<br>
-        ・教師としての経験と理論の蓄積が「見える力」を生む<br><br>
-        <strong>「聴くこと」</strong> ── 教師の優しさ<br>
-        ・やみくもに子どもの言うことを聞くのではなく、子どもと出会うために聴く<br>
-        ・甘やかすためではなく、子どもの存在を深く理解するための「聴く」
+        <strong><span class="vocab">出会いとしての学び</span></strong><br>
+        ・教育とは出会うことである<br>
+        ・子どもは<strong>教師・教材・他の子ども・自分</strong>に出会う<br>
+        ・教師もまた、<strong>子ども・教材・自己</strong>に出会う<br>
+        → 学びは双方向的な交流である。「知っている人」が「知らない人」に教えるという一方通行ではない。
       </div>
 
       <div class="example">
-        看護師と患者の関係も同じです。患者さんの話を「聴く」こと、患者さんの状態を「見る」ことが、ケアの出発点です。技術だけでなく、相手の世界を丁寧にとらえる姿勢が求められます。
+        授業の本質は、一人の人間である教師が子どもたちと出会い、さらに子どもたち同士が出会うことです。出会いである以上、自らの存在を除外した理論は教育の理論として不十分です。一方、教師は<strong>すべてを知っている人である必要はなく、出会いの場をコーディネイトする存在</strong>であるととらえ直すことができます。
+      </div>
+
+      <h3>2. 学びの三角形</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">学びの三要素（学びの三角形）</span></strong><br>
+        ① <strong>世界との出会い</strong>：教材を介して、様々な対象について学ぶ<br>
+        ② <strong>他者との出会い</strong>：教師や他の子どもとのコミュニケーションを通して学ぶ<br>
+        ③ <strong>自己との出会い</strong>：自分自身と向き合い、自らの存在を確認する<br>
+        → ③（こぶ）が特に重要。学びの結果として必ず「自己との出会い」が生じる。
+      </div>
+
+      <h3>3. 学ぶことの証は「変わること」</h3>
+
+      <div class="person">
+        <strong>林竹二の言葉</strong><br>
+        「<span class="vocab">学ぶことの唯一の証は変わることである</span>」<br>
+        → 学びとは情報を獲得して<strong>太っていくこと</strong>ではなく、他者・世界との出会いを通して自己を新たに形作っていくこと。古い自己を壊し、削り取っていくことを必要とする。
+      </div>
+
+      <div class="key-point">
+        学ぶとは<strong>自己形成、アイデンティティ形成</strong>そのものである。<br>
+        したがって、学ぶことと情報を獲得することは時に<strong>相反する事態</strong>でもある。<br>
+        → 教師にも常に自分を変えていける<strong>「若さ」</strong>が求められる。
+      </div>
+
+      <div class="example">
+        <strong>灰谷健次郎『わたしの出会った子どもたち』より</strong>──筋萎縮症で表情も読み取れない少女・麻理ちゃん。「あんな子、生きとって何の楽しみがあるんやろな」と心ない言葉が投げられる。しかし灰谷は彼女の朝の散歩道に同行し、彼女が猫・蜂・マツバボタンに「おはようさん」とあいさつし、生命と交歓していることを知る。「あんな子、生きとって…」という言葉は、<strong>そっくりそのまま私たちに投げ返されている</strong>──と灰谷は記す。これが「変わる」という学びの証である。
+      </div>
+
+      <h3>4. 絶対的な教育方法はない</h3>
+
+      <div class="key-point">
+        <strong>教育方法の限界</strong><br>
+        ・学びが出会いである以上、出会いの仕方は様々<br>
+        ・教師自身や子どもによって出会いは異なる<br>
+        ・教育方法は<strong>出会いのなかでしか真に生まれない</strong><br>
+        → 教育方法を決めておいて子どもをそこに閉じ込める態度は、子どもの主体性を軽視した間違った態度
+      </div>
+
+      <div class="example">
+        確かに出会いは<strong>1回限りの勝負</strong>であり、失敗することもある。しかし<strong>失敗を恐れている限り出会いは訪れない</strong>。失敗そのものが次の出会いを支えていく──と本書は述べています。
+      </div>
+
+      <h3>5. 看護師と患者の出会い──シュヴィングの例</h3>
+
+      <div class="example">
+        <strong>看護師シュヴィングの記録</strong>──毛布にくるまり何ヶ月も外界との関係を断っていた精神病患者。シュヴィングは数日間、毎日同じ時刻に30分ほどベッドのかたわらに静かに座り続ける。3〜4日後、毛布がほんの少し持ち上げられ、患者の暗い目が周りを見回す。やがて患者はシュヴィングを見つめ、長い間沈黙していた口を開く。「あなたは私のお姉さんなの？」「いいえ」「でも毎日、あなたは私に逢いに来てくれたじゃないの、今日だって、昨日だって」──。<br>
+        → 真の出会いは、当事者を高みへと引き上げ、<strong>新たな自己として生まれ変わることを可能にする</strong>。
+      </div>
+
+      <div class="note-nurse">
+        看護現場こそ「出会いとしての学び」が最も具体的に表れる場です。患者は単なる治療の対象ではなく、看護師との<strong>出会いを通して回復する一人の人間</strong>です。シュヴィングの実践のように、<strong>「ただそばに居続ける」「沈黙のなかで関係を待つ」</strong>ことが、患者の心の扉を開く力になります。マニュアル通りの対応では決して届かない領域を、看護師は日々体験しているのです。
       </div>
     </div>
   </div>
 
-  <!-- C カリキュラムと評価 -->
+  <!-- =========================================================== -->
+  <!-- Lesson 3: カリキュラムと教材                                  -->
+  <!-- =========================================================== -->
   <div id="lesson3" class="section">
     <div class="lesson-card">
-      <h2>C　カリキュラムと学びの評価</h2>
+      <h2>③ カリキュラム・教材解釈・授業様式</h2>
+
+      <div class="intro-box">
+        子どもがどんな世界と出会うかを決めるのが<strong>カリキュラム</strong>です。本節では、3つのカリキュラム構成、模倣的様式と変容的様式、教科書観の転換、ヒドゥン・カリキュラム、そして教材解釈の3段階を学びます。
+      </div>
 
       <h3>1. カリキュラムとは</h3>
 
       <div class="key-point">
-        <strong>カリキュラムの2つの側面</strong><br>
-        <span class="vocab">顕在的カリキュラム</span>：学校が意図的に計画した教育内容（時間割、教科書、授業計画など）<br>
-        <span class="vocab"><span class="vocab">ヒドゥン・カリキュラム</span>（隠れたカリキュラム）</span>：教師の意図とは別に、学校が子どもたちに無意識的に与えている影響
+        <strong><span class="vocab">カリキュラム</span>の定義</strong><br>
+        子どもたちの発達段階に応じて、出会わせる世界（教育内容）を<strong>構造化したもの</strong>。<br>
+        ・大筋は<strong>学習指導要領</strong>に規定<br>
+        ・教師は学習指導要領を手引きとしつつ、子どもの実情に合わせて<strong>自主的に編成</strong>する<br>
+        ・「何を、どのような順番で教えるか」が含まれる
+      </div>
+
+      <h3>2. 3つのカリキュラム構成</h3>
+
+      <table class="compare-table">
+        <tr><th>名称</th><th>内容</th></tr>
+        <tr>
+          <td><strong>① <span class="vocab">教科カリキュラム</span></strong></td>
+          <td>学問体系に基づいた教科によって系統的に構成されたカリキュラム</td>
+        </tr>
+        <tr>
+          <td><strong>② <span class="vocab">経験カリキュラム</span></strong></td>
+          <td>子どもの生活上における必要や興味を取り上げ、問題解決を目指すカリキュラム</td>
+        </tr>
+        <tr>
+          <td><strong>③ <span class="vocab">コア・カリキュラム</span></strong></td>
+          <td>共通に必要な内容をコア（中核）におき、個別学習の内容とコア学習を密接に関連させたカリキュラム</td>
+        </tr>
+      </table>
+
+      <h3>3. 模倣的様式と変容的様式</h3>
+
+      <table class="compare-table">
+        <tr><th></th><th><span class="vocab">模倣的様式</span></th><th><span class="vocab">変容的様式</span></th></tr>
+        <tr>
+          <td><strong>授業の特徴</strong></td>
+          <td>教師が一方的に知識・技能を伝達し、学習者が習得する</td>
+          <td>学習者の思考の高度化や探究の方法を育成する</td>
+        </tr>
+        <tr>
+          <td><strong>主導権</strong></td>
+          <td>教師中心</td>
+          <td>学習者中心</td>
+        </tr>
+        <tr>
+          <td><strong>育つ力</strong></td>
+          <td>基礎的な知識・技能</td>
+          <td>創造性・コミュニケーション能力・情報選択能力</td>
+        </tr>
+      </table>
+
+      <div class="key-point">
+        授業には<strong>両方の様式が必要</strong>。生涯学習社会・現代社会では、より<strong>変容的様式</strong>の学びが強く求められるようになっている。
+      </div>
+
+      <h3>4. 教科書を「教える」か「で教える」か</h3>
+
+      <div class="key-point">
+        <strong>教科書観の転換</strong><br>
+        ・教科書は学習指導要領に即して作成されているが、<strong>一つの教材にすぎない</strong><br>
+        ・「<span class="vocab">教科書を教える</span>」ではなく <span class="vocab">「教科書で教える</span>」立場へ<br>
+        → 教師の主体性と子どもの実情に合わせた教材活用が求められる
+      </div>
+
+      <h3>5. 学びの履歴としてのカリキュラム</h3>
+
+      <div class="key-point">
+        カリキュラムは、国民の共通知識や人的資源育成の教育計画に<strong>還元されない側面</strong>をもつ。<br>
+        → <strong>学びの経験の履歴</strong>としてのカリキュラム。<br>
+        → 子どもがどのように社会に参加し、どのような経験をしていったかが含まれる。<br>
+        → 教師と子どもが教室で<strong>「共に」文化を創造</strong>していくプロセスが学びにとって重要。
+      </div>
+
+      <h3>6. ヒドゥン・カリキュラム（隠れたカリキュラム）</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">ヒドゥン・カリキュラム</span></strong>とは<br>
+        教師の意図とは別に、学校教育が子どもたちに与える<strong>無意識的な影響</strong>。
       </div>
 
       <div class="person">
-        <strong><span class="vocab">フィリップ・ジャクソン</span></strong><br>
-        教室で過ごす子どもたちの姿を分析。教室は、自分の関心に関わらず課された課題に専念し、欲求を断念し、忍耐強く続けることを求められ、常に評価が飛び交う場所であることを指摘しました。
+        <strong>フィリップ・ジャクソンの分析</strong><br>
+        子どもにとって教室は──<br>
+        ・自らの関心とは関係なく<strong>課された課題に専念</strong>する場<br>
+        ・自らの欲求を断念し、<strong>忍耐強く続ける</strong>ことが求められる場<br>
+        ・常に<strong>評価が飛び交う</strong>場
       </div>
 
       <div class="example">
-        たとえば、校則で制服の着方を細かく指導することは、表面上は「身だしなみ」の教育ですが、その裏で「権威への服従」や「画一性」を無意識に教えているかもしれません。これがヒドゥン・カリキュラムです。
+        反抗的な少年が教師に暴言を吐くとき、彼は評価から自由になっているのではなく、評価しない大人（スクールカウンセラー）の前ではそうしないことが多い。<strong>教師が評価者であるからこそ、あえて否定的評価を得るような行動をとる</strong>のである。教室は権力の作用する場であり、よい子の存在も権力への服従の表れと見ることができる。
       </div>
-
-      <h3>2. <span class="vocab">教材解釈</span>の3段階</h3>
 
       <div class="key-point">
-        <strong>教材解釈とは</strong><br>
-        教育内容＝教材ではない。教師は、子どもたちの出会う世界ができる限り豊かになるように工夫する必要がある。<br><br>
-        <strong>第1段階：</strong>教材そのものについての解釈（内容を深く理解する）<br>
-        <strong>第2段階：</strong>授業を想定した解釈（学生がどこに興味を持ち、どこでつまずくかを考える）<br>
-        <strong>第3段階：</strong>授業中のリアルタイムの解釈（子どもの反応を見ながら柔軟に展開する）
+        佐藤学はこれらを<strong>「社会的・政治的実践」「倫理的・実存的実践」</strong>とよんでいる。教室は対人関係や自己表現が渦巻く<strong>複雑な場</strong>であり、命題機能（知識伝達）だけが生じているのではない。
       </div>
 
-      <h3>3. 学力とは何か</h3>
+      <h3>7. 教材解釈の3段階</h3>
 
       <div class="key-point">
-        <strong>育てる学力の3要素（新学習指導要領）</strong><br>
-        ① <span class="vocab">基礎的・基本的な知識・技能</span>の習得<br>
-        ② 知識・技能を活用して課題を解決するための<span class="vocab">思考力・判断力・表現力</span><br>
-        ③ <span class="vocab">主体的に学習に取り組む態度</span><br><br>
-        特に②の「活用力」を育てる学習が重視されている。
+        <strong>教育内容 ≠ 教材</strong><br>
+        取り上げたい教育内容を、子どもの前に提示する<strong>具体物が教材</strong>。教師は子どもが出会う世界をできる限り豊かにするために<strong>教材解釈</strong>を行う。
       </div>
 
-      <h3>4. 子ども理解と生活指導</h3>
+      <table class="compare-table">
+        <tr><th>段階</th><th>内容</th></tr>
+        <tr>
+          <td><strong>第1の教材解釈</strong></td>
+          <td><strong>教材そのもの</strong>についての解釈。例：死の教育で<strong>キューブラー・ロス</strong>の著作を取り上げるなら、まずその著作の内容を深く解釈する</td>
+        </tr>
+        <tr>
+          <td><strong>第2の教材解釈</strong></td>
+          <td><strong>授業を想定しての解釈</strong>。受け持つ具体的な学級の子どもを前提に、子どもがどう答えるかを予想しながら授業を組み立てる。発問・活動（調べ学習・グループ活動・ロールプレイ）の設計も含む</td>
+        </tr>
+        <tr>
+          <td><strong>第3の教材解釈</strong></td>
+          <td><strong>授業中の即興的解釈</strong>。子どもの反応を捉え、想定外の疑問が出たら、予定になくても教材解釈を深め授業を展開する判断が求められる</td>
+        </tr>
+      </table>
 
-      <div class="key-point">
-        <strong>教師に求められる資質</strong><br>
-        ・<span class="vocab">反省的実践家</span>としての教師：自分の実践を振り返り、常に改善し続ける姿勢<br>
-        ・子どもたちの「居場所」を保障すること<br>
-        ・学びの<span class="vocab">個別性</span>（一人ひとりの違い）と<span class="vocab">共同性</span>（一緒に学ぶこと）のバランス
+      <h3>8. 総合的な学習の時間</h3>
+
+      <div class="timeline">
+        <strong>総合的な学習の時間</strong><br>
+        <span class="yr">1998年</span>小中学校に設置（平成10年）<br>
+        <span class="yr">1999年</span>高等学校に設置（平成11年）<br>
+        <strong>狙い</strong>：自ら課題を見つけ、自ら学び、自ら考え、主体的に判断し、よりよく問題を解決する資質や能力を育てること<br>
+        <strong>学び方</strong>：情報の集め方・調べ方・まとめ方・報告発表の仕方・討論の仕方<br>
+        <strong>支える考え方</strong>：<span class="vocab">問題解決学習</span>。一斉授業ではなく個に応じた指導が重要
       </div>
 
-      <div class="example">
-        看護においても「反省的実践家」の概念は重要です。一つひとつのケアを振り返り、次に活かしていく姿勢は、教師も看護師も共通しています。
+      <div class="note-nurse">
+        看護教育における演習・実習は、まさに<strong>変容的様式の学び</strong>の場です。教科書通りの手順を覚えるだけでなく、患者という<strong>「教材」</strong>を深く解釈し、現場で起きる想定外の状況に応じて判断していく──まさに第1〜第3の教材解釈の3段階を、看護師は患者ケアの中で日常的に行っているといえます。
       </div>
     </div>
   </div>
 
-  <!-- 確認テスト -->
+  <!-- =========================================================== -->
+  <!-- Lesson 4: 教師の態度（見る・聴く）                          -->
+  <!-- =========================================================== -->
+  <div id="lesson4" class="section">
+    <div class="lesson-card">
+      <h2>④ 教師にとって大切なこと──「見えること」と「聴くこと」</h2>
+
+      <div class="intro-box">
+        教育を「出会い」と捉えるとき、教師に求められる態度の中心は<strong>「見えること」</strong>と<strong>「聴くこと」</strong>です。斉藤喜博・林竹二・武田常夫らの言葉を手がかりに、教師（そして看護師）の専門性の核を考えます。
+      </div>
+
+      <h3>1. 教える人と学ぶ人が「共に」出会う</h3>
+
+      <div class="key-point">
+        <strong>共に学ぶことが教育の本質</strong><br>
+        ・学びは自己形成のプロセスそのもの<br>
+        ・世界と「共に」、他者と「共に」学ぶ<br>
+        ・したがって「共に」育っていく<br>
+        → 教育とは教える人と学ぶ人とが「共に」出会い、「共に」成長していくこと
+      </div>
+
+      <h3>2. 「見えること」──教師の存在のすべて</h3>
+
+      <div class="person">
+        <strong>斉藤喜博の言葉</strong><br>
+        「教育とか授業とかにおいては、『<span class="vocab">見える</span>』ということは、ある意味では『すべてだ』といってもよいくらいである」<br>
+        「『見える』ということは、<strong>教師としての経験と理論の蓄積された結果の力</strong>である」
+      </div>
+
+      <h4>「見える力」の4つの要素</h4>
+
+      <table class="compare-table">
+        <tr><th>力</th><th>内容</th></tr>
+        <tr>
+          <td><strong>① 具体的にとらえる力</strong></td>
+          <td>一般論ではなく具体的に。一人ひとりの子どもを一人ひとりとして、授業の場を具体的な場のままにとらえる</td>
+        </tr>
+        <tr>
+          <td><strong>② 直観的にとらえる力</strong></td>
+          <td>説明できなくとも自ずと見える。「空気」を感じ取る。雰囲気を察知し全体を一目のうちにとらえる</td>
+        </tr>
+        <tr>
+          <td><strong>③ わたしとしてとらえる力</strong></td>
+          <td>冷たいレンズを通してではなく、<strong>自分の目で見て自分の目を通して感じる</strong></td>
+        </tr>
+        <tr>
+          <td><strong>④ 謙虚であり続ける力</strong></td>
+          <td>相手について<strong>決めつけてはならない</strong>。常に出会おうとする謙虚さが求められる</td>
+        </tr>
+      </table>
+
+      <div class="key-point">
+        見えることは授業だけでなく<strong>人と人とが出会うすべての場面</strong>で試される。<strong>看護師が患者と出会う場面でも全く同様</strong>であり、細かな指導方法・指導技術を身につけていても「見える力」がなければ患者と出会うことはできない。
+      </div>
+
+      <h3>3. 「聴くこと」──教師の優しさ</h3>
+
+      <div class="key-point">
+        <strong>聴くことは優しさである</strong>。ただし──<br>
+        ・子どもの言うことを<strong>やみくもに「きく」のではない</strong><br>
+        ・<strong>子どもを甘やかすため</strong>の優しさではない<br>
+        ・自分の無力と直面しないための優しさではない<br>
+        → 子どもと<strong>出会うため</strong>に優しさが求められる
+      </div>
+
+      <div class="example">
+        <strong>灰谷健次郎の例</strong>──チューインガム1つを万引きした少女に対して、灰谷は安易に許そうとしない。「許しを請う世界からは魂の自立はない」「失われた人間性を回復するためには、もう一回盗みというものと向き合わなければならない」と語る。少女と向き合うことは灰谷自身もつらい。だが灰谷は向き合い続ける。
+      </div>
+
+      <div class="person">
+        <strong>林竹二の言葉</strong><br>
+        「<span class="vocab">やさしさときびしさは一つだ</span>と思うんです」<br>
+        → 真の優しさは時に厳しい対決を含む。表面的な優しさはむしろ子どもを<strong>蔑視</strong>することでさえある。
+      </div>
+
+      <div class="person">
+        <strong>武田常夫の言葉</strong><br>
+        「どれほどおそれてもおそれ足りることのない相手が、子どもという存在なのであり、<strong>教えるということは、まさにそうしたおそろしい存在へと立ち向かう息のつまるような行為</strong>なのだ」<br>
+        → 子どもの存在を聴き取ることは、自分の理解の枠組みに収まらない事実を受け止めることである。武田はこれを<span class="vocab">「子どもへの敬意」</span>と表現する。
+      </div>
+
+      <div class="example">
+        武田の述懐：「子どもを自分の都合のよい味方と過信し、自分の力でどのようにでも変えうる存在と考えていた頃には思いも及ばなかったが、子どもを<strong>自分をはぐくむ豊穣な大地</strong>と考え、そのような自分を子どもの前に赤裸にさらそうと決意したとき、子どもは<strong>無限のやさしさで応えてくれた</strong>」──優しさは相互的なものである。
+      </div>
+
+      <div class="note-nurse">
+        看護師にとっても「見える力」と「聴く力」は専門性の中核です。患者の<strong>言葉にならない訴え</strong>、表情・呼吸・沈黙のなかにあるサインを<strong>具体的に・直観的に・わたしとして・謙虚に</strong>受け止めること。安易に「大丈夫ですよ」と慰めるのではなく、患者の存在に<strong>勇気をもって寄り添う</strong>こと。これは斉藤・林・武田の語る教師の専門性と、本質的に同じ営みです。
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================== -->
+  <!-- Lesson 5: 学力と評価・生活指導                                -->
+  <!-- =========================================================== -->
+  <div id="lesson5" class="section">
+    <div class="lesson-card">
+      <h2>⑤ 学力・評価と生活指導</h2>
+
+      <div class="intro-box">
+        学力とは何か、何をどう評価するか、そして学習指導と並ぶもう一つの教育方法の柱──<strong>生活指導</strong>について学びます。生活指導は単なる「問題行動への対応」ではなく、<strong>子どもの人格形成と社会化</strong>を支える総合的な営みです。
+      </div>
+
+      <h3>1. 学力とは何か</h3>
+
+      <div class="key-point">
+        <strong>「新しい学力観」と現実のギャップ</strong><br>
+        ・文部科学省の「新しい学力観」では、知識・技能だけでなく<strong>「関心・意欲・態度」</strong>が重視され、<strong>「生きる力」</strong>を育てることが強調される<br>
+        ・しかし現実は、子どもの学びへの意欲はますます失われている<br>
+        → <span class="vocab">「学びからの逃走」</span>と呼ばれる事態
+      </div>
+
+      <div class="stat">
+        <strong>現代の学力問題の特徴</strong><br>
+        ・家庭での学習時間が著しく減少<br>
+        ・基礎的内容の学力はあるが、<strong>創造力など</strong>の学力が劣る<br>
+        ・現代は「学力とは何かが問われている時代」
+      </div>
+
+      <h3>2. 教育評価とPDCAサイクル</h3>
+
+      <div class="key-point">
+        <strong>評価の意義</strong><br>
+        ・教師は評価を分析することで<strong>自らの教育方法を改善</strong>できる<br>
+        ・子どもは評価を通して<strong>自らの学力を知る</strong>ことができる<br>
+        ・授業は計画→実施→評価→改善の<span class="vocab">PDCAサイクル</span>で進む
+      </div>
+
+      <h3>3. 何を、どう評価するか</h3>
+
+      <table class="compare-table">
+        <tr><th>目的</th><th>意義</th></tr>
+        <tr>
+          <td>① 子どもの指導のため</td>
+          <td>子どもの実態を知ることで、これからの指導を考えられる</td>
+        </tr>
+        <tr>
+          <td>② 教師が自らの実践を振り返るため</td>
+          <td>実践改善の可能性を検討し、次の計画に役立てる</td>
+        </tr>
+        <tr>
+          <td>③ 子どもが自らの学習結果を知るため</td>
+          <td>子どもが成果を知り、新たな目標設定を行える</td>
+        </tr>
+      </table>
+
+      <div class="key-point">
+        <strong>結果だけでなく学びのプロセスを評価する</strong><br>
+        ・「関心・意欲・態度」の重視はそうした視点に立つ<br>
+        ・しかし挙手の回数で評価されたり、知識獲得と無関係に評価される問題も<br>
+        ・子ども理解には<strong>カルテ・座席表</strong>の活用も有効
+      </div>
+
+      <div class="key-point">
+        <strong><span class="vocab">ポートフォリオ評価</span></strong><br>
+        ・学習者の<strong>学びの軌跡</strong>を残していく評価<br>
+        ・自己成長のファイルとなる<br>
+        ・ペーパー試験では測れない学力（活動・パフォーマンス・内面の変化・思考の深まりなど）の<strong>長期的な成長</strong>を評価<br>
+        → 総合的な学習の時間の評価などに有効
+      </div>
+
+      <h3>4. だれが評価するか</h3>
+
+      <table class="compare-table">
+        <tr><th>評価の種類</th><th>内容と意義</th></tr>
+        <tr>
+          <td><strong><span class="vocab">自己評価</span></strong></td>
+          <td>学習者自身が学習活動を評価する。主体性や自己理解力を高める</td>
+        </tr>
+        <tr>
+          <td><strong><span class="vocab">相互評価（ピア評価）</span></strong></td>
+          <td>学習者同士が相互に学習活動を評価する。競い合い高め合うと同時に共同性を育てる</td>
+        </tr>
+      </table>
+
+      <h3>5. 生活指導とは何か</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">生活指導</span>の定義</strong><br>
+        「個人のもつ可能性を最大限に育てること、その途中で生じてくる諸問題が解決されるよう個人を助けること」<br>
+        → 子どもの<strong>人格形成と社会化</strong>を支援するのが生活指導
+      </div>
+
+      <div class="key-point">
+        <strong>機能概念としての生活指導</strong><br>
+        ・授業のなかにも<strong>生活指導的な側面</strong>が存在<br>
+        ・特別活動などにも学習指導的な側面が存在<br>
+        → 教育は常に学習指導と生活指導の<strong>2つの機能</strong>をもち、両者をバランスよく指導することが目指される
+      </div>
+
+      <div class="key-point">
+        <strong>生活指導の内容（広い意味）</strong><br>
+        学習指導／道徳指導／進路指導／健康指導／余暇指導／<strong>食事指導（食育）</strong>などすべてを含む。<br>
+        ※「問題行動への対応」は付随的なごく一部の機能にすぎない
+      </div>
+
+      <h3>6. 生活指導の歴史と方法</h3>
+
+      <div class="timeline">
+        <strong>生活指導の2つの系譜</strong><br>
+        <span class="yr">戦前</span><span class="vocab">生活綴方運動</span>──ありのままに記述させる文章表現指導を通して、子どもに生活を切り開く力をつける<br>
+        <span class="yr">戦前</span><span class="vocab">生活教育運動</span>──学校を生活の場として捉え、協同自治をつくり出す<br>
+        <span class="yr">戦後</span>米国の<strong>ガイダンス</strong>が入るが、次第に戦前の生活綴方・民主的集団づくりの考え方を生かす実践も
+      </div>
+
+      <div class="key-point">
+        <strong>集団指導と個人指導</strong><br>
+        ・<strong>集団指導</strong>：日常の集団生活（授業・学級会・生徒会・クラブ活動・遠足・文化祭・体育祭・儀式・給食・清掃）／構成的<span class="vocab">エンカウンターグループ</span>のような予防的・開発的な集団づくり<br>
+        ・<strong>個人指導</strong>：定期的な面談（二者面談、三者面談）、問題発生時の面談、<span class="vocab">チャンス面談</span>（日常的なかかわりのなかでの相談）／子ども同士で支え合う<span class="vocab">ピアカウンセリング</span>
+      </div>
+
+      <h3>7. 現代における生活指導──「生きることの指導」</h3>
+
+      <div class="example">
+        現代の子どもは「生きていてもおもしろくないのに、なぜ生きなければならないのか」「自分の存在には意味がない」「勉強なんて何のためにするのかわからない」と訴えることが増えている。あるいは、こうした問いから目を逸らすために<strong>刹那的に生きる子ども</strong>もいる。
+      </div>
+
+      <div class="key-point">
+        <strong>生きることの指導への転換</strong><br>
+        ・もはや建前としての道徳教育は通用しない<br>
+        ・進路指導も単なる進学指導・職業指導ではなく<strong>「生きることの指導」</strong>へ<br>
+        ・<strong>栄養教諭</strong>が新たに資格化され、<span class="vocab">食育</span>が重視される（食べることは生きることの基本）
+      </div>
+
+      <h3>8. 一対多対話と一対一対話</h3>
+
+      <div class="example">
+        小学校で教師が「1+1は？」と問い、A君が「2」と答える。にもかかわらず、ほかの子も一斉に手を挙げる。Bさんも「2」と答える。同じ答えなのに、なぜか。<strong>子どもにとって答えの内容的正しさよりも、「自分が答えた」という教師との関係そのもののほうが重要</strong>だからである。
+      </div>
+
+      <div class="key-point">
+        <strong>一対一対話の重要性</strong><br>
+        ・学校教育は<strong>一対一の対話から一対多の対話への転換</strong>を目指してきた<br>
+        ・しかし中学生・高校生になっても一対一対話を求めてくる子どもがいる<br>
+        ・存在の不安が生じている時代だからこそ、<strong>一対一対話を取り戻す必要</strong>がある<br>
+        → 効率重視の一斉授業の見直しが求められる
+      </div>
+
+      <h3>9. 生活指導における教師の専門性</h3>
+
+      <div class="key-point">
+        <strong>教師の専門性</strong><br>
+        ・教科を教えるための専門性<br>
+        ・<strong>子どもを理解しかかわっていく</strong>ための専門性（他者理解とコミュニケーション）<br>
+        → 教育学・心理学の理論を基礎としつつ、実践的・具体的状況のなかでの判断を可能にする<span class="vocab">反省的実践家</span>としての専門性
+      </div>
+
+      <div class="note-nurse">
+        看護現場では、患者は単なる「医学的処置の対象」ではなく、「<strong>生きることの不安</strong>」を抱えた一人の存在です。集団指導（病棟全体・家族集団へのケア）と個人指導（一対一の対話、ベッドサイドでの傾聴）の両方が必要であり、評価もまた<strong>処置結果だけでなく患者との関係性のプロセス</strong>を含めて行う必要があります。教師の専門性を「反省的実践家」と呼ぶように、看護師もまた経験を振り返りながら専門性を深めていく実践家なのです。
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================== -->
+  <!-- Quiz Section                                                -->
+  <!-- =========================================================== -->
   <div id="quiz" class="section">
     <div class="quiz-area">
       <h2>確認テスト（第2章）</h2>
-      <p>12問出題します。</p>
+      <p style="margin-bottom:12px">出題数を選んでください：</p>
+      <div style="text-align:center;margin-bottom:16px">
+        <button class="btn" onclick="startQuiz(10)">10問でチャレンジ</button>
+        <button class="btn btn-outline" onclick="startQuiz(20)">20問でチャレンジ</button>
+      </div>
       <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
       <div id="quizContainer"></div>
       <div style="text-align:center;margin-top:20px">
@@ -259,24 +737,37 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
 
 <script>
 const allQuestions=[
-{q:'一斉授業を段階化して整理した19世紀ドイツの教育学者は誰か。',choices:['デューイ','ルソー','ヘルバルト','ペスタロッチ'],answer:2,explanation:'ヘルバルト（Herbart, J. F.）は一斉授業を段階化して整理し、教師主導の教授中心の教育方法を体系化しました。'},
-{q:'新教育運動の中心人物で、協同的・探求的な学びを重視したのは誰か。',choices:['ヘルバルト','デューイ','フレーベル','モンテッソーリ'],answer:1,explanation:'デューイ（Dewey, J.）は20世紀の新教育運動の中心人物で、一斉授業による教え込みに代わり、協同的で探求的な学びを重視しました。'},
-{q:'教師が一方的に知識を伝達し、学習者がそれを習得するタイプの授業を何というか。',choices:['変容的様式','模倣的様式','対話的様式','探求的様式'],answer:1,explanation:'模倣的様式とは、教師が一方的に知識・技能を伝達し、学習者がそれを習得するタイプの授業です。これに対し、変容的様式は思考や探究の方法を育てる授業です。'},
-{q:'学びの三角形を構成する3つの「出会い」に含まれないものはどれか。',choices:['世界（教材）との出会い','他者との出会い','自己との出会い','制度との出会い'],answer:3,explanation:'学びの三角形は「世界（教材）との出会い」「他者（教師・他の子どもたち）との出会い」「自己との出会い」の3つで構成されます。'},
-{q:'「学ぶことの証」とは何か。',choices:['テストで高い点を取ること','知識が増えること','自分が変わること','資格を取得すること'],answer:2,explanation:'テキストでは「学ぶことの証は変わること」とされています。真の出会いは当事者を高みへと引き上げ、新たな自己として生まれ変わることを可能にします。'},
-{q:'教育方法について、テキストが述べていることとして最も適切なものはどれか。',choices:['絶対的な教育方法が存在する','出会いのなかでしか真の教育方法は生まれない','教師の経験年数が方法を決める','マニュアルに従えば良い'],answer:1,explanation:'テキストでは「教育方法は出会いのなかでしか真に生まれることはない」「具体的な出会いのなかで常に教育方法を鍛えていくことが一番の教育方法」と述べています。'},
-{q:'学校が意図的に計画した教育内容ではなく、無意識的に子どもに影響を与えているものを何というか。',choices:['コア・カリキュラム','ヒドゥン・カリキュラム','ナショナル・カリキュラム','スパイラル・カリキュラム'],answer:1,explanation:'ヒドゥン・カリキュラム（隠れたカリキュラム）とは、教師の意図とは別に、学校が子どもたちに無意識的に与えている影響のことです。'},
-{q:'教材解釈の第2段階で行うこととして正しいものはどれか。',choices:['教材の内容そのものを深く理解する','授業中に子どもの反応を見て柔軟に対応する','学生がどこに興味を持ち、どこでつまずくかを想定する','教材を新しいものに差し替える'],answer:2,explanation:'第1段階は教材そのものの理解、第2段階は授業を想定した解釈（学生の反応を予想し、発問や活動を考える）、第3段階は授業中のリアルタイムの対応です。'},
-{q:'新学習指導要領で示された「育てる学力の3要素」に含まれないものはどれか。',choices:['基礎的・基本的な知識・技能の習得','思考力・判断力・表現力','主体的に学習に取り組む態度','記憶力・暗記力'],answer:3,explanation:'育てる学力の3要素は「基礎的・基本的な知識・技能」「思考力・判断力・表現力」「主体的に学習に取り組む態度」です。「記憶力・暗記力」は含まれていません。'},
-{q:'教師にとって「見えること」とはどのような力か。',choices:['視力が良いこと','一般論として状況を把握すること','一人ひとりの子どもを個別的に丁寧にとらえること','全体を大まかに見渡すこと'],answer:2,explanation:'「見えること」は一般論ではなく、事象そのものを個別的に丁寧にとらえる力であり、教師としての経験と理論の蓄積によって培われます。'},
-{q:'教師の「聴くこと」について、テキストが述べていることとして最も適切なものはどれか。',choices:['子どもの言うことを何でも受け入れること','子どもと出会うために聴くこと','子どもを指導するための情報収集','保護者の要望を聞くこと'],answer:1,explanation:'「聴くこと」は、甘やかすためでも無力と向き合わないためでもなく、「子どもと出会うために」求められるものだとテキストは述べています。'},
-{q:'自分の実践を振り返り、常に改善し続ける教師の姿勢を何というか。',choices:['権威的実践家','反省的実践家','効率的実践家','専門的実践家'],answer:1,explanation:'「反省的実践家」とは、自分の実践を省察し、常に改善し続ける教師の姿勢を指します。看護においても同様の概念が重要視されています。'}
+{q:'「人間は教育されなければならない唯一の被造物である」と述べたのは誰か。',choices:['ルソー','カント','ペスタロッチ','デューイ'],answer:1,explanation:'カント（Kant, I.）の言葉です。「人間は教育によってはじめて人間となることができる」とも述べ、教育は人間が人間である限り必要なものだと主張しました。野生児の例にも示される通り、人間は一定の環境のなかで初めて人間らしく成長します。'},
+{q:'『エミール』を著し、教育の不自然さを批判したのは誰か。',choices:['カント','ルソー','ヘルバルト','ペスタロッチ'],answer:1,explanation:'ルソー（Rousseau, J.-J.）です。『エミール』のなかで「造物主の手から出る時にはすべてが善いものであるが、人間の手にかかると悪いものになっていく」と述べ、既成の社会秩序を前提にした教育の不自然さを批判しました。子どもは知識を詰め込まれる白紙ではなく、初めから主体的存在であると主張しました。'},
+{q:'「生活が陶冶する」という言葉を残したのは誰か。',choices:['ルソー','ヘルバルト','ペスタロッチ','デューイ'],answer:2,explanation:'ペスタロッチ（Pestalozzi, J. H.）の言葉です。子どもの生活を尊重し、「生活」をキーワードとすることで主体性と社会化のバランスのとれた教育が可能になると考えました。'},
+{q:'一斉授業を段階化して整理した教育学者は誰か。',choices:['ヘルバルト','デューイ','カント','ペスタロッチ'],answer:0,explanation:'ヘルバルト（Herbart, J. F.）です。19世紀になり公教育が学校を詰め込みの場として位置づけ、効率重視・教師主導の一斉授業が通常のスタイルとなる中で、ヘルバルトはその一斉授業を段階化して整理しました。'},
+{q:'20世紀の新教育運動の中心人物で、「いかに教えるか」から「いかに学びを成立させるか」へと教育方法の中心を移したのは誰か。',choices:['ヘルバルト','カント','デューイ','ルソー'],answer:2,explanation:'デューイ（Dewey, J.）です。子どもの個性や主体性を尊重し、一斉授業による知識の教え込みに代わって協同的で探求的な学びを重視しました。学びの個別化と子どもの能動性を強調し、現代教育に強い影響を与えています。'},
+{q:'「教育の両義性」とは何を意味するか。',choices:['教育には学校教育と家庭教育の2種類がある','教育は人間の成長に必要であると同時に、度を過ぎたり方法を間違えると人間の成長を歪める危険性をもつ','教育は教師と子どもの2者で行われる','教育は知識教育と道徳教育の2側面をもつ'],answer:1,explanation:'教育の両義性とは、教育が人間の成長にとって必要であると同時に、度を過ぎたり方法を間違えると人間の成長を歪める危険性をもつことを意味します。だからこそ「教授から学習へ」「教えることから学ぶことへ」と言われ、教育は「共に教え・学ぶこと」、すなわち「共育」であると本書は述べています。'},
+{q:'PISA調査で挙げられる「キー・コンピテンシー（主要能力）」に含まれないものはどれか。',choices:['社会・文化的、技術的ツールを相互作用的に活用する力','多様な社会グループにおける人間関係形成能力','自立的に行動する能力','ペーパーテストで高得点を取る能力'],answer:3,explanation:'キー・コンピテンシーは、①社会・文化的、技術的ツールを相互作用的に活用する力、②多様な社会グループにおける人間関係形成能力、③自立的に行動する能力の3つです。ペーパーテストの得点ではなく、現代社会で求められる実践的能力が示されています。'},
+{q:'新学習指導要領で示された「育てる学力の3要素」に含まれないものはどれか。',choices:['基礎的・基本的な知識・技能の習得','思考力・判断力・表現力等の能力','主体的に学習に取り組む態度','受験に必要な暗記力'],answer:3,explanation:'新学習指導要領では、①基礎的・基本的な知識・技能の習得、②知識・技能を活用して課題を解決するために必要な思考力・判断力・表現力、③主体的に学習に取り組む態度の3つが示されました。特に「活用力」を育てる学習を重視しています。'},
+{q:'「学びの三角形（学びの三要素）」に含まれない出会いはどれか。',choices:['世界（教材）との出会い','他者（教師・他の子ども）との出会い','自己との出会い','社会制度との出会い'],answer:3,explanation:'学びの三角形は①世界（教材）との出会い、②他者（教師・他の子ども）との出会い、③自己との出会いの3つで構成されます。特に③が「こぶ」として重要視され、学びの結果として必ず自己との出会いが生じることを示しています。'},
+{q:'「学ぶことの唯一の証は変わることである」と述べたのは誰か。',choices:['林竹二','斉藤喜博','武田常夫','灰谷健次郎'],answer:0,explanation:'林竹二の言葉です。学ぶとは情報を獲得して太っていくことではなく、他者や世界との出会いを通して自己を新たに形作っていくこと。古い自己を壊し、削り取っていくことを必要とする──つまり学ぶとは自己形成、アイデンティティ形成そのものであるという考えを示しています。'},
+{q:'灰谷健次郎『わたしの出会った子どもたち』に登場する筋萎縮症の少女・麻理ちゃんとの出会いから灰谷が学んだことは何か。',choices:['障害児には特別な教育が必要だということ','「あんな子、生きとって何の楽しみがあるんやろな」という言葉は、そっくりそのまま私たちに投げ返されているということ','障害児教育は専門家に任せるべきだということ','障害は治療によって克服できるということ'],answer:1,explanation:'麻理ちゃんは猫・蜂・マツバボタンに「おはようさん」とあいさつし、生命と交歓していました。スピードを取り込んだ私たちはむしろ多くを失っています。「あんな子、生きとって…」という言葉は、そっくりそのまま私たちに投げ返されている──これが「変わる」という学びの証であり、出会いとしての教育の本質を示しています。'},
+{q:'看護師シュヴィングが、何ヶ月も外界との関係を断っていた精神病患者と出会えたのは、どのような態度をとったからか。',choices:['積極的に話しかけ続けた','薬物治療を強化した','数日間、毎日同じ時刻に30分ほどベッドのかたわらに静かに座り続けた','他のスタッフと役割分担して接した'],answer:2,explanation:'シュヴィングは数日間、毎日同じ時刻に30分ほどベッドのかたわらに静かに座り続けました。3〜4日後、毛布が持ち上げられ、やがて患者は「あなたは私のお姉さんなの？」と口を開きました。「いいえ」と答えても患者は「でも毎日、あなたは私に逢いに来てくれたじゃないの」と続けます。真の出会いは当事者を高みへと引き上げ、新たな自己として生まれ変わることを可能にします。'},
+{q:'カリキュラムの3つの構成方法のうち、「子どもたちの生活上における必要や興味を取り上げて、問題解決を目指していくカリキュラム」を何というか。',choices:['教科カリキュラム','経験カリキュラム','コア・カリキュラム','潜在カリキュラム'],answer:1,explanation:'経験カリキュラムです。子どもの生活上の必要や興味から出発し、問題解決を目指すカリキュラムです。これに対して、学問体系に基づく系統的なカリキュラムが教科カリキュラム、共通に必要な内容をコアにおき個別学習と関連させるのがコア・カリキュラムです。'},
+{q:'授業の様式のうち、「学習者の思考の高度化や探究の方法を育成することを目指した授業」を何というか。',choices:['模倣的様式','変容的様式','一斉的様式','詰め込み様式'],answer:1,explanation:'変容的様式です。これに対して、教師が一方的に知識・技能の伝達を行い学習者がそれを習得するタイプの授業が模倣的様式です。両方の様式が必要ですが、生涯学習社会・現代社会では創造性・コミュニケーション能力・情報選択能力といった変容的様式の学びがより求められるようになっています。'},
+{q:'教科書の扱いについて、本書が推奨する立場はどれか。',choices:['教科書を教える','教科書で教える','教科書を使わない','教科書だけを暗記させる'],answer:1,explanation:'「教科書を教える」のではなく「教科書で教える」立場です。教科書は学習指導要領に即して作成されていますが、それは一つの教材にすぎません。教師の主体性と子どもの実情に合わせて、教科書を一つの素材として活用する立場が求められます。'},
+{q:'教師の意図とは別に、学校教育が子どもたちに無意識的な影響を与えていることを何とよぶか。',choices:['教科カリキュラム','コア・カリキュラム','ヒドゥン・カリキュラム','経験カリキュラム'],answer:2,explanation:'ヒドゥン・カリキュラム（隠れたカリキュラム）です。フィリップ・ジャクソンは、教室は子どもにとって「自らの関心と関係なく課題に専念」「欲求の断念と忍耐」「常に評価が飛び交う」場であると分析しました。佐藤学はこれらを「社会的・政治的実践」「倫理的・実存的実践」とよんでいます。'},
+{q:'教材解釈の3段階のうち、「授業中に子どもの反応をとらえ、想定外の疑問が出たら教材解釈をさらに深め授業を展開する」のは第何段階か。',choices:['第1の教材解釈','第2の教材解釈','第3の教材解釈','第4の教材解釈'],answer:2,explanation:'第3の教材解釈です。第1は教材そのものについての解釈（例：死の教育でキューブラー・ロスの著作の内容を深く解釈）、第2は授業を想定しての解釈（受け持つ学級の子どもの反応を予想しながら発問・活動を設計）、第3は授業中の即興的解釈です。'},
+{q:'総合的な学習の時間が小中学校に設置されたのは何年か。',choices:['1996年','1998年','2000年','2003年'],answer:1,explanation:'1998年（平成10年）に小中学校で、1999年（平成11年）に高等学校で総合的な学習の時間が設置されました。狙いは「自ら課題を見つけ、自ら学び、自ら考え、主体的に判断し、よりよく問題を解決する資質や能力を育てること」で、支える考え方は問題解決学習です。'},
+{q:'斉藤喜博が「教育とか授業においてはある意味では『すべてだ』」と述べた教師の力は何か。',choices:['話す力','書く力','見える力','歩く力'],answer:2,explanation:'「見える」ことです。斉藤は「『見える』ということは、教師としての経験と理論の蓄積された結果の力である」とも述べ、自らの教師としての存在のすべてが見えることに込められると考えました。「見える力」には①具体的にとらえる力、②直観的にとらえる力、③わたしとしてとらえる力、④謙虚であり続ける力の4つの要素があります。'},
+{q:'林竹二が述べた「やさしさ」と「きびしさ」の関係はどれか。',choices:['やさしさはきびしさの対極にある','やさしさときびしさは一つだ','やさしさはきびしさの後に来る','やさしさはきびしさを排除する'],answer:1,explanation:'林竹二は「やさしさときびしさは一つだ」と述べました。真の優しさは時に厳しい対決を含み、表面的な優しさはむしろ子どもを蔑視することでさえあります。武田常夫もこの点について「教えるということは、おそろしい存在へと立ち向かう息のつまるような行為」と表現し、「子どもへの敬意」を強調しています。'},
+{q:'生活指導の目的として最も適切なものはどれか。',choices:['問題行動を起こした生徒を指導すること','個人のもつ可能性を最大限に育てること、その途中で生じてくる諸問題が解決されるよう個人を助けること','校則を守らせること','学業成績を向上させること'],answer:1,explanation:'生活指導の目的は「個人のもつ可能性を最大限に育てること、その途中で生じてくる諸問題が解決されるよう個人を助けること」と規定できます。子どもの人格形成と社会化を支援するのが生活指導であり、内容的には学習指導・道徳指導・進路指導・健康指導・余暇指導・食事指導（食育）などをすべて含み込んでいます。'},
+{q:'学習者の学びの軌跡を残し、ペーパー試験では測れない学力の長期的な成長を評価する方法を何というか。',choices:['客観式テスト評価','ポートフォリオ評価','標準化テスト','偏差値評価'],answer:1,explanation:'ポートフォリオ評価です。学習者の学びの軌跡を残していくもので、自己成長のファイルとなります。活動・パフォーマンス・内面の変化・思考の深まりなど、ペーパー試験では測ることのできない学力の「長期的な成長」を評価するのに有効で、総合的な学習の時間の評価などに活用されます。'},
+{q:'教師による評価以外の評価のうち、「学習者同士が、相互にそれぞれの学習活動を評価する」ことを何というか。',choices:['自己評価','相互評価（ピア評価）','客観評価','絶対評価'],answer:1,explanation:'相互評価（ピア評価）です。学習者同士がお互いに競い合い、高め合うことを可能にすると同時に、共同性を育てるという教育的意義をもちます。これに対して、学習者が自ら学習活動を評価するのが自己評価で、主体性や自分自身をとらえる力を高める教育的意義があります。'},
+{q:'授業計画→実施→評価→改善のサイクルを何とよぶか。',choices:['STEP','PDCA','SOAP','PISA'],answer:1,explanation:'PDCAサイクルです。Plan（計画）→Do（実施）→Check（評価）→Act（改善）の循環で、学力評価のみではなく授業改善にも重要な役割を果たします。子どもたちの実態を知り、教師は自らの教育方法を改善し、子どもは自らの学力を知ることができます。'}
 ];
 
 let questions=[],answered=0;
 function shuffleArray(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
-function initQuiz(){
-  questions=shuffleArray(allQuestions);answered=0;
+
+function initQuiz(count){
+  const n=count||allQuestions.length;questions=shuffleArray(allQuestions).slice(0,n);answered=0;
   document.getElementById('submitBtn').style.display='none';
   document.getElementById('resultArea').style.display='none';
   document.getElementById('progressFill').style.width='0%';
@@ -291,6 +782,7 @@ function initQuiz(){
     c.innerHTML+=h;
   });
 }
+
 function selectChoice(qi,ci){
   const q=questions[qi];if(q._selected!==null)return;
   q._selected=ci;answered++;
@@ -302,6 +794,7 @@ function selectChoice(qi,ci){
   document.getElementById('progressFill').style.width=(answered/questions.length*100)+'%';
   if(answered===questions.length)document.getElementById('submitBtn').style.display='inline-block';
 }
+
 function submitQuiz(){
   let c=0;questions.forEach(q=>{if(q._selected!==null&&q._shuffled[q._selected].origIdx===q.answer)c++});
   document.getElementById('resultArea').style.display='block';
@@ -311,19 +804,24 @@ function submitQuiz(){
   document.getElementById('resultMsg').textContent=m;
   document.getElementById('resultArea').scrollIntoView({behavior:'smooth'});
 }
-function retryQuiz(){initQuiz();document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'})}
+
+function retryQuiz(){initQuiz(questions.length);document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'})}
+
 function showSection(id){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   const tabs=document.querySelectorAll('.nav-tab');
-  if(id==='lesson1')tabs[0].classList.add('active');
-  else if(id==='lesson2')tabs[1].classList.add('active');
-  else if(id==='lesson3')tabs[2].classList.add('active');
-  else if(id==='quiz'){tabs[3].classList.add('active');initQuiz()}
+  const ids=['lesson1','lesson2','lesson3','lesson4','lesson5','quiz'];
+  tabs[ids.indexOf(id)].classList.add('active');
+  
   window.scrollTo({top:0,behavior:'smooth'});
 }
-initQuiz();
+function startQuiz(count){
+  initQuiz(count);
+  document.querySelector('.quiz-area .progress-bar').scrollIntoView({behavior:'smooth'});
+}
+// 初期化（出題数選択画面はそのまま、Quizはまだ生成しない）
 </script>
 </body>
 </html>

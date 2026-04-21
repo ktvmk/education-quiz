@@ -3,105 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webアプリ一覧｜森浩平</title>
+<title>Dashboard｜Kohei Mori</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.8;padding:0 0 60px 0}
-.header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:32px 20px;text-align:center}
-.header h1{font-size:1.6em;margin-bottom:4px}
-.header .sub{font-size:.85em;opacity:.7}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#0c0c0c;color:#c8c8c8;line-height:1.8;padding:0 0 80px 0;min-height:100vh;position:relative;overflow-x:hidden}
+
+/* 雨の森 背景（画像） */
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:url('bg-rain-forest.jpg') center/cover no-repeat fixed;z-index:-3}
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:-2}
+
+/* 雨のアニメーション */
+.rain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:-1;overflow:hidden}
+.rain .drop{position:absolute;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,200,200,.1),rgba(200,200,200,.2));animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-100vh)}100%{transform:translateY(100vh)}}
+
+.header{background:rgba(12,12,12,.6);backdrop-filter:blur(12px);color:#d0d0d0;padding:32px 20px;text-align:center;border-bottom:1px solid rgba(255,255,255,.06)}
+.header h1{font-size:1.6em;margin-bottom:4px;color:#e0e0e0;text-shadow:0 0 20px rgba(255,255,255,.08)}
+.header .sub{font-size:.85em;opacity:.45}
 .container{max-width:760px;margin:0 auto;padding:20px}
 .category{margin:24px 0}
-.cat-title{font-size:1.15em;font-weight:bold;color:#1B3A5C;margin-bottom:12px;padding-bottom:6px;border-bottom:3px solid #e8edf2}
-.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
-.app-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .2s,box-shadow .2s;text-decoration:none;color:#333;display:block;border-left:5px solid #ccc}
-.app-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
-.app-card .title{font-size:1.05em;font-weight:bold;color:#1B3A5C;margin-bottom:6px}
-.app-card .desc{font-size:.85em;color:#666;margin-bottom:8px}
+.cat-title{font-size:1.05em;font-weight:bold;color:#a0a0a0;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.08)}
+.app-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.app-card{background:rgba(20,20,20,.75);backdrop-filter:blur(8px);border-radius:12px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.3);transition:transform .2s,box-shadow .2s,background .2s;text-decoration:none;color:#c8c8c8;display:block;border-left:3px solid rgba(160,160,160,.2)}
+.app-card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.4);background:rgba(28,28,28,.85)}
+.app-card .title{font-size:1em;font-weight:bold;color:#e0e0e0;margin-bottom:5px}
+.app-card .desc{font-size:.82em;color:#909090;margin-bottom:8px}
 .app-card .tags{display:flex;gap:6px;flex-wrap:wrap}
-.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.72em;font-weight:bold}
-.tag-education{background:#e3f2fd;color:#1565c0}
-.tag-quiz{background:#fff3e0;color:#e65100}
-.tag-tool{background:#e8f5e9;color:#2e7d32}
-.tag-dashboard{background:#f3e5f5;color:#6a1b9a}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.7em;font-weight:bold}
+.tag-education{background:rgba(60,60,60,.4);color:#8cc8a0}
+.tag-quiz{background:rgba(60,60,60,.4);color:#c8b870}
+.tag-tool{background:rgba(60,60,60,.4);color:#80b890}
+.tag-dashboard{background:rgba(60,60,60,.4);color:#a0a0b8}
 
-.cat-education .app-card{border-color:#1565c0}
-.cat-it .app-card{border-color:#e65100}
-.cat-tool .app-card{border-color:#2e7d32}
-.cat-dashboard .app-card{border-color:#6a1b9a}
+/* MCP Dashboard */
+.mcp-embed{background:rgba(16,16,16,.8);backdrop-filter:blur(12px);border-radius:12px;padding:18px 20px;margin:0 0 24px 0;color:#c8c8c8;box-shadow:0 2px 12px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.06)}
+.mcp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.mcp-title{font-size:1.05em;font-weight:bold;color:#e0e0e0;letter-spacing:.03em}
+.mcp-auto{font-size:.7em;color:rgba(255,255,255,.25)}
+.mcp-btn{background:rgba(60,60,60,.5);color:#c0c0c0;border:1px solid rgba(255,255,255,.1);border-radius:6px;padding:5px 14px;font-size:.76em;cursor:pointer;transition:background .2s}
+.mcp-btn:hover{background:rgba(80,80,80,.5)}
+.mcp-row{background:rgba(24,24,24,.6);border-radius:8px;padding:10px 14px;margin:4px 0;display:flex;align-items:center;justify-content:space-between}
+.mcp-left{display:flex;align-items:center;gap:10px}
+.mcp-icon{font-size:1.1em;width:22px;text-align:center}
+.mcp-name{font-size:.82em;font-weight:bold;color:#b0b0b0}
+.mcp-badge{font-size:.7em;font-weight:bold;padding:2px 10px;border-radius:14px}
+.mcp-ok{background:rgba(30,70,45,.4);color:#4ecdc4}
+.mcp-warn{background:rgba(70,55,20,.4);color:#ffd93d}
+.mcp-fail{background:rgba(70,20,30,.4);color:#ff6b6b}
+.quick-links{display:flex;gap:8px;margin-top:12px}
+.quick-link{flex:1;text-align:center;padding:10px 8px;border-radius:8px;text-decoration:none;font-size:.78em;font-weight:bold;transition:all .2s}
+.quick-link:hover{transform:translateY(-2px)}
+.ql-claude{background:rgba(50,50,50,.4);color:#d4b060;border:1px solid rgba(180,150,60,.15)}
+.ql-claude:hover{background:rgba(65,65,65,.5)}
+.ql-cal{background:rgba(50,50,50,.4);color:#70b0d0;border:1px solid rgba(80,140,180,.15)}
+.ql-cal:hover{background:rgba(65,65,65,.5)}
+.ql-keep{background:rgba(50,50,50,.4);color:#d0b060;border:1px solid rgba(170,140,50,.15)}
+.ql-keep:hover{background:rgba(65,65,65,.5)}
 
-.shortcut-section{background:#fff;border-radius:12px;padding:20px;margin:24px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-.shortcut-section h2{color:#1B3A5C;font-size:1.1em;margin-bottom:12px}
-.shortcut-section p{font-size:.9em;color:#666}
-.shortcut-section code{background:#f0f0f0;padding:2px 8px;border-radius:4px;font-size:.85em}
+/* Now Working On */
+.now-panel{background:rgba(16,16,16,.8);backdrop-filter:blur(12px);border-radius:12px;padding:18px 20px;margin:0 0 24px 0;border:1px solid rgba(255,255,255,.06)}
+.now-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.now-title{font-size:1.05em;font-weight:bold;color:#e0e0e0;letter-spacing:.03em}
+.now-cards{display:flex;gap:10px}
+.now-card{flex:1;background:rgba(30,30,30,.7);border-radius:10px;padding:14px;position:relative;border:1px solid rgba(255,255,255,.06);min-height:60px;display:flex;align-items:center;justify-content:center}
+.now-card .now-text{font-size:.82em;color:#c8c8c8;text-align:center;line-height:1.4}
+.now-card .now-close{position:absolute;top:6px;right:8px;color:rgba(255,255,255,.25);cursor:pointer;font-size:.75em;transition:color .2s}
+.now-card .now-close:hover{color:#ff6b6b}
+.now-empty{color:rgba(255,255,255,.2);font-size:.82em;text-align:center;padding:14px;width:100%}
+.now-picker{margin-top:10px}
+.now-input{width:100%;background:rgba(30,30,30,.8);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 14px;color:#d0d0d0;font-size:.85em;outline:none}
+.now-input:focus{border-color:rgba(255,255,255,.2)}
+.now-list{max-height:200px;overflow-y:auto;margin-top:6px}
+.now-item{padding:8px 14px;color:#b0b0b0;font-size:.82em;cursor:pointer;border-radius:6px;transition:background .15s}
+.now-item:hover{background:rgba(255,255,255,.06);color:#e0e0e0}
+
+/* Audio Controls */
+.audio-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(10,10,10,.88);backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.05);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:8px;z-index:100}
+.audio-btn{background:rgba(50,50,50,.4);color:#b0b0b0;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:6px 16px;font-size:.75em;cursor:pointer;transition:all .2s;white-space:nowrap}
+.audio-btn:hover{background:rgba(70,70,70,.5)}
+.audio-btn.active{background:rgba(60,60,60,.6);border-color:rgba(255,255,255,.15);color:#e0e0e0;box-shadow:0 0 8px rgba(255,255,255,.05)}
+.audio-vol{width:80px;height:4px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,.1);border-radius:2px;outline:none;cursor:pointer}
+.audio-vol::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:#a0a0a0;cursor:pointer}
+.audio-label{font-size:.7em;color:rgba(255,255,255,.25);margin-right:4px}
 </style>
 </head>
 <body>
+
+<!-- 雨のアニメーション -->
+<div class="rain" id="rain"></div>
+
 <div class="header">
-<h1>Webアプリ一覧</h1>
-<div class="sub">森浩平 ── 作成したWebアプリ・教材・ツール</div>
+<h1>Dashboard</h1>
+<div class="sub">Kohei Mori ── tools & resources</div>
 </div>
 <div class="container">
 
-<div class="shortcut-section">
-<h2>このページをブックマークしてください</h2>
-<p>このページをスマホのホーム画面に追加すると、いつでもアクセスできます。<br>
-<strong>iPhone：</strong> Safari → 共有ボタン → 「ホーム画面に追加」<br>
-<strong>Android：</strong> Chrome → メニュー → 「ホーム画面に追加」<br>
-<strong>PC：</strong> ブックマークバーにドラッグ</p>
+<div class="mcp-embed">
+<div class="mcp-header">
+<span class="mcp-title">MCP Dashboard</span>
+<span class="mcp-auto">5分ごとに自動チェック</span>
+<button class="mcp-btn" onclick="checkMCP()">チェック</button>
 </div>
-
-<div class="category cat-education">
-<div class="cat-title">教育学（桑名看護専門学校）</div>
-<div class="app-grid">
-<a href="index.html" class="app-card" target="_blank">
-<div class="title">教育学 Web教材</div>
-<div class="desc">序章〜第5章のレッスン＋確認テスト（各章10〜12問）。桑名看護専門学校 2026年度。</div>
-<div class="tags"><span class="tag tag-education">教育</span><span class="tag tag-quiz">全6章</span></div>
-</a>
+<div id="mcp-servers"></div>
+<div id="mcp-time" style="color:rgba(150,180,160,.3);font-size:.73em;margin-top:8px"></div>
+<div class="quick-links">
+<a href="https://keep.google.com/u/0/" target="_blank" class="quick-link ql-keep">Google Keep</a>
+<a href="https://calendar.google.com/calendar/u/3/r" target="_blank" class="quick-link ql-cal">Google Calendar</a>
+<a href="https://claude.ai/settings/usage" target="_blank" class="quick-link ql-claude">Claude Code Usage</a>
 </div>
 </div>
 
-<div class="category cat-it">
-<div class="cat-title">基本情報技術者（フリースクール向け）</div>
-<div class="app-grid">
-<a href="it_quiz.html" class="app-card" target="_blank">
-<div class="title">基本情報技術者 Web教材</div>
-<div class="desc">レッスン＋確認テスト。第1章〜第2章（順次追加中）</div>
-<div class="tags"><span class="tag tag-quiz">27問</span><span class="tag tag-education">NEW</span></div>
-</a>
-<a href="https://ktvmk.github.io/kihonjyohogijyutusya-quiz/" class="app-card" target="_blank">
-<div class="title">基本情報技術者 一問一答（旧版）</div>
-<div class="desc">第19〜21章のクイズ＋過去問レベル編</div>
-<div class="tags"><span class="tag tag-quiz">クイズ</span></div>
-</a>
+<div class="now-panel">
+<div class="now-header">
+<span class="now-title">Now Working On</span>
+<button class="mcp-btn" onclick="openPicker()" id="now-add-btn">+ 追加</button>
+</div>
+<div class="now-cards" id="now-cards">
+<div class="now-empty">タスクを選択してください</div>
+</div>
+<div class="now-picker" id="now-picker" style="display:none">
+<input type="text" class="now-input" id="now-input" placeholder="タスクを入力 or 選択..." oninput="filterTasks()">
+<div class="now-list" id="now-list"></div>
 </div>
 </div>
 
-<div class="category cat-tool">
-<div class="cat-title">ゼミ・学生指導</div>
-<div class="app-grid">
-<a href="seminar.html" class="app-card" target="_blank">
-<div class="title">森ゼミ 年間計画</div>
-<div class="desc">ゼミ概要・メンバー・4年生/3年生の年間スケジュール・ルール</div>
-<div class="tags"><span class="tag tag-tool">ゼミ</span></div>
-</a>
-</div>
-</div>
-
-<div class="category cat-tool">
-<div class="cat-title">音楽ツール</div>
-<div class="app-grid">
-<a href="drum.html" class="app-card" target="_blank">
-<div class="title">Beat Lab（ドラムマシン）</div>
-<div class="desc">ドラムパターンをグリッドで作成・再生。音源切替、プリセット、MIDIダウンロード対応。</div>
-<div class="tags"><span class="tag tag-tool">音楽</span><span class="tag tag-tool">NEW</span></div>
-</a>
-</div>
-</div>
-
-<div class="category cat-dashboard">
-<div class="cat-title">ダッシュボード・ツール</div>
+<div class="category">
+<div class="cat-title">Workspace</div>
 <div class="app-grid">
 <a href="work-map.html" class="app-card" target="_blank">
 <div class="title">仕事マップ</div>
@@ -111,6 +138,236 @@ body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#
 </div>
 </div>
 
+<div class="category">
+<div class="cat-title">Lecture</div>
+<div class="app-grid">
+<a href="index.html" class="app-card" target="_blank">
+<div class="title">教育学 Web教材</div>
+<div class="desc">序章〜第5章のレッスン＋確認テスト（各章10〜12問）。桑名看護専門学校 2026年度。</div>
+<div class="tags"><span class="tag tag-education">教育</span><span class="tag tag-quiz">全6章</span></div>
+</a>
 </div>
+</div>
+
+<div class="category">
+<div class="cat-title">Learning</div>
+<div class="app-grid">
+<a href="../../../基本情報技術者/quiz/it_quiz.html" class="app-card" target="_blank">
+<div class="title">基本情報技術者 Web教材</div>
+<div class="desc">レッスン＋確認テスト。第1章〜第9章（順次追加中）</div>
+<div class="tags"><span class="tag tag-quiz">クイズ</span><span class="tag tag-education">NEW</span></div>
+</a>
+</div>
+</div>
+
+<div class="category">
+<div class="cat-title">Seminar</div>
+<div class="app-grid">
+<a href="seminar.html" class="app-card" target="_blank">
+<div class="title">森ゼミ 年間計画</div>
+<div class="desc">ゼミ概要・メンバー・4年生/3年生の年間スケジュール・ルール</div>
+<div class="tags"><span class="tag tag-tool">ゼミ</span></div>
+</a>
+</div>
+</div>
+
+<div class="category">
+<div class="cat-title">Creative</div>
+<div class="app-grid">
+<a href="drum.html" class="app-card" target="_blank">
+<div class="title">Beat Lab（ドラムマシン）</div>
+<div class="desc">ドラムパターンをグリッドで作成・再生。音源切替、プリセット、MIDIダウンロード対応。</div>
+<div class="tags"><span class="tag tag-tool">音楽</span><span class="tag tag-tool">NEW</span></div>
+</a>
+</div>
+</div>
+
+</div>
+
+<!-- Audio Bar -->
+<div class="audio-bar">
+<span class="audio-label">BGM</span>
+<button class="audio-btn" onclick="playSound('rain')" id="btn-rain">🌧 雨の音</button>
+<button class="audio-btn" onclick="playSound('forest')" id="btn-forest">🌲 森</button>
+<button class="audio-btn" onclick="playSound('ambient')" id="btn-ambient">🎵 アンビエント</button>
+<button class="audio-btn" onclick="playSound('piano')" id="btn-piano">🎹 ピアノ</button>
+<button class="audio-btn" onclick="stopSound()" id="btn-stop">⏹ OFF</button>
+<input type="range" class="audio-vol" min="0" max="100" value="30" oninput="setVolume(this.value)">
+</div>
+
+<script>
+// === Rain Animation ===
+(function(){
+  const rain=document.getElementById('rain');
+  const count=60;
+  for(let i=0;i<count;i++){
+    const drop=document.createElement('div');
+    drop.className='drop';
+    drop.style.left=Math.random()*100+'%';
+    drop.style.height=(Math.random()*80+40)+'px';
+    drop.style.animationDuration=(Math.random()*1.5+1)+'s';
+    drop.style.animationDelay=Math.random()*3+'s';
+    drop.style.opacity=Math.random()*0.3+0.1;
+    rain.appendChild(drop);
+  }
+})();
+
+// === MCP Dashboard ===
+const API="http://localhost:3457";
+function checkMCP(){
+  const el=document.getElementById("mcp-servers");
+  el.innerHTML='<div class="mcp-row"><div class="mcp-left"><span class="mcp-icon" style="color:#555">⏳</span><span class="mcp-name">チェック中...</span></div></div>';
+  fetch(API+"/mcp").then(r=>r.json()).then(d=>{
+    let servers=d.servers||[];
+    // gmail, calendar, googledrive, onedrive の順にソート
+    const order={"gmail":0,"google-calendar":1,"claude.ai Google Drive":2};
+    servers.sort((a,b)=>(order[a.name]??99)-(order[b.name]??99));
+    servers.push({name:"OneDrive",status:"connected"});
+    const icons={connected:"●",auth:"▲",failed:"✗"};
+    const labels={connected:"接続中",auth:"要認証",failed:"切断"};
+    const cls={connected:"mcp-ok",auth:"mcp-warn",failed:"mcp-fail"};
+    const colors={connected:"#4ecdc4",auth:"#ffd93d",failed:"#ff6b6b"};
+    let h="";
+    for(const s of servers){
+      h+=`<div class="mcp-row"><div class="mcp-left"><span class="mcp-icon" style="color:${colors[s.status]||'#555'}">${icons[s.status]||'?'}</span><span class="mcp-name">${s.name}</span></div><span class="mcp-badge ${cls[s.status]||''}">${labels[s.status]||s.status}</span></div>`;
+    }
+    el.innerHTML=h;
+    document.getElementById("mcp-time").textContent="最終: "+d.timestamp;
+  }).catch(()=>{
+    el.innerHTML='<div class="mcp-row"><div class="mcp-left"><span class="mcp-icon" style="color:#ff6b6b">✗</span><span class="mcp-name">APIサーバー未起動 (localhost:3456)</span></div></div>';
+  });
+}
+checkMCP();
+setInterval(checkMCP,300000);
+
+// === Audio BGM ===
+let currentAudio=null;
+let currentBtn=null;
+const SOUNDS={
+  rain:"https://cdn.freesound.org/previews/531/531947_6386090-lq.mp3",
+  forest:"https://cdn.freesound.org/previews/365/365252_1769847-lq.mp3",
+  ambient:"https://cdn.freesound.org/previews/612/612095_5765068-lq.mp3",
+  piano:"https://cdn.freesound.org/previews/456/456058_9380600-lq.mp3"
+};
+
+function playSound(key){
+  stopSound();
+  const url=SOUNDS[key];
+  if(!url)return;
+  currentAudio=new Audio(url);
+  currentAudio.loop=true;
+  currentAudio.volume=document.querySelector('.audio-vol').value/100;
+  currentAudio.play().catch(()=>{});
+  currentBtn=document.getElementById('btn-'+key);
+  document.querySelectorAll('.audio-btn').forEach(b=>b.classList.remove('active'));
+  if(currentBtn)currentBtn.classList.add('active');
+}
+function stopSound(){
+  if(currentAudio){currentAudio.pause();currentAudio=null;}
+  document.querySelectorAll('.audio-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-stop').classList.add('active');
+}
+function setVolume(v){
+  if(currentAudio)currentAudio.volume=v/100;
+}
+
+// === Now Working On ===
+const MAX_NOW=3;
+const STORAGE_KEY="now_working_on";
+
+// todoから取得を試みる、失敗したら手動入力のみ
+let todoItems=[];
+function loadTodoItems(){
+  fetch(API+"/todo").then(r=>r.json()).then(d=>{
+    todoItems=d.items||[];
+  }).catch(()=>{todoItems=[];});
+}
+loadTodoItems();
+
+function getSaved(){
+  try{return JSON.parse(localStorage.getItem(STORAGE_KEY))||[];}catch(e){return[];}
+}
+function save(items){localStorage.setItem(STORAGE_KEY,JSON.stringify(items));}
+
+function renderNow(){
+  const items=getSaved();
+  const el=document.getElementById("now-cards");
+  const btn=document.getElementById("now-add-btn");
+  if(items.length===0){
+    el.innerHTML='<div class="now-empty">+ 追加 からタスクを選択</div>';
+    btn.style.display="";
+    return;
+  }
+  let h="";
+  for(let i=0;i<items.length;i++){
+    h+=`<div class="now-card"><span class="now-close" onclick="removeNow(${i})">✕</span><div class="now-text">${items[i]}</div></div>`;
+  }
+  el.innerHTML=h;
+  btn.style.display=items.length>=MAX_NOW?"none":"";
+}
+
+function removeNow(idx){
+  const items=getSaved();
+  items.splice(idx,1);
+  save(items);
+  renderNow();
+}
+
+function addNow(text){
+  const items=getSaved();
+  if(items.length>=MAX_NOW||items.includes(text))return;
+  items.push(text);
+  save(items);
+  renderNow();
+  closePicker();
+}
+
+function openPicker(){
+  const picker=document.getElementById("now-picker");
+  picker.style.display=picker.style.display==="none"?"block":"none";
+  if(picker.style.display==="block"){
+    document.getElementById("now-input").value="";
+    document.getElementById("now-input").focus();
+    renderList("");
+  }
+}
+function closePicker(){document.getElementById("now-picker").style.display="none";}
+
+function filterTasks(){
+  const q=document.getElementById("now-input").value;
+  renderList(q);
+}
+
+function renderList(query){
+  const list=document.getElementById("now-list");
+  const saved=getSaved();
+  // todoItems + 手動入力
+  let items=todoItems.filter(t=>!saved.includes(t));
+  if(query){
+    const q=query.toLowerCase();
+    items=items.filter(t=>t.toLowerCase().includes(q));
+  }
+  let h="";
+  for(const t of items.slice(0,10)){
+    h+=`<div class="now-item" onclick="addNow('${t.replace(/'/g,"\\\'")}')">${t}</div>`;
+  }
+  // 手動入力オプション
+  if(query && !items.some(t=>t===query)){
+    h+=`<div class="now-item" onclick="addNow('${query.replace(/'/g,"\\\'")}')" style="color:#70b0d0">「${query}」を追加</div>`;
+  }
+  if(!h)h='<div class="now-item" style="color:rgba(255,255,255,.2)">入力して追加できます</div>';
+  list.innerHTML=h;
+}
+
+// Enter key
+document.addEventListener("DOMContentLoaded",()=>{
+  renderNow();
+  const input=document.getElementById("now-input");
+  if(input)input.addEventListener("keydown",e=>{
+    if(e.key==="Enter"&&input.value.trim()){addNow(input.value.trim());}
+    if(e.key==="Escape"){closePicker();}
+  });
+});
+</script>
 </body>
 </html>

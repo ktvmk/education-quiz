@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第1章 現代社会の特徴と教育をめぐる問題｜教育学 Web教材</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.85;padding:0 0 60px 0}
+.header{background:linear-gradient(135deg,#1B3A5C,#2d5a8e);color:#fff;padding:24px 20px;text-align:center}
+.header h1{font-size:1.3em;margin-bottom:4px}
+.header .sub{font-size:.85em;opacity:.8}
+.container{max-width:760px;margin:0 auto;padding:16px}
+.nav-tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:.82em;cursor:pointer;transition:all .2s}
+.nav-tab:hover,.nav-tab.active{background:#1B3A5C;color:#fff}
+.section{display:none}.section.active{display:block}
+.lesson-card{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.lesson-card h2{color:#1B3A5C;font-size:1.25em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}
+.lesson-card h3{color:#2d5a8e;font-size:1.08em;margin:22px 0 10px 0;padding-left:8px;border-left:4px solid #2d5a8e}
+.lesson-card h4{color:#1B3A5C;font-size:.98em;margin:14px 0 8px 0}
+.lesson-card p{margin:8px 0}
+.key-point{background:#eef3f9;border-left:4px solid #1B3A5C;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.95em}
+.key-point strong{color:#1B3A5C}
+.vocab{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:1px 7px;margin:1px 3px;font-weight:bold;font-size:.92em;color:#e65100}
+.example{background:#f9f9f9;border:1px solid #ddd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:.92em}
+.example::before{content:"📘 例 ";font-weight:bold;color:#666}
+.person{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.person strong{color:#2e7d32}
+.stat{background:#fce4ec;border-left:4px solid #e91e63;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.stat strong{color:#c2185b}
+.timeline{background:#fff8e1;border-left:4px solid #f9a825;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.timeline strong{color:#f57f17}
+.timeline .yr{display:inline-block;min-width:80px;font-weight:bold;color:#f57f17}
+.note-nurse{background:#f3e5f5;border-left:4px solid #8e24aa;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.92em}
+.note-nurse strong{color:#6a1b9a}
+.note-nurse::before{content:"🩺 看護現場との関連　";font-weight:bold}
+.compare-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9em}
+.compare-table th{background:#1B3A5C;color:#fff;padding:10px;border:1px solid #ddd;text-align:left}
+.compare-table td{padding:10px;border:1px solid #ddd;background:#fff}
+.compare-table tr:nth-child(even) td{background:#f9f9f9}
+.quiz-area{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.quiz-area h2{color:#1B3A5C;margin-bottom:16px}
+.question-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:20px;margin:16px 0}
+.q-number{font-size:.8em;color:#999;margin-bottom:6px}
+.q-text{font-size:1.05em;font-weight:bold;margin-bottom:14px;line-height:1.6}
+.choices{list-style:none}
+.choices li{padding:12px 16px;margin:6px 0;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all .2s;font-size:.95em}
+.choices li:hover{border-color:#1B3A5C;background:#f0f4f8}
+.choices li.correct{border-color:#4caf50;background:#e8f5e9}
+.choices li.wrong{border-color:#f44336;background:#ffebee}
+.explanation{display:none;margin-top:12px;padding:14px;background:#f5f5f5;border-radius:8px;font-size:.9em;line-height:1.7}
+.explanation.show{display:block}
+.explanation .correct-label{color:#4caf50;font-weight:bold}
+.explanation .wrong-label{color:#f44336;font-weight:bold}
+.result-area{display:none;text-align:center;padding:30px;background:#fff;border-radius:12px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.result-score{font-size:2.5em;font-weight:bold;color:#1B3A5C;margin:10px 0}
+.result-msg{font-size:1.1em;margin:10px 0}
+.btn{display:inline-block;padding:12px 28px;background:#1B3A5C;color:#fff;border:none;border-radius:8px;font-size:1em;cursor:pointer;margin:8px;transition:background .2s}
+.btn:hover{background:#2d5a8e}
+.btn-outline{background:#fff;color:#1B3A5C;border:2px solid #1B3A5C}
+.btn-outline:hover{background:#f0f4f8}
+.progress-bar{width:100%;height:6px;background:#e0e0e0;border-radius:3px;margin:12px 0}
+.progress-fill{height:100%;background:#1B3A5C;border-radius:3px;transition:width .3s}
+.back-link{display:inline-block;margin:16px 0;color:#1B3A5C;text-decoration:none;font-weight:bold}
+.back-link:hover{text-decoration:underline}
+.intro-box{background:linear-gradient(135deg,#eef3f9,#fff);border:1px solid #cdd9e8;border-radius:10px;padding:18px;margin:14px 0;font-size:.95em}
+.intro-box strong{color:#1B3A5C}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>第1章 現代社会の特徴と教育をめぐる問題</h1>
+  <div class="sub">桑名看護専門学校　教育学　Web教材</div>
+</div>
+
+<div class="container">
+  <a href="index.html" class="back-link">&#x1F3E0; ホーム</a>
+
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showSection('lesson1')">① 現代社会と子ども</div>
+    <div class="nav-tab" onclick="showSection('lesson2')">② 若者・ニート問題</div>
+    <div class="nav-tab" onclick="showSection('lesson3')">③ 学力問題（ゆとり/PISA）</div>
+    <div class="nav-tab" onclick="showSection('lesson4')">④ 学校病理と教育政策</div>
+    <div class="nav-tab" onclick="showSection('quiz')">確認テスト</div>
+  </div>
+
+  <!-- =========================================================== -->
+  <!-- Lesson 1: 現代社会と子ども                                  -->
+  <!-- =========================================================== -->
+  <div id="lesson1" class="section active">
+    <div class="lesson-card">
+      <h2>① 現代社会の特徴と子どもの生活</h2>
+
+      <div class="intro-box">
+        現代社会は<strong>国際化・情報化・高度産業化・少子高齢化・価値観の多様化</strong>といった様々な言葉で形容されます。これらは肯定的な側面（光）と否定的な側面（陰）の両方を持っており、子どもたちの育つ環境にも大きく影響しています。
+      </div>
+
+      <h3>1. グローバル化の光と陰</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">グローバル化</span>とは</strong>：人・モノ・お金・情報が国境を越えて自由に行き交う動き。20世紀末の多国籍企業の進出により加速。
+      </div>
+
+      <table class="compare-table">
+        <tr><th>側面</th><th>具体例</th></tr>
+        <tr>
+          <td><strong>光（肯定的）</strong></td>
+          <td>情報通信技術の発展／国際交流の拡大／人権保障の進展（女性・子ども・障害者・マイノリティ）／人類2度の世界大戦の反省から自由・民主主義の体制確立</td>
+        </tr>
+        <tr>
+          <td><strong>陰（否定的）</strong></td>
+          <td>格差の拡大／民族紛争／環境汚染／貧困の深刻化／文化・伝統との摩擦／公害の途上国移転</td>
+        </tr>
+      </table>
+
+      <div class="stat">
+        <strong>数字で見る格差・貧困</strong><br>
+        ・毎年<strong>600万人</strong>の子どもが栄養失調で死亡<br>
+        ・先進国向けの嗜好品（コーヒー等）ばかりを生産し、自国民の食料を作れない国が多い<br>
+        ・先進国の公害（水俣病のような）は規制の緩い途上国に移転する傾向
+      </div>
+
+      <h3>2. 子育て環境と少子化</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">合計特殊出生率</span></strong>：女性1人が15〜49歳までに生む子どもの数。日本では低下を続けている。
+      </div>
+
+      <div class="timeline">
+        <strong>少子化と政策の流れ</strong><br>
+        <span class="yr">1989年</span>「<span class="vocab">1.57ショック</span>」で少子化が社会問題化<br>
+        <span class="yr">1994年</span>エンゼルプラン（仕事と子育ての両立支援）<br>
+        <span class="yr">1999年</span>新エンゼルプラン（保育サービス・育児休業制度の充実）<br>
+        <span class="yr">2003年</span>少子化対策基本法・次世代育成支援対策推進法<br>
+        <span class="yr">2004年</span>合計特殊出生率 <strong>1.29</strong><br>
+        <span class="yr">2005年</span>合計特殊出生率 <strong>1.26</strong>（過去最低水準）<br>
+        <span class="yr">2010年</span>子ども手当の給付開始（2012年から児童手当に移行）
+      </div>
+
+      <h3>3. 子どもの生活時間とメディア</h3>
+
+      <div class="stat">
+        <strong>夕食時間の日本とスウェーデンの比較</strong><br>
+        ・スウェーデン：午後5時頃までに帰宅、約<strong>35%</strong>の家庭が親子全員で夕食<br>
+        ・日本：父親の帰宅が10時以降が最多、全員で夕食を取っているのは<strong>21%</strong>のみ<br>
+        → 親の長時間労働が子どもの生活環境を悪化させている
+      </div>
+
+      <div class="key-point">
+        <strong>メディア・情報機器の影響</strong><br>
+        ・小・中学生の<strong>半数が1日4時間以上</strong>利用<br>
+        ・利用を1日1時間に制限している子どもは1〜2割のみ<br>
+        ・睡眠時間の減少 → からだ・心・感覚・コミュニケーション能力の発達に影響
+      </div>
+
+      <div class="example">
+        鳥取県三朝町や茨城県東海村では、自治体をあげて<span class="vocab">「ノーテレビデー」</span>に取り組んでいます。学童保育や文化・スポーツクラブなど、地域での集団活動を活性化することで、孤立した家庭生活から抜け出すことが目指されています。
+      </div>
+
+      <h3>4. 子どもの貧困問題</h3>
+
+      <div class="stat">
+        <strong>貧困率の現実</strong><br>
+        ・2009年に日本政府が初めて公表 → <strong>子どもの7人に1人</strong>が貧困状態<br>
+        ・母子家庭の年平均所得（2006年）：<strong>224万円</strong>（一般世帯の約4割）<br>
+        ・「要保護」家庭の子ども：1995→2010年で<strong>1.5倍</strong><br>
+        ・「準要保護」家庭の子ども：同期間で<strong>2倍</strong>に増加
+      </div>
+
+      <div class="example">
+        親が健康保険証を持っていないために医者にかかれない、給食が唯一のまともな食事である――そんな子どもが多数存在することが報告されています。貧困は栄養・健康・学力・心身発達に深刻な影響を及ぼします。
+      </div>
+
+      <div class="note-nurse">
+        看護学生として、患者の家族背景や経済状況にも目を向ける視点が大切です。子どもの不健康や発達の遅れが、医学的要因だけでなく<strong>家庭環境・社会経済状況</strong>に根ざしている可能性を理解しておくことで、より総合的な支援につながります。
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================== -->
+  <!-- Lesson 2: 若者・ニート問題                                  -->
+  <!-- =========================================================== -->
+  <div id="lesson2" class="section">
+    <div class="lesson-card">
+      <h2>② 悩める若者と教育——ニート問題</h2>
+
+      <div class="intro-box">
+        現代の若者を取り巻く問題として、<strong>「引きこもり」と「ニート」</strong>が話題となっています。本節では、ニートの定義・実態・各国の捉え方の違い・労働市場との関連を学びます。
+      </div>
+
+      <h3>1. ニート（NEET）とは</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">ニート（NEET）</span></strong>= <strong>N</strong>ot in <strong>E</strong>ducation, <strong>E</strong>mployment or <strong>T</strong>raining<br>
+        教育・雇用・訓練のいずれにも参加していない若者を指す。<br>
+        もともと<strong>イギリス</strong>で使われ始めた言葉。
+      </div>
+
+      <div class="stat">
+        <strong>日本のニートの推移（厚生労働省調査）</strong><br>
+        対象：15〜34歳の若年無業者・非労働人口のうち家事も進学もしていない者<br>
+        ・<span class="yr">1993年</span> 約<strong>40万人</strong><br>
+        ・<span class="yr">2004年</span> 約<strong>64万人</strong>に増加<br>
+        ・その後も<strong>60万人超</strong>で推移
+      </div>
+
+      <h3>2. 日本とイギリスのニートの捉え方</h3>
+
+      <table class="compare-table">
+        <tr><th></th><th>イギリス</th><th>日本</th></tr>
+        <tr>
+          <td><strong>捉え方</strong></td>
+          <td><span class="vocab">「社会的排除」</span>の問題</td>
+          <td>本人や家庭の問題に帰す傾向</td>
+        </tr>
+        <tr>
+          <td><strong>背景</strong></td>
+          <td>少数民族・障害者の差別と並ぶ社会問題として位置付け</td>
+          <td>「フリーターでさえなく、職探しすらしない若者」とマスコミがバッシング</td>
+        </tr>
+        <tr>
+          <td><strong>対応の方向性</strong></td>
+          <td>雇用・教育・訓練から「排除された」若者への社会的支援</td>
+          <td>キャリア教育の推進など本人への働きかけ中心</td>
+        </tr>
+      </table>
+
+      <div class="example">
+        <strong>文部科学省（2005年）の実態調査</strong>では、ニートの典型像として「正社員として就職後に人間関係などから心身面に支障をきたしたり、場当たり的な進学・就職の後に中途退学・アルバイトを経てニートとなる者が多い」「不登校経験者もいる」「家庭でのしつけは厳しくても進学・就職は本人任せにしている親が多い」と報告。
+      </div>
+
+      <h3>3. 若者自立・挑戦プランとキャリア教育</h3>
+
+      <div class="timeline">
+        <strong>ニート対策の流れ</strong><br>
+        <span class="yr">2003年</span>政府「<span class="vocab">若者自立・挑戦プラン</span>」策定<br>
+        <span class="yr">2003年〜</span>文部科学省「<span class="vocab">キャリア教育</span>」推進<br>
+        <span class="yr">中学校</span>5日間以上の<span class="vocab">職場体験（キャリア・スタート・ウィーク）</span><br>
+        <span class="yr">高校以上</span>「実務・教育連結型人材育成システム」推進
+      </div>
+
+      <h3>4. 労働市場の構造変化と若者</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">日経連「新時代の『日本的経営』」</span>（1995年）の3分類</strong><br>
+        ① 長期蓄積能力活用型グループ（一握りのエリート、長期雇用）<br>
+        ② 高度専門能力活用型グループ（中間層、有期雇用）<br>
+        ③ 雇用柔軟型グループ（大多数、パート・フリーター）<br><br>
+        → ごく一握りのエリート層を除き、<strong>大多数の労働者を非正規雇用へ</strong>誘導する構想
+      </div>
+
+      <div class="stat">
+        <strong>正規雇用と非正規雇用の変化（総務省「就業構造基本調査」）</strong><br>
+        1997年 → 2002年（5年間）：<br>
+        ・正規雇用者（正社員）：約<strong>400万人減少</strong><br>
+        ・非正規雇用者（非正社員）：約<strong>368万人増加</strong><br>
+        ・特に<strong>派遣労働者</strong>の増加が顕著
+      </div>
+
+      <div class="example">
+        ニートになる若者は、単に「働く気がない」だけではなく、<strong>「低処遇の正規雇用」⇄「不安定雇用（フリーター）」⇄「失業」</strong>を行き来している場合が多いとされます。<strong>ニートは低所得層・低学歴層ほど多い</strong>という調査もあり、格差社会の矛盾を映し出しています。
+      </div>
+
+      <div class="note-nurse">
+        看護現場では、若年患者の中に「無業状態」「引きこもり」「不登校経験」を持つ人がしばしばいます。彼らの背景には個人の「やる気」だけでない<strong>構造的な労働市場・社会的排除の問題</strong>があることを理解しておくと、患者を非難ではなく支援の視点で受け止めることができます。
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================== -->
+  <!-- Lesson 3: 学力問題（ゆとり/PISA）                            -->
+  <!-- =========================================================== -->
+  <div id="lesson3" class="section">
+    <div class="lesson-card">
+      <h2>③ 「ゆとり教育」と学力問題</h2>
+
+      <div class="intro-box">
+        日本の<strong>学力政策は揺れ動いてきました</strong>。「詰め込み」「ゆとり」「学力低下」「確かな学力」と、政策が転換するたびに教育現場や子どもたちは振り回されてきました。本節ではその経緯と本質を理解します。
+      </div>
+
+      <h3>1. 学力政策の歴史的変遷</h3>
+
+      <div class="timeline">
+        <strong>戦後日本の学力観の変遷</strong><br>
+        <span class="yr">〜1980s</span>「<span class="vocab">受験地獄</span>」のもとでの暗記中心の<span class="vocab">詰め込み教育</span><br>
+        <span class="yr">1989年</span>学習指導要領改訂で「<span class="vocab">新しい学力観</span>」提唱（関心・意欲・態度を重視）<br>
+        <span class="yr">1996年</span>中教審第一次答申「21世紀を展望したわが国の教育の在り方について」→ 「<span class="vocab">生きる力</span>」を提唱<br>
+        <span class="yr">1998年</span>学習指導要領改訂、内容3割削減、<span class="vocab">総合的な学習の時間</span>導入<br>
+        <span class="yr">2002年</span>「学校完全5日制」実施／「<span class="vocab">確かな学力</span>」への路線転換のアピール（遠山文科相）<br>
+        <span class="yr">2003年</span>PISA調査結果ショック→学習指導要領一部改正<br>
+        <span class="yr">2006年</span>「教育改革のための重点行動計画」公表<br>
+        <span class="yr">2007年〜</span>全国学力調査の復活（約半世紀ぶり）<br>
+        <span class="yr">2008-2009年</span>「ゆとり教育」からの転換、学習内容を再び大幅増
+      </div>
+
+      <h3>2. 「新しい学力観」と「生きる力」</h3>
+
+      <div class="key-point">
+        <strong>新しい学力観（1989）</strong>：知識・技能の量より<strong>学習の過程</strong>を重視<br>
+        → 評価の観点が「関心・意欲・態度」に重点
+      </div>
+
+      <div class="key-point">
+        <strong>生きる力（1996中教審）</strong>：自ら考え判断する力を育むという理念<br>
+        → 「総合的な学習の時間」が目玉<br>
+        ※答申の直接の契機：いじめによる自殺事件、中学生による小学生殺人事件
+      </div>
+
+      <h3>3. PISA調査の衝撃</h3>
+
+      <div class="person">
+        <strong><span class="vocab">PISA（Programme for International Student Assessment）</span></strong><br>
+        ・実施機関：<strong>OECD（経済協力開発機構）</strong><br>
+        ・実施年：2000年から<strong>3年ごと</strong><br>
+        ・対象：義務教育修了段階（15歳）の生徒
+      </div>
+
+      <div class="stat">
+        <strong>2003年PISA調査での日本の順位低下</strong><br>
+        ・数学リテラシー：<strong>1位 → 6位</strong><br>
+        ・読解リテラシー：<strong>8位 → 14位</strong><br>
+        →「学力低下」論争に火がつき、ゆとり教育からの転換へ
+      </div>
+
+      <div class="key-point">
+        <strong>PISAが測る学力</strong><br>
+        単なる教科書の暗記量ではなく<br>
+        <strong>「将来社会生活をしていく上で必要とされる知識や技能が、義務教育修了段階でどの程度身についているか」</strong>を測定<br><br>
+        →<span class="vocab">参加的</span>・<span class="vocab">文脈的</span>・<span class="vocab">包括的</span>な学力観に基づく<br>
+        →動機付けや自信などの<strong>非認知的側面</strong>も問われる
+      </div>
+
+      <h3>4. 学力の二極化と「フタコブラクダ」</h3>
+
+      <div class="example">
+        従来は学力分布は<strong>正規分布（ベルカーブ）</strong>を描いていました。しかし最近では「できる子」と「できない子」の<strong>2極化</strong>が進み、グラフが<span class="vocab">「フタコブラクダ」</span>のように2つのピークを持つ形になっていると指摘されています。低い層は早い段階で学習意欲を失い、<span class="vocab">「学びからの逃走」</span>という現象が起きているといわれます。
+      </div>
+
+      <h3>5. フィンランドの教育モデル</h3>
+
+      <div class="key-point">
+        <strong>PISAで好成績を収めるフィンランド</strong>では：<br>
+        ・<strong>競争ではなく協同と助け合いの学習</strong>が原則<br>
+        ・得意な子が他の子を助けるグループ学習を重視<br>
+        ・卒業前に学力が不十分なら、本人や保護者が望めば<strong>卒業延期（留年）が権利として認められる</strong>
+      </div>
+
+      <div class="note-nurse">
+        看護教育・看護現場でも「<strong>協同的な学び</strong>」「<strong>非認知的能力</strong>（共感・忍耐・コミュニケーション）」が重視されつつあります。学力＝テストの点だけではないという視点は、患者教育や後輩指導にも活かせる考え方です。
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================== -->
+  <!-- Lesson 4: 学校病理と教育政策                                -->
+  <!-- =========================================================== -->
+  <div id="lesson4" class="section">
+    <div class="lesson-card">
+      <h2>④ 学校病理と教育の政治問題化</h2>
+
+      <div class="intro-box">
+        いじめ・不登校・校内暴力・学級崩壊──<strong>学校病理</strong>と総称される問題は、子ども個人や家庭の問題ではなく、社会全体の構造を映し出しています。また、教育基本法改正のように<strong>教育が政治問題化</strong>する場面もあります。
+      </div>
+
+      <h3>1. いじめの問題</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">いじめ</span>とは</strong>：力関係において対等でなく、有利な者が不利な者に対し精神的・身体的に攻撃を加え苦痛を与えること
+      </div>
+
+      <div class="stat">
+        <strong>いじめの実態（文部科学省 2014年度調査）</strong><br>
+        ・いじめ件数：約<strong>18万8000件</strong><br>
+        ・うち<span class="vocab">「ネットいじめ」</span>：約<strong>8000件</strong>（近年の特徴）
+      </div>
+
+      <div class="example">
+        いじめの構造は複雑化しています。「いじめる子」も別の場面では「いじめられる立場」にあることがあり、いじめのヒエラルキーの頂点にいる不良児・非行児が暴力団に搾取されているケースもあります。<strong>個人の問題ではなく構造的な社会問題</strong>として認識する必要があります。
+      </div>
+
+      <h3>2. 不登校の問題</h3>
+
+      <div class="key-point">
+        <strong><span class="vocab">不登校</span>の用語の変遷</strong><br>
+        ・かつて：「<span class="vocab">登校拒否</span>」「<span class="vocab">学校恐怖症</span>」「<span class="vocab">学校嫌い</span>」<br>
+        ・1970年代から関心を集める<br>
+        ・「<span class="vocab">明るい不登校</span>」など様態の多様化に伴い「不登校」が定着
+      </div>
+
+      <div class="stat">
+        <strong>不登校の実態</strong><br>
+        ・現在：<strong>17〜18万人</strong>（小中学生）<br>
+        ・最多は<strong>中学1年生</strong>＝<span class="vocab">中1ギャップ</span><br>
+        ・1993年〜2014年の21年間で<strong>約2倍</strong>に増加<br>
+        ・全体の児童生徒数は減少しているので、不登校の<strong>割合は急増</strong>している
+      </div>
+
+      <div class="timeline">
+        <strong>不登校への対応の変化</strong><br>
+        <span class="yr">〜1991</span>登校促進が最優先（とにかく学校へ）<br>
+        <span class="yr">1992年</span>文部科学省が<span class="vocab">フリースクール</span>等の取り組みを認める方向に<br>
+        <span class="yr">2003年</span>「今後の不登校の対応の在り方について」報告（多様で柔軟な対応）<br>
+        <span class="yr">2005年</span>ITなどを活用した<strong>自宅学習も出席扱い</strong>に
+      </div>
+
+      <h3>3. 校内暴力・問題行動・学級崩壊</h3>
+
+      <div class="stat">
+        <strong>校内暴力（警察認知件数）</strong><br>
+        ・1990年代前半：年間500件を下回る水準<br>
+        ・2000年度：<strong>994件</strong>に急増<br>
+        ・約半数は<strong>対教師暴力</strong>、その他は生徒間暴力・器物破損・授業妨害
+      </div>
+
+      <div class="key-point">
+        <strong>校則と「問題行動」の構造</strong><br>
+        ・納得できない校則に従わされ、破れば罰せられる<br>
+        ・学業不振による疎外感や自己否定感が背景<br>
+        ・出席停止など管理強化の方針もあるが、一律の価値観の押しつけは不満を増幅させる可能性
+      </div>
+
+      <div class="key-point">
+        <strong><span class="vocab">学級崩壊</span></strong><br>
+        ・かつては「教員の指導力不足」「家庭のしつけの問題」と説明された<br>
+        ・現在はベテラン教員のクラスでも崩壊する<br>
+        ・背景：発達障害・虐待・アレルギー等の食生活問題・帰国子女・外国人子弟の言語的背景など、<strong>特別なニーズをもつ子どもの増加</strong>
+      </div>
+
+      <h3>4. 教員の多忙化と健康問題</h3>
+
+      <div class="key-point">
+        <strong>教員のメンタルヘルス問題</strong><br>
+        ・国の方針変化に追われ多忙化、孤立化<br>
+        ・心身の健康問題の深刻化<br>
+        ・中途退職する教員も増加
+      </div>
+
+      <h3>5. 教育の政治問題化——教育基本法改正（2006年）</h3>
+
+      <div class="timeline">
+        <strong>教育基本法改正の経緯</strong><br>
+        <span class="yr">1947年</span>教育基本法 制定（戦後民主主義の理念）<br>
+        <span class="yr">2006年12月</span>約<strong>60年ぶり</strong>に改正<br>
+        →最大の争点：<span class="vocab">「愛国心」</span>条項の導入
+      </div>
+
+      <div class="example">
+        「教育の政治的中立性」と「国家による教育への介入」のバランスが問われています。教育を社会政策・国家戦略の一環として位置づける動きと、教育の自律性を守ろうとする動きが対立しています。
+      </div>
+
+      <div class="note-nurse">
+        看護の現場でも、不登校や虐待、貧困、発達障害といった教育問題と密接に関わるケースに出会います。子どもや家族の<strong>社会的背景を理解</strong>することは、医療的支援を超えた包括的な看護につながります。また、医療職としても<strong>制度や政策の変化</strong>に関心を持つことが重要です。
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================== -->
+  <!-- Quiz Section                                                -->
+  <!-- =========================================================== -->
+  <div id="quiz" class="section">
+    <div class="quiz-area">
+      <h2>確認テスト（第1章）</h2>
+      <p style="margin-bottom:12px">出題数を選んでください：</p>
+      <div style="text-align:center;margin-bottom:16px">
+        <button class="btn" onclick="startQuiz(10)">10問でチャレンジ</button>
+        <button class="btn btn-outline" onclick="startQuiz(20)">20問でチャレンジ</button>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div id="quizContainer"></div>
+      <div style="text-align:center;margin-top:20px">
+        <button class="btn" id="submitBtn" onclick="submitQuiz()" style="display:none">結果を見る</button>
+      </div>
+    </div>
+    <div class="result-area" id="resultArea">
+      <h2>結果</h2>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-msg" id="resultMsg"></div>
+      <button class="btn" onclick="retryQuiz()">もう一度</button>
+      <button class="btn btn-outline" onclick="showSection('lesson1')">レッスンに戻る</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const allQuestions=[
+{q:'NEETとは何の略か。',choices:['Not in Education, Employment or Training','New Economic Education Theory','National Education Evaluation Test','No Entry to Employment or Training'],answer:0,explanation:'NEET = Not in Education, Employment or Training（教育・雇用・訓練のいずれにも参加していない若者）の略称。もともとイギリスで使われ始めた言葉です。'},
+{q:'イギリスではニートをどのような問題として捉えているか。',choices:['本人の怠慢の問題','社会的排除の問題','医療的な問題','家庭教育の問題'],answer:1,explanation:'イギリスではニートを「社会的排除」の問題の一つとして、雇用・教育・訓練から「排除された」若者として捉えています。日本では本人や家庭の問題に帰する論調が強いとされ、根本的な対応の方向性が異なります。'},
+{q:'1989年の学習指導要領改訂で提唱されたのは何か。',choices:['詰め込み教育','新しい学力観','生きる力','ゆとり教育'],answer:1,explanation:'1989年の学習指導要領改訂で「新しい学力観」が提唱され、学習の結果としての知識・技能の量よりも、学習の過程、特に「関心・意欲・態度」を重視する方針が示されました。'},
+{q:'PISA調査を実施している機関はどこか。',choices:['UNESCO','WHO','OECD','UNICEF'],answer:2,explanation:'PISA（Programme for International Student Assessment、学習到達度調査）はOECD（経済協力開発機構）が2000年から3年ごとに実施しています。対象は義務教育修了段階（15歳）の生徒です。'},
+{q:'2003年のPISA調査で、日本の読解リテラシーは何位から何位に低下したか。',choices:['1位から6位','3位から10位','8位から14位','5位から12位'],answer:2,explanation:'2003年のPISA調査で、日本の読解リテラシーは8位から14位に低下しました。同時に数学リテラシーも1位から6位に低下し、「ゆとり教育」からの転換のきっかけとなりました。'},
+{q:'PISA調査が測定しようとしているのはどのような学力か。',choices:['教科書の内容をどれだけ暗記しているか','将来の社会生活に必要な知識・技能が身についているか','大学入試に必要な基礎学力','IQ（知能指数）'],answer:1,explanation:'PISAは「将来社会生活をしていく上で必要とされる知識や技能が、義務教育修了段階でどの程度身についているか」を測定するもので、参加的・文脈的・包括的な学力観に基づいています。動機付けや自信などの非認知的側面も問われます。'},
+{q:'「不登校」という用語が一般的になる前に使われていた表現として適切でないものはどれか。',choices:['登校拒否','学校恐怖症','学校嫌い','学校中退'],answer:3,explanation:'「不登校」は以前「登校拒否」「学校恐怖症」「学校嫌い」と呼ばれていました。「学校中退」は退学を意味し、不登校とは異なる概念です。'},
+{q:'全員で夕食をとっている家庭の割合は、日本ではおよそ何％か。',choices:['約10%','約21%','約35%','約50%'],answer:1,explanation:'日本では全員で夕食をとっている家庭は約21%にとどまっています。スウェーデンでは約35%。親（特に父親）の長時間労働が背景にあります。'},
+{q:'1996年の中央教育審議会答申で提唱された理念は何か。',choices:['詰め込み教育','新しい学力観','生きる力','確かな学力'],answer:2,explanation:'1996年の中教審第一次答申「21世紀を展望したわが国の教育の在り方について」で「生きる力」を育むという理念が提起されました。これとセットで「総合的な学習の時間」が導入されました。'},
+{q:'2006年に約60年ぶりに改正された法律はどれか。',choices:['学校教育法','児童福祉法','教育基本法','社会教育法'],answer:2,explanation:'教育基本法は1947年に制定され、2006年12月に約60年ぶりに改正されました。「愛国心」条項の導入が最大の争点でした。'},
+{q:'毎年栄養失調で死亡する子どもの数はおよそどのくらいか。',choices:['60万人','600万人','6000万人','6万人'],answer:1,explanation:'グローバル化の陰の側面として、毎年600万人の子どもが栄養失調で死亡しています。先進国向けの嗜好品ばかり生産し、自国民の食料が作れない国も多いという構造的な問題があります。'},
+{q:'日本のニートの数はおよそ何万人で推移しているか（厚生労働省調査）。',choices:['約20万人','約60万人','約100万人','約200万人'],answer:1,explanation:'1993年に約40万人だったニートは、2004年には64万人に増加し、その後も60万人を超える水準で推移しています。15〜34歳の若年無業者・非労働人口のうち家事も進学もしていない者を指します。'},
+{q:'「若者自立・挑戦プラン」が策定されたのは何年か。',choices:['1995年','2003年','2010年','2015年'],answer:1,explanation:'2003年に政府は「若者自立・挑戦プラン」を策定し、フリーター・ニート対策の一環として、文部科学省は体系的なキャリア教育の推進を打ち出しました。'},
+{q:'中学校のキャリア教育として推進されている職場体験を何というか。',choices:['キャリア・スタート・ウィーク','インターンシップ・プログラム','ジョブ・トレーニング','ワーク・ステディ・ウィーク'],answer:0,explanation:'中学校では5日間以上の職場体験「キャリア・スタート・ウィーク」が推進されています。勤労観・職業観を育むキャリア教育の一環です。'},
+{q:'1995年の日経連「新時代の『日本的経営』」では、雇用形態を何種類に分類しているか。',choices:['2分類','3分類','4分類','5分類'],answer:1,explanation:'日経連は雇用形態を3つに分類：①長期蓄積能力活用型（一握りのエリート）、②高度専門能力活用型（中間層）、③雇用柔軟型（大多数のパート・フリーター）。大多数を非正規雇用へ誘導する構想でした。'},
+{q:'2014年度のいじめ件数はおよそ何件か（文部科学省調査）。',choices:['約1万8千件','約18万8千件','約180万件','約1800件'],answer:1,explanation:'2014年度のいじめ件数は約18万8000件で、そのうち約8000件が近年特徴的な「ネットいじめ」とされています。'},
+{q:'不登校の最多学年と関連して使われる用語はどれか。',choices:['小4の壁','中1ギャップ','高1クライシス','大1ショック'],answer:1,explanation:'不登校が最も多いのは中学1年生で、「中1ギャップ」と呼ばれます。小学校から中学校への環境変化（教科担任制、部活動、人間関係の複雑化など）に適応できないことが背景にあるとされています。'},
+{q:'PISAで好成績を収めているフィンランドの教育の特徴はどれか。',choices:['競争原理を徹底している','協同と助け合いの学習を原則とする','エリート教育に力を入れている','早期教育を推進している'],answer:1,explanation:'フィンランドでは「競争ではなく協同と助け合いの学習」が原則とされ、得意な子が他の子を助けるグループ学習が重視されています。卒業前に学力が不十分なら卒業延期（留年）が権利として認められています。'},
+{q:'2009年に日本政府が初めて公表した子どもの貧困率について、正しいのはどれか。',choices:['およそ100人に1人','およそ20人に1人','およそ7人に1人','およそ50人に1人'],answer:2,explanation:'2009年に日本政府が初めて貧困率を公表し、子どもの7人に1人が貧困状態で生活していることが明らかになりました。母子家庭の年平均所得（2006年）は224万円で、一般世帯の約4割にとどまっています。'},
+{q:'1992年と2003年に文部科学省が変更した、不登校への対応方針の方向性として正しいのはどれか。',choices:['登校促進を強化する方向に統一','フリースクール等の学校外の学びを認める方向に転換','不登校を病気として扱う方向に変更','不登校の子どもに罰則を設ける方向に転換'],answer:1,explanation:'1992年の「学校不適応対策調査研究協力者会議」報告、2003年の「今後の不登校の対応の在り方について」報告で、文部科学省はフリースクールなど学校外の学びを認める方向に転換しました。2005年からはITを活用した自宅学習も出席扱いになりました。'}
+];
+
+let questions=[],answered=0;
+function shuffleArray(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+
+function initQuiz(count){
+  const n=count||allQuestions.length;questions=shuffleArray(allQuestions).slice(0,n);answered=0;
+  document.getElementById('submitBtn').style.display='none';
+  document.getElementById('resultArea').style.display='none';
+  document.getElementById('progressFill').style.width='0%';
+  const c=document.getElementById('quizContainer');c.innerHTML='';
+  questions.forEach((q,idx)=>{
+    const sc=q.choices.map((c,i)=>({text:c,origIdx:i}));
+    for(let i=sc.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[sc[i],sc[j]]=[sc[j],sc[i]]}
+    q._shuffled=sc;q._selected=null;
+    let h=`<div class="question-card" id="qcard${idx}"><div class="q-number">問題 ${idx+1} / ${questions.length}</div><div class="q-text">${q.q}</div><ul class="choices">`;
+    sc.forEach((c,ci)=>{h+=`<li onclick="selectChoice(${idx},${ci})" id="q${idx}c${ci}">${c.text}</li>`});
+    h+=`</ul><div class="explanation" id="exp${idx}"><div id="expText${idx}"></div></div></div>`;
+    c.innerHTML+=h;
+  });
+}
+
+function selectChoice(qi,ci){
+  const q=questions[qi];if(q._selected!==null)return;
+  q._selected=ci;answered++;
+  const corr=q.answer,sel=q._shuffled[ci].origIdx,ok=sel===corr;
+  q._shuffled.forEach((c,i)=>{const li=document.getElementById(`q${qi}c${i}`);if(c.origIdx===corr)li.classList.add('correct');if(i===ci&&!ok)li.classList.add('wrong')});
+  const e=document.getElementById(`exp${qi}`),t=document.getElementById(`expText${qi}`);
+  t.innerHTML=(ok?'<span class="correct-label">&#x2B55; 正解！</span>':'<span class="wrong-label">&#x274C; 不正解</span>')+'<br>'+q.explanation;
+  e.classList.add('show');
+  document.getElementById('progressFill').style.width=(answered/questions.length*100)+'%';
+  if(answered===questions.length)document.getElementById('submitBtn').style.display='inline-block';
+}
+
+function submitQuiz(){
+  let c=0;questions.forEach(q=>{if(q._selected!==null&&q._shuffled[q._selected].origIdx===q.answer)c++});
+  document.getElementById('resultArea').style.display='block';
+  document.getElementById('resultScore').textContent=`${c} / ${questions.length}`;
+  const p=c/questions.length*100;
+  let m='';if(p===100)m='満点です！素晴らしい！';else if(p>=80)m='よく理解できています！';else if(p>=60)m='合格ライン！もう少し復習しましょう。';else m='レッスンをもう一度確認してみましょう。';
+  document.getElementById('resultMsg').textContent=m;
+  document.getElementById('resultArea').scrollIntoView({behavior:'smooth'});
+}
+
+function retryQuiz(){initQuiz(questions.length);document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'})}
+
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabs=document.querySelectorAll('.nav-tab');
+  const ids=['lesson1','lesson2','lesson3','lesson4','quiz'];
+  tabs[ids.indexOf(id)].classList.add('active');
+  
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function startQuiz(count){
+  initQuiz(count);
+  document.querySelector('.quiz-area .progress-bar').scrollIntoView({behavior:'smooth'});
+}
+// 初期化（出題数選択画面はそのまま、Quizはまだ生成しない）
+</script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第2章 学ぶことと教えること｜教育学 Web教材</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Hiragino Sans','Noto Sans JP','Meiryo',sans-serif;background:#f5f5f0;color:#333;line-height:1.8;padding:0 0 60px 0}
+.header{background:linear-gradient(135deg,#1B3A5C,#2d5a8e);color:#fff;padding:24px 20px;text-align:center}
+.header h1{font-size:1.3em;margin-bottom:4px}
+.header .sub{font-size:0.85em;opacity:0.8}
+.container{max-width:720px;margin:0 auto;padding:16px}
+.nav-tabs{display:flex;gap:8px;margin:16px 0;flex-wrap:wrap}
+.nav-tab{padding:10px 14px;border:2px solid #1B3A5C;border-radius:8px;background:#fff;color:#1B3A5C;font-weight:bold;font-size:0.82em;cursor:pointer;transition:all .2s}
+.nav-tab:hover,.nav-tab.active{background:#1B3A5C;color:#fff}
+.section{display:none}.section.active{display:block}
+.lesson-card{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.lesson-card h2{color:#1B3A5C;font-size:1.2em;margin-bottom:16px;padding-bottom:8px;border-bottom:3px solid #e8edf2}
+.lesson-card h3{color:#2d5a8e;font-size:1.05em;margin:20px 0 10px 0}
+.key-point{background:#eef3f9;border-left:4px solid #1B3A5C;padding:14px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.95em}
+.key-point strong{color:#1B3A5C}
+.vocab{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 8px;margin:2px 4px;font-weight:bold;font-size:.9em;color:#e65100}
+.example{background:#f9f9f9;border:1px solid #ddd;border-radius:8px;padding:14px 16px;margin:12px 0;font-size:.9em}
+.person{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.person strong{color:#2e7d32}
+.stat{background:#fce4ec;border-left:4px solid #e91e63;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+.stat strong{color:#c2185b}
+.quiz-area{background:#fff;border-radius:12px;padding:24px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.quiz-area h2{color:#1B3A5C;margin-bottom:16px}
+.question-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:20px;margin:16px 0}
+.q-number{font-size:.8em;color:#999;margin-bottom:6px}
+.q-text{font-size:1.05em;font-weight:bold;margin-bottom:14px;line-height:1.6}
+.choices{list-style:none}
+.choices li{padding:12px 16px;margin:6px 0;border:2px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:all .2s;font-size:.95em}
+.choices li:hover{border-color:#1B3A5C;background:#f0f4f8}
+.choices li.correct{border-color:#4caf50;background:#e8f5e9}
+.choices li.wrong{border-color:#f44336;background:#ffebee}
+.explanation{display:none;margin-top:12px;padding:14px;background:#f5f5f5;border-radius:8px;font-size:.9em;line-height:1.7}
+.explanation.show{display:block}
+.explanation .correct-label{color:#4caf50;font-weight:bold}
+.explanation .wrong-label{color:#f44336;font-weight:bold}
+.result-area{display:none;text-align:center;padding:30px;background:#fff;border-radius:12px;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.result-score{font-size:2.5em;font-weight:bold;color:#1B3A5C;margin:10px 0}
+.result-msg{font-size:1.1em;margin:10px 0}
+.btn{display:inline-block;padding:12px 28px;background:#1B3A5C;color:#fff;border:none;border-radius:8px;font-size:1em;cursor:pointer;margin:8px;transition:background .2s}
+.btn:hover{background:#2d5a8e}
+.btn-outline{background:#fff;color:#1B3A5C;border:2px solid #1B3A5C}
+.btn-outline:hover{background:#f0f4f8}
+.progress-bar{width:100%;height:6px;background:#e0e0e0;border-radius:3px;margin:12px 0}
+.progress-fill{height:100%;background:#1B3A5C;border-radius:3px;transition:width .3s}
+.back-link{display:inline-block;margin:16px 0;color:#1B3A5C;text-decoration:none;font-weight:bold}
+.back-link:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>第2章 学ぶことと教えること ── 理論と方法</h1>
+  <div class="sub">桑名看護専門学校　教育学　Web教材</div>
+</div>
+
+<div class="container">
+  <a href="index.html" class="back-link">&#x1F3E0; ホーム</a>
+
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showSection('lesson1')">A 教育方法の理論</div>
+    <div class="nav-tab" onclick="showSection('lesson2')">B 出会いとしての学び</div>
+    <div class="nav-tab" onclick="showSection('lesson3')">C カリキュラムと評価</div>
+    <div class="nav-tab" onclick="showSection('quiz')">確認テスト</div>
+  </div>
+
+  <!-- A 教育課程・方法の理論 -->
+  <div id="lesson1" class="section active">
+    <div class="lesson-card">
+      <h2>A　教育方法の理論 ── 学ぶ・教えるの歴史</h2>
+
+      <h3>1. 教育方法の変遷</h3>
+
+      <p>教育方法は時代とともに変化してきました。大きく2つの流れがあります。</p>
+
+      <div class="key-point">
+        <strong>近代以前の教育</strong><br>
+        古代ギリシャの<span class="vocab">ソクラテス</span>は<span class="vocab"><span class="vocab">問答法</span>（対話法）</span>を用い、教師と生徒が対話を通じて真理を探求しました。教育の原点は「対話」にあります。
+      </div>
+
+      <div class="person">
+        <strong>ヘルバルト（Herbart, J. F.）</strong><br>
+        19世紀ドイツの教育学者。<span class="vocab">一斉授業</span>を段階化して整理した。教師が主導して知識を伝達する「教授中心」の教育方法を体系化しました。
+      </div>
+
+      <div class="person">
+        <strong>デューイ（Dewey, J.）</strong><br>
+        20世紀アメリカの教育学者。<span class="vocab">新教育運動</span>の中心人物。一斉授業による知識の教え込みに代わり、<strong>協同的で探求的な学び</strong>を重視しました。学びの個別化と子どもの能動性を主張。
+      </div>
+
+      <div class="key-point">
+        <strong>教育方法の2つの流れ</strong><br>
+        <span class="vocab">ヘルバルト</span>：教師が教える → 一斉授業・知識伝達型<br>
+        <span class="vocab">デューイ</span>：子どもが学ぶ → 協同的・探求的学習型<br><br>
+        現代の教育は、両者のバランスを取りながら、「いかに教えるか」から<strong>「いかに学びを成立させるか」</strong>へと重心が移っています。
+      </div>
+
+      <h3>2. 授業の2つの様式</h3>
+
+      <div class="key-point">
+        <strong>模倣的様式と変容的様式</strong><br>
+        <span class="vocab">模倣的様式</span>：教師が一方的に知識・技能を伝達し、学習者がそれを習得する授業<br>
+        <span class="vocab">変容的様式</span>：学習者の思考の態度や探究の方法を育成することを目指す授業<br><br>
+        これからの社会では、<strong>変容的様式</strong>の学びがより求められる。創造性、コミュニケーション能力、情報選択能力など。
+      </div>
+
+      <h3>3. 学力低下問題と新学習指導要領</h3>
+
+      <div class="stat">
+        <strong>PISA調査と学力観の転換</strong><br>
+        OECDのPISA調査では、現代社会で求められる<span class="vocab">「<span class="vocab">キー・コンピテンシー</span>」</span>（主要能力）が問われている。単なる暗記ではなく：<br>
+        ・<strong>基礎的・基本的な知識・技能</strong>の習得<br>
+        ・知識・技能を<strong>活用</strong>して課題を解決する思考力・判断力・表現力<br>
+        ・<strong>主体的に学習に取り組む態度</strong>
+      </div>
+
+      <div class="example">
+        看護の現場でも同じことが言えます。教科書の知識を暗記するだけでなく、患者さんの状態に応じて判断し、適切に対応する「活用力」が求められます。
+      </div>
+    </div>
+  </div>
+
+  <!-- B 出会いとしての学び -->
+  <div id="lesson2" class="section">
+    <div class="lesson-card">
+      <h2>B　出会いとしての学びと教育方法</h2>
+
+      <h3>1. 教育とは「出会い」</h3>
+
+      <p>教育とは出会うことです。子どもたちが教師に出会い、教材に出会い、他の子どもたちに出会い、そして<strong>自分自身とも出会う</strong>。教師もまた同様です。</p>
+
+      <div class="key-point">
+        <strong><span class="vocab">学びの三角形</span>（学びの三要素）</strong><br>
+        学びは3つの出会いから成り立ちます：<br><br>
+        <strong>① 世界との出会い</strong>（教材）── 様々な対象について学ぶ<br>
+        <strong>② 他者との出会い</strong>（教師・他の子どもたち）── コミュニケーションを通して学ぶ<br>
+        <strong>③ 自己との出会い</strong>（わたし）── 自分自身と向き合い、自らの存在を確認する<br><br>
+        この3つの出会いが豊かであるほど、学びは深くなります。
+      </div>
+
+      <h3>2. 学ぶことの証は「変わること」</h3>
+
+      <div class="key-point">
+        <strong>学びによる変容</strong><br>
+        真の出会いは、常にその当事者を高みへと引き上げる。自己の限界を壊し、<strong>新たな自己として生まれ変わること</strong>を可能にする。<br><br>
+        教える側と学ぶ側は一方通行ではなく、<strong>関係はいつも相互的</strong>。教師や看護師は教える人・助ける人であるだけでなく、学ぶ人でもある。
+      </div>
+
+      <h3>3. 絶対的な教育方法はない</h3>
+
+      <div class="key-point">
+        <strong>出会いのなかでしか方法は生まれない</strong><br>
+        ・教育方法を決めておいて子どもたちを閉じ込める態度は、子どもの主体性を軽視した間違った態度<br>
+        ・具体的な出会いのなかで常に教育方法を鍛えていくことが、一番の教育方法<br>
+        ・失敗を恐れていては出会いは訪れない。失敗そのものが次の出会いを支える
+      </div>
+
+      <h3>4. 教師にとって大切なこと</h3>
+
+      <div class="key-point">
+        <strong>「見えること」と「聴くこと」</strong><br><br>
+        <strong>「見えること」</strong> ── 教師の存在のすべて<br>
+        ・具体的にとらえる力：一般論ではなく、一人ひとりの子どもを個別的に丁寧にとらえる<br>
+        ・教師としての経験と理論の蓄積が「見える力」を生む<br><br>
+        <strong>「聴くこと」</strong> ── 教師の優しさ<br>
+        ・やみくもに子どもの言うことを聞くのではなく、子どもと出会うために聴く<br>
+        ・甘やかすためではなく、子どもの存在を深く理解するための「聴く」
+      </div>
+
+      <div class="example">
+        看護師と患者の関係も同じです。患者さんの話を「聴く」こと、患者さんの状態を「見る」ことが、ケアの出発点です。技術だけでなく、相手の世界を丁寧にとらえる姿勢が求められます。
+      </div>
+    </div>
+  </div>
+
+  <!-- C カリキュラムと評価 -->
+  <div id="lesson3" class="section">
+    <div class="lesson-card">
+      <h2>C　カリキュラムと学びの評価</h2>
+
+      <h3>1. カリキュラムとは</h3>
+
+      <div class="key-point">
+        <strong>カリキュラムの2つの側面</strong><br>
+        <span class="vocab">顕在的カリキュラム</span>：学校が意図的に計画した教育内容（時間割、教科書、授業計画など）<br>
+        <span class="vocab"><span class="vocab">ヒドゥン・カリキュラム</span>（隠れたカリキュラム）</span>：教師の意図とは別に、学校が子どもたちに無意識的に与えている影響
+      </div>
+
+      <div class="person">
+        <strong><span class="vocab">フィリップ・ジャクソン</span></strong><br>
+        教室で過ごす子どもたちの姿を分析。教室は、自分の関心に関わらず課された課題に専念し、欲求を断念し、忍耐強く続けることを求められ、常に評価が飛び交う場所であることを指摘しました。
+      </div>
+
+      <div class="example">
+        たとえば、校則で制服の着方を細かく指導することは、表面上は「身だしなみ」の教育ですが、その裏で「権威への服従」や「画一性」を無意識に教えているかもしれません。これがヒドゥン・カリキュラムです。
+      </div>
+
+      <h3>2. <span class="vocab">教材解釈</span>の3段階</h3>
+
+      <div class="key-point">
+        <strong>教材解釈とは</strong><br>
+        教育内容＝教材ではない。教師は、子どもたちの出会う世界ができる限り豊かになるように工夫する必要がある。<br><br>
+        <strong>第1段階：</strong>教材そのものについての解釈（内容を深く理解する）<br>
+        <strong>第2段階：</strong>授業を想定した解釈（学生がどこに興味を持ち、どこでつまずくかを考える）<br>
+        <strong>第3段階：</strong>授業中のリアルタイムの解釈（子どもの反応を見ながら柔軟に展開する）
+      </div>
+
+      <h3>3. 学力とは何か</h3>
+
+      <div class="key-point">
+        <strong>育てる学力の3要素（新学習指導要領）</strong><br>
+        ① <span class="vocab">基礎的・基本的な知識・技能</span>の習得<br>
+        ② 知識・技能を活用して課題を解決するための<span class="vocab">思考力・判断力・表現力</span><br>
+        ③ <span class="vocab">主体的に学習に取り組む態度</span><br><br>
+        特に②の「活用力」を育てる学習が重視されている。
+      </div>
+
+      <h3>4. 子ども理解と生活指導</h3>
+
+      <div class="key-point">
+        <strong>教師に求められる資質</strong><br>
+        ・<span class="vocab">反省的実践家</span>としての教師：自分の実践を振り返り、常に改善し続ける姿勢<br>
+        ・子どもたちの「居場所」を保障すること<br>
+        ・学びの<span class="vocab">個別性</span>（一人ひとりの違い）と<span class="vocab">共同性</span>（一緒に学ぶこと）のバランス
+      </div>
+
+      <div class="example">
+        看護においても「反省的実践家」の概念は重要です。一つひとつのケアを振り返り、次に活かしていく姿勢は、教師も看護師も共通しています。
+      </div>
+    </div>
+  </div>
+
+  <!-- 確認テスト -->
+  <div id="quiz" class="section">
+    <div class="quiz-area">
+      <h2>確認テスト（第2章）</h2>
+      <p>12問出題します。</p>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div id="quizContainer"></div>
+      <div style="text-align:center;margin-top:20px">
+        <button class="btn" id="submitBtn" onclick="submitQuiz()" style="display:none">結果を見る</button>
+      </div>
+    </div>
+    <div class="result-area" id="resultArea">
+      <h2>結果</h2>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-msg" id="resultMsg"></div>
+      <button class="btn" onclick="retryQuiz()">もう一度</button>
+      <button class="btn btn-outline" onclick="showSection('lesson1')">レッスンに戻る</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const allQuestions=[
+{q:'一斉授業を段階化して整理した19世紀ドイツの教育学者は誰か。',choices:['デューイ','ルソー','ヘルバルト','ペスタロッチ'],answer:2,explanation:'ヘルバルト（Herbart, J. F.）は一斉授業を段階化して整理し、教師主導の教授中心の教育方法を体系化しました。'},
+{q:'新教育運動の中心人物で、協同的・探求的な学びを重視したのは誰か。',choices:['ヘルバルト','デューイ','フレーベル','モンテッソーリ'],answer:1,explanation:'デューイ（Dewey, J.）は20世紀の新教育運動の中心人物で、一斉授業による教え込みに代わり、協同的で探求的な学びを重視しました。'},
+{q:'教師が一方的に知識を伝達し、学習者がそれを習得するタイプの授業を何というか。',choices:['変容的様式','模倣的様式','対話的様式','探求的様式'],answer:1,explanation:'模倣的様式とは、教師が一方的に知識・技能を伝達し、学習者がそれを習得するタイプの授業です。これに対し、変容的様式は思考や探究の方法を育てる授業です。'},
+{q:'学びの三角形を構成する3つの「出会い」に含まれないものはどれか。',choices:['世界（教材）との出会い','他者との出会い','自己との出会い','制度との出会い'],answer:3,explanation:'学びの三角形は「世界（教材）との出会い」「他者（教師・他の子どもたち）との出会い」「自己との出会い」の3つで構成されます。'},
+{q:'「学ぶことの証」とは何か。',choices:['テストで高い点を取ること','知識が増えること','自分が変わること','資格を取得すること'],answer:2,explanation:'テキストでは「学ぶことの証は変わること」とされています。真の出会いは当事者を高みへと引き上げ、新たな自己として生まれ変わることを可能にします。'},
+{q:'教育方法について、テキストが述べていることとして最も適切なものはどれか。',choices:['絶対的な教育方法が存在する','出会いのなかでしか真の教育方法は生まれない','教師の経験年数が方法を決める','マニュアルに従えば良い'],answer:1,explanation:'テキストでは「教育方法は出会いのなかでしか真に生まれることはない」「具体的な出会いのなかで常に教育方法を鍛えていくことが一番の教育方法」と述べています。'},
+{q:'学校が意図的に計画した教育内容ではなく、無意識的に子どもに影響を与えているものを何というか。',choices:['コア・カリキュラム','ヒドゥン・カリキュラム','ナショナル・カリキュラム','スパイラル・カリキュラム'],answer:1,explanation:'ヒドゥン・カリキュラム（隠れたカリキュラム）とは、教師の意図とは別に、学校が子どもたちに無意識的に与えている影響のことです。'},
+{q:'教材解釈の第2段階で行うこととして正しいものはどれか。',choices:['教材の内容そのものを深く理解する','授業中に子どもの反応を見て柔軟に対応する','学生がどこに興味を持ち、どこでつまずくかを想定する','教材を新しいものに差し替える'],answer:2,explanation:'第1段階は教材そのものの理解、第2段階は授業を想定した解釈（学生の反応を予想し、発問や活動を考える）、第3段階は授業中のリアルタイムの対応です。'},
+{q:'新学習指導要領で示された「育てる学力の3要素」に含まれないものはどれか。',choices:['基礎的・基本的な知識・技能の習得','思考力・判断力・表現力','主体的に学習に取り組む態度','記憶力・暗記力'],answer:3,explanation:'育てる学力の3要素は「基礎的・基本的な知識・技能」「思考力・判断力・表現力」「主体的に学習に取り組む態度」です。「記憶力・暗記力」は含まれていません。'},
+{q:'教師にとって「見えること」とはどのような力か。',choices:['視力が良いこと','一般論として状況を把握すること','一人ひとりの子どもを個別的に丁寧にとらえること','全体を大まかに見渡すこと'],answer:2,explanation:'「見えること」は一般論ではなく、事象そのものを個別的に丁寧にとらえる力であり、教師としての経験と理論の蓄積によって培われます。'},
+{q:'教師の「聴くこと」について、テキストが述べていることとして最も適切なものはどれか。',choices:['子どもの言うことを何でも受け入れること','子どもと出会うために聴くこと','子どもを指導するための情報収集','保護者の要望を聞くこと'],answer:1,explanation:'「聴くこと」は、甘やかすためでも無力と向き合わないためでもなく、「子どもと出会うために」求められるものだとテキストは述べています。'},
+{q:'自分の実践を振り返り、常に改善し続ける教師の姿勢を何というか。',choices:['権威的実践家','反省的実践家','効率的実践家','専門的実践家'],answer:1,explanation:'「反省的実践家」とは、自分の実践を省察し、常に改善し続ける教師の姿勢を指します。看護においても同様の概念が重要視されています。'}
+];
+
+let questions=[],answered=0;
+function shuffleArray(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function initQuiz(){
+  questions=shuffleArray(allQuestions);answered=0;
+  document.getElementById('submitBtn').style.display='none';
+  document.getElementById('resultArea').style.display='none';
+  document.getElementById('progressFill').style.width='0%';
+  const c=document.getElementById('quizContainer');c.innerHTML='';
+  questions.forEach((q,idx)=>{
+    const sc=q.choices.map((c,i)=>({text:c,origIdx:i}));
+    for(let i=sc.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[sc[i],sc[j]]=[sc[j],sc[i]]}
+    q._shuffled=sc;q._selected=null;
+    let h=`<div class="question-card" id="qcard${idx}"><div class="q-number">問題 ${idx+1} / ${questions.length}</div><div class="q-text">${q.q}</div><ul class="choices">`;
+    sc.forEach((c,ci)=>{h+=`<li onclick="selectChoice(${idx},${ci})" id="q${idx}c${ci}">${c.text}</li>`});
+    h+=`</ul><div class="explanation" id="exp${idx}"><div id="expText${idx}"></div></div></div>`;
+    c.innerHTML+=h;
+  });
+}
+function selectChoice(qi,ci){
+  const q=questions[qi];if(q._selected!==null)return;
+  q._selected=ci;answered++;
+  const corr=q.answer,sel=q._shuffled[ci].origIdx,ok=sel===corr;
+  q._shuffled.forEach((c,i)=>{const li=document.getElementById(`q${qi}c${i}`);if(c.origIdx===corr)li.classList.add('correct');if(i===ci&&!ok)li.classList.add('wrong')});
+  const e=document.getElementById(`exp${qi}`),t=document.getElementById(`expText${qi}`);
+  t.innerHTML=(ok?'<span class="correct-label">&#x2B55; 正解！</span>':'<span class="wrong-label">&#x274C; 不正解</span>')+'<br>'+q.explanation;
+  e.classList.add('show');
+  document.getElementById('progressFill').style.width=(answered/questions.length*100)+'%';
+  if(answered===questions.length)document.getElementById('submitBtn').style.display='inline-block';
+}
+function submitQuiz(){
+  let c=0;questions.forEach(q=>{if(q._selected!==null&&q._shuffled[q._selected].origIdx===q.answer)c++});
+  document.getElementById('resultArea').style.display='block';
+  document.getElementById('resultScore').textContent=`${c} / ${questions.length}`;
+  const p=c/questions.length*100;
+  let m='';if(p===100)m='満点です！素晴らしい！';else if(p>=80)m='よく理解できています！';else if(p>=60)m='合格ライン！もう少し復習しましょう。';else m='レッスンをもう一度確認してみましょう。';
+  document.getElementById('resultMsg').textContent=m;
+  document.getElementById('resultArea').scrollIntoView({behavior:'smooth'});
+}
+function retryQuiz(){initQuiz();document.getElementById('quizContainer').scrollIntoView({behavior:'smooth'})}
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const tabs=document.querySelectorAll('.nav-tab');
+  if(id==='lesson1')tabs[0].classList.add('active');
+  else if(id==='lesson2')tabs[1].classList.add('active');
+  else if(id==='lesson3')tabs[2].classList.add('active');
+  else if(id==='quiz'){tabs[3].classList.add('active');initQuiz()}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+initQuiz();
+</script>
+</body>
+</html>
